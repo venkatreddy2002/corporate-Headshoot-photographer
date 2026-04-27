@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3492eb",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101422",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    screens: {
+                        'nav-mobile': '915px',
+                    },
+                },
+            },
+        }
+    </script>
+    <title>Lumini - Portraits Gallery</title>
+    <meta name="description" content="Lumini offers premier luxury professional photography, portrait photography, wedding & event coverage, and commercial & branding services." />
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .comparison-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        .before-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 2px 6px;
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .after-label {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #3492eb;
+            color: white;
+            padding: 2px 6px;
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 16px;
+            z-index: 50;
+        }
+        @media (max-width: 640px) {
+            .floating-btn {
+                bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300">
+  <header id="navbar"
+    class="flex items-center justify-between px-4 lg:px-6 py-2 bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500">
+
+    <!-- LEFT (LOGO) -->
+    <div class="flex items-center gap-2">
+      <div class="relative group flex items-center gap-2">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img src="../assets/images/logo.png"
+            alt="Logo" class="w-8 h-8 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform">
+          <h2
+            class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative hidden md:block">
+            Lumini
+            <span class="absolute -right-2 top-0 text-blue-500 text-[10px]">●</span>
+          </h2>
+        </a>
+      </div>
+    </div>
+
+    <!-- CENTER (MENU) -->
+    <nav class="hidden nav-mobile:flex items-center gap-3 lg:gap-4">
+      <div class="relative">
+        <a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
+          href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+        <div
+          class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+          <a href="index.html"
+            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
+            1</a>
+          <a href="home2.html"
+            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
+            2</a>
+        </div>
+      </div>
+      <a class="nav-services text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="services.html">Services</a>
+      
+      <a class="nav-gallery text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="gallery.html">Gallery</a>
+      <a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="blog.html">Blog</a>
+      <a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="contact.html">Contact</a>
+      <a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="about.html">About</a>
+      <div class="relative">
+        <a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
+          href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+        <div
+          class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+          <a href="dashboard.html"
+            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
+          <a href="user-dashboard.html"
+            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
+        </div>
+      </div>
+    </nav>
+        <!-- RIGHT (ACTIONS) -->
+        <div class="flex items-center gap-2 z-10">
+
+            <button id="dir-toggle-nav"
+                class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold tracking-widest transition-colors">
+                LTR
+            </button>
+
+            <button id="theme-toggle-nav"
+                class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 transition-colors">
+                <span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
+            </button>
+
+            <a href="book-services.html"
+                class="hidden nav-mobile:flex items-center justify-center h-9 px-4 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-all active:scale-95">
+                Book Sessions
+            </a>
+
+            <a href="login.html"
+                class="hidden nav-mobile:flex items-center justify-center h-9 px-4 bg-primary text-white text-[10px] font-black uppercase tracking-wider transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+                Login
+            </a>
+
+            <!-- MOBILE MENU -->
+            <button id="mobile-menu-trigger"
+                class="nav-mobile:hidden h-9 w-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors active:scale-90">
+                <span class="material-symbols-outlined text-[20px]">menu</span>
+            </button>
+
+        </div>
+
+  </header>
+
+<div id="drawer-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300"></div>
+<div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[280px] bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-300 border-l border-slate-200 dark:border-white/5 flex flex-col">
+            <div class="flex items-center justify-between p-6">
+            <div class="flex items-center gap-2">
+                <img src="../assets/images/logo.png" alt="Logo" class="w-6 h-6 rounded-full object-cover">
+                <h2
+                    class="hidden md:block text-slate-900 dark:text-white text-lg font-black leading-tight tracking-tighter uppercase italic relative">
+                    Lumini
+                    <span class="absolute -right-2 top-0 text-blue-500 text-[10px]">●</span>
+                </h2>
+            </div>
+            <button id="mobile-menu-close"
+                class="text-slate-500 dark:text-slate-600 dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+        <nav class="flex flex-col gap-6 font-bold text-xl uppercase italic">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            
+            <a href="gallery.html" class="text-primary">Gallery</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                About
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+        </nav>
+    </div>
+    <div class="p-6 border-t border-slate-200 dark:border-white/5">
+        <a href="book-services.html" class="flex items-center justify-center w-full h-14 bg-primary text-white font-black uppercase">Book Now</a>
+    </div>
+</div>
+
+<main class="flex flex-1 justify-center py-6 pt-[70px] md:pt-[5%] overflow-x-hidden">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1 px-5 sm:px-6 md:px-8">
+    <nav class="flex flex-wrap items-center gap-2 mb-6">
+        <a class="text-slate-400 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+        <span class="text-slate-500 dark:text-slate-600 text-sm">/</span>
+        <a class="text-slate-400 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="gallery.html">Gallery</a>
+        <span class="text-slate-500 dark:text-slate-600 text-sm">/</span>
+        <span class="text-slate-900 dark:text-white text-sm font-bold">Portraits</span>
+    </nav>
+
+    <div class="flex flex-col gap-4 mb-8">
+        <h1 class="text-slate-900 dark:text-white text-2xl sm:text-3xl md:text-5xl font-black leading-tight tracking-tighter">Portraits</h1>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+            A stunning collection of our best portrait photography work. Explore our professional headshots, individual portraits, and personal branding sessions.
+        </p>
+    </div>
+
+    <div class="mb-6 overflow-x-auto scrollbar-hide">
+        <div class="flex border-b border-slate-200 dark:border-slate-800 gap-10 min-w-max">
+            <a class="flex flex-col items-center justify-center border-b-2 border-primary text-primary pb-4 pt-2" href="#"><span class="text-sm font-bold tracking-wide">Headshots</span></a>
+            <a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-4 pt-2" href="#"><span class="text-sm font-bold tracking-wide">Creative Portraits</span></a>
+            <a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-4 pt-2" href="#"><span class="text-sm font-bold tracking-wide">Personal Branding</span></a>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10 max-w-[100%]">
+        <div class="flex flex-col gap-3 w-full max-w-full">
+            <div class="comparison-slider h-[180px] sm:h-[220px] md:aspect-video rounded-xl bg-slate-100 dark:bg-slate-900 overflow-hidden relative group">
+                <span class="before-label">Raw Shot</span>
+                <span class="after-label">Final Edit</span>
+                <img alt="Macro view" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop?q=80&w=2058&auto=format&fit=crop"/>
+            </div>
+            <div class="px-1 sm:px-2 mt-2">
+                <h3 class="text-[15px] sm:text-lg md:text-xl font-bold leading-snug">Corporate Headshot</h3>
+                <p class="text-[11px] sm:text-sm mt-1 leading-relaxed text-slate-600 dark:text-slate-400">Professional lighting and editing to highlight your best features.</p>
+            </div>
+        </div>
+        <div class="flex flex-col gap-3 w-full max-w-full">
+            <div class="comparison-slider h-[180px] sm:h-[220px] md:aspect-video rounded-xl bg-slate-100 dark:bg-slate-900 overflow-hidden relative group">
+                <span class="before-label">Raw Shot</span>
+                <span class="after-label">Final Edit</span>
+                <img alt="Macro beading" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop?q=80&w=1976&auto=format&fit=crop"/>
+            </div>
+            <div class="px-1 sm:px-2 mt-2">
+                <h3 class="text-[15px] sm:text-lg md:text-xl font-bold leading-snug">Creative Portrait</h3>
+                <p class="text-[11px] sm:text-sm mt-1 leading-relaxed text-slate-600 dark:text-slate-400">Artistic lighting and posing for a unique and powerful look.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-primary/10 rounded-2xl p-4 sm:p-8 flex flex-col gap-4 border border-primary/20 md:flex-row items-center justify-between mb-16">
+        <div class="max-w-xl">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Want this level of quality for your portraits?</h2>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Our signature Portrait Collection focuses on capturing your unique essence.</p>
+        </div>
+        <button class="bg-primary text-white font-bold py-2 px-4 text-sm whitespace-nowrap">Book Now</button>
+    </div>
+</div>
+</main>
+
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1">
+                <h4 class="font-black uppercase italic text-xl mb-4">Lumini</h4>
+                <p class="text-slate-500 text-sm">Defining artistic excellence.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Quick Links</h4>
+                <ul class="text-sm text-slate-500 space-y-2">
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500">
+            © 2026 Lumini. All rights reserved.
+        </div>
+    </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
+

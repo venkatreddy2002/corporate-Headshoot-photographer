@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Photography Tips | Lumini</title>
+<meta name="description" content="Lumini offers premier luxury professional photography, portrait photography, wedding & event coverage, and commercial & branding services." />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <style>
+        /* Force navbar text colors for this page (override global white text) */
+        html:not(.dark) body #navbar:not(.scrolled) h2 { color: #0f172a !important; }
+        html:not(.dark) body #navbar:not(.scrolled) nav > a:not(.text-primary),
+        html:not(.dark) body #navbar:not(.scrolled) nav > div > a.dropdown-trigger:not(.text-primary) { color: #475569 !important; }
+        html:not(.dark) body #navbar:not(.scrolled) nav > a:hover:not(.text-primary),
+        html:not(.dark) body #navbar:not(.scrolled) nav > div > a.dropdown-trigger:hover:not(.text-primary) { color: #3492eb !important; }
+        
+        html:not(.dark) body #navbar:not(.scrolled) [id^="dir-toggle"],
+        html:not(.dark) body #navbar:not(.scrolled) [id^="theme-toggle"],
+        html:not(.dark) body #navbar:not(.scrolled) #mobile-menu-trigger {
+            color: #475569 !important;
+            background-color: rgba(241, 245, 249, 0.5) !important;
+            border-color: #e2e8f0 !important;
+        }
+        
+        html:not(.dark) body #navbar:not(.scrolled) a[href="login.html"] {
+            color: #475569 !important;
+            background-color: #f8fafc !important;
+            border-color: #e2e8f0 !important;
+        }
+        html:not(.dark) body #navbar:not(.scrolled) a[href="login.html"]:hover,
+        html:not(.dark) body #navbar:not(.scrolled) [id^="dir-toggle"]:hover,
+        html:not(.dark) body #navbar:not(.scrolled) [id^="theme-toggle"]:hover,
+        html:not(.dark) body #navbar:not(.scrolled) #mobile-menu-trigger:hover {
+            color: #3492eb !important;
+        }
+
+        /* Dark mode */
+        html.dark body #navbar h2 { color: #f1f5f9 !important; }
+        html.dark body #navbar nav > a:not(.text-primary),
+        html.dark body #navbar nav > div > a.dropdown-trigger:not(.text-primary),
+        html.dark body #navbar [id^="dir-toggle"],
+        html.dark body #navbar [id^="theme-toggle"],
+        html.dark body #navbar #mobile-menu-trigger { color: #e2e8f0 !important; }
+        
+        html.dark body #navbar a[href="login.html"] {
+            color: #94a3b8 !important;
+            background-color: rgba(30, 41, 59, 0.5) !important;
+            border-color: #334155 !important;
+        }
+
+        html.dark body #navbar a[href="login.html"] span {
+            color: #94a3b8 !important;
+        }
+
+        html.dark body #navbar nav > a:hover:not(.text-primary),
+        html.dark body #navbar nav > div > a.dropdown-trigger:hover:not(.text-primary),
+        html.dark body #navbar a[href="login.html"]:hover,
+        html.dark body #navbar [id^="dir-toggle"]:hover,
+        html.dark body #navbar [id^="theme-toggle"]:hover,
+        html.dark body #navbar #mobile-menu-trigger:hover { color: #3492eb !important; }
+        
+        html.dark body #navbar [id^="dir-toggle"] span,
+        html.dark body #navbar [id^="theme-toggle"] span,
+        html.dark body #navbar #mobile-menu-trigger span {
+            color: #e2e8f0 !important;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  <header id="navbar"
+    class="flex items-center justify-between px-4 lg:px-6 py-2 bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500">
+
+    <!-- LEFT (LOGO) -->
+    <div class="flex items-center gap-2">
+      <div class="relative group flex items-center gap-2">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img src="../assets/images/logo.png"
+            alt="Logo" class="w-8 h-8 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform">
+          <h2
+            class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative hidden md:block">
+            Lumini
+            <span class="absolute -right-2 top-0 text-blue-500 text-[10px]">●</span>
+          </h2>
+        </a>
+      </div>
+    </div>
+
+    <!-- CENTER (MENU) -->
+    <nav class="hidden nav-mobile:flex items-center gap-3 lg:gap-4">
+      <div class="relative">
+        <a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
+          href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+        <div
+          class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+          <a href="index.html"
+            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
+            1</a>
+          <a href="home2.html"
+            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
+            2</a>
+        </div>
+      </div>
+      <a class="nav-services text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="services.html">Services</a>
+      
+      <a class="nav-gallery text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="gallery.html">Gallery</a>
+      <a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="blog.html">Blog</a>
+      <a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="contact.html">Contact</a>
+      <a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+        href="about.html">About</a>
+      <div class="relative">
+        <a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
+          href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+        <div
+          class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+          <a href="dashboard.html"
+            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
+          <a href="user-dashboard.html"
+            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
+        </div>
+      </div>
+    </nav>
+        <!-- RIGHT (ACTIONS) -->
+        <div class="flex items-center gap-2 z-10">
+
+            <button id="dir-toggle-nav"
+                class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold tracking-widest transition-colors">
+                LTR
+            </button>
+
+            <button id="theme-toggle-nav"
+                class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 transition-colors">
+                <span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
+            </button>
+
+            <a href="book-services.html"
+                class="hidden nav-mobile:flex items-center justify-center h-9 px-4 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-all active:scale-95">
+                Book Sessions
+            </a>
+
+            <a href="login.html"
+                class="hidden nav-mobile:flex items-center justify-center h-9 px-4 bg-primary text-white text-[10px] font-black uppercase tracking-wider transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+                Login
+            </a>
+
+            <!-- MOBILE MENU -->
+            <button id="mobile-menu-trigger"
+                class="nav-mobile:hidden h-9 w-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors active:scale-90">
+                <span class="material-symbols-outlined text-[20px]">menu</span>
+            </button>
+
+        </div>
+
+  </header>
+
+<!-- Mobile Drawer Overlay -->
+<div id="drawer-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300"></div>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[280px] bg-white/80 dark:bg-[#030712]/80 backdrop-blur-xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-slate-900/40 dark:border-white/10 shadow-2xl flex flex-col overflow-hidden">
+    <!-- Header -->
+            <div class="flex items-center justify-between p-6">
+            <div class="flex items-center gap-2">
+                <img src="../assets/images/logo.png" alt="Logo" class="w-6 h-6 rounded-full object-cover">
+                <h2
+                    class="hidden md:block text-slate-900 dark:text-white text-lg font-black leading-tight tracking-tighter uppercase italic relative">
+                    Lumini
+                    <span class="absolute -right-2 top-0 text-blue-500 text-[10px]">●</span>
+                </h2>
+            </div>
+            <button id="mobile-menu-close"
+                class="text-slate-500 dark:text-slate-600 dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+    
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+        <nav class="flex flex-col gap-6">
+            <!-- Home Links -->
+            <div>
+                <div class="flex items-center justify-between text-slate-900 dark:text-white font-bold text-xl mb-4 group cursor-pointer border-b border-slate-200 dark:border-slate-900/40 dark:border-white/10 pb-2">
+                    Home
+                    <span class="material-symbols-outlined text-sm opacity-50">chevron_right</span>
+                </div>
+                <div class="flex flex-col gap-3 pl-4 border-l border-slate-200 dark:border-slate-900/40 dark:border-white/10 ml-1">
+                    <a href="index.html" class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors flex items-center justify-between">
+                        Version 1
+                        <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded uppercase tracking-widest opacity-50">Default</span>
+                    </a>
+                    <a href="home2.html" class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors">Version 2</a>
+                </div>
+            </div>
+
+            <a href="services.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Services
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            
+            <a href="gallery.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Gallery
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="blog.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Blog
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="contact.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Contact
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="about.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                About
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+
+            <!-- Dashboard/Profile -->
+            <div class="mt-4 pt-6 border-t border-slate-200 dark:border-white/5 space-y-4">
+                 <a href="dashboard.html" class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
+                    Dashboard
+                    <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                </a>
+                <a href="user-dashboard.html#overview" class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
+                    User Dashboard
+                    <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Footer Section -->
+    <div class="p-6 bg-slate-50 dark:bg-white/5 border-t border-slate-200 dark:border-slate-900/40 dark:border-white/10 space-y-6">
+        <!-- Book Session Action -->
+        <a href="book-services.html" class="flex items-center justify-center gap-2 w-full h-14 bg-[#3492eb] text-white font-black uppercase tracking-widest text-sm rounded-2xl shadow-xl shadow-[#3492eb]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <span class="material-symbols-outlined text-lg">auto_awesome</span>
+            Book Session
+        </a>
+
+        <!-- Social Icons -->
+        <div class="flex items-center justify-center gap-6 text-slate-400 dark:text-slate-600 dark:text-white/40 pt-2">
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">public</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">share</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">alternate_email</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">chat_bubble</span>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-[9px] text-center text-slate-500 dark:text-white/30 uppercase tracking-[0.2em]">
+            © 2026 Lumini Visual Group
+        </p>
+    </div>
+</div><!-- End Mobile Drawer -->
+<main class="w-full flex flex-col pt-14">
+<!-- Category Navigation -->
+<section class="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#030712] transition-colors duration-300 w-full mb-6">
+<div class="max-w-5xl mx-auto px-4 lg:px-6">
+<div class="flex gap-2 sm:gap-3 items-center md:justify-center overflow-x-auto no-scrollbar py-3">
+<a href="blog.html" class="px-4 md:px-5 py-2 bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-[10px] md:text-[11px] font-medium tracking-widest uppercase border border-transparent whitespace-nowrap flex-shrink-0">All Stories</a>
+<button class="px-4 md:px-5 py-2 bg-primary text-white text-[10px] md:text-[11px] font-bold tracking-widest uppercase shadow-md shadow-primary/20 whitespace-nowrap flex-shrink-0">Photography Tips</button>
+<a href="blog-ceramic.html" class="px-4 md:px-5 py-2 bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-[10px] md:text-[11px] font-medium tracking-widest uppercase border border-transparent whitespace-nowrap flex-shrink-0">Lighting Techniques</a>
+<a href="blog-restoration.html" class="px-4 md:px-5 py-2 bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-[10px] md:text-[11px] font-medium tracking-widest uppercase border border-transparent whitespace-nowrap flex-shrink-0">Behind the Scenes</a>
+<a href="blog-events.html" class="px-4 md:px-5 py-2 bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-[10px] md:text-[11px] font-medium tracking-widest uppercase border border-transparent whitespace-nowrap flex-shrink-0">Event Coverage</a>
+</div>
+</div>
+</section>
+<div class="max-w-5xl mx-auto px-4 lg:px-6 py-6 flex-1 w-full">
+<!-- Hero Section -->
+<article>
+<div class="relative rounded-xl overflow-hidden mb-8 aspect-[21/9] sm:aspect-video @container shadow-xl">
+<div class="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10"></div>
+<img alt="Professional photographer setting up studio lighting for a commercial shoot" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop?q=80&w=2058&auto=format&fit=crop?auto=format&fit=crop&q=80" data-alt="Photographer setting up studio lighting"/>
+<div class="absolute bottom-0 left-0 p-6 sm:p-10 z-20">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block shadow-sm">Education</span>
+<h1 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight drop-shadow-md">The Ultimate Guide to Commercial Lighting Setups</h1>
+</div>
+</div>
+<!-- Author & Meta -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<img alt="Headshot" class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-700 object-cover" src="../assets/images/team1.png"/>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Sarah Jenkins</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Lead Technical Director</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg opacity-70">calendar_today</span>
+<span>Mar 18, 2025</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg opacity-70">schedule</span>
+<span>5 min read</span>
+</div>
+</div>
+</div>
+<!-- Article Content -->
+<div class="prose prose-slate dark:prose-invert max-w-none space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+<p class="text-xl font-medium text-slate-900 dark:text-slate-100 italic border-l-4 border-primary pl-6 py-2 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
+    Mastering commercial lighting requires the right techniques. Improper setup is the number one cause of flat images and lost dimensionality.
+</p>
+<p>
+    At Lumini, we believe that education is just as important as the service we provide. Once you wrap a shoot, the results depend on the quality of the light you captured. The three-point lighting method, precise modifiers, and premium strobes are non-negotiable elements in the ultimate photography arsenal.
+</p>
+
+<figure class="my-10 relative group overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 shadow-md">
+    <div class="aspect-[21/9]">
+        <img alt="Commercial setup showcasing proper lighting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop" />
+    </div>
+    <div class="absolute bottom-0 inset-x-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-3 border-t border-slate-200 dark:border-slate-800 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+        <p class="text-center text-xs text-slate-600 dark:text-slate-300 font-bold tracking-widest uppercase m-0">Sculpting with Light - Commercial Campaign</p>
+    </div>
+</figure>
+
+<h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-12 mb-6">The Essentials of Precision Lighting</h3>
+<ul class="space-y-4 my-8 list-none pl-0">
+    <li class="flex items-start gap-4 bg-white dark:bg-[#030712] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
+        <div class="flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">highlight</span>
+        </div>
+        <div>
+            <strong class="block text-slate-900 dark:text-white mb-1.5 text-xl tracking-tight">The Three-Point Setup</strong>
+            <span class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">Never rely on a single light source. One strobe serves as your key light, while the others act as fill and rim lights to separate the subject from the background and add depth.</span>
+        </div>
+    </li>
+    <li class="flex items-start gap-4 bg-white dark:bg-[#030712] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
+        <div class="flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">light_mode</span>
+        </div>
+        <div>
+            <strong class="block text-slate-900 dark:text-white mb-1.5 text-xl tracking-tight">Quality Light Modifiers Only</strong>
+            <span class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">Harsh, unmodified light will blow out highlights and cast aggressive shadows. A dedicated, high-quality softbox or diffuser ensures smooth, wrapping light.</span>
+        </div>
+    </li>
+    <li class="flex items-start gap-4 bg-white dark:bg-[#030712] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
+        <div class="flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">camera</span>
+        </div>
+        <div>
+            <strong class="block text-slate-900 dark:text-white mb-1.5 text-xl tracking-tight">Tethered Shooting</strong>
+            <span class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">Missed focus or exposure issues mostly happen when reviewing on a small screen. Shooting tethered to a calibrated monitor minimizes errors and ensures perfect capture.</span>
+        </div>
+    </li>
+</ul>
+
+<p class="mt-8 bg-slate-100 dark:bg-slate-800/40 p-6 rounded-xl text-center font-medium">
+    Lighting isn't just a technical requirement; it's an art that elevates the aesthetic and emotional impact of your image. Stay consistent, use the correct tools, and your subject will always look stunning.
+</p>
+</div>
+</article>
+<!-- Newsletter Section -->
+<section class="mt-20 p-8 sm:p-12 rounded-xl bg-slate-900 text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">mail</span>
+</div>
+<div class="relative z-10 max-w-xl">
+<h2 class="text-2xl sm:text-3xl font-bold mb-4">Stay updated with photography tips</h2>
+<p class="text-slate-400 mb-8 text-lg">Join 5,000+ creatives and receive the latest tech insights and studio guides.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your email" type="email"/>
+<button class="px-8 py-3 bg-primary text-white font-bold hover:bg-primary/90 transition-all">Subscribe</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+<div class="max-w-7xl mx-auto px-6 lg:px-20 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+                <div class="flex items-center gap-2 mb-6">
+                    <img src="../assets/images/logo.png" alt="Logo" class="w-8 h-8 rounded-full object-cover">
+                    <h4 class="text-slate-900 dark:text-white font-black text-xl tracking-tighter uppercase italic relative">
+                        Lumini
+                    </h4>
+                </div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining artistic excellence through meticulous craftsmanship and premium protection services.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</a>
+<a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Quick Links</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Support</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Subscribe</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
+<div class="flex gap-2">
+<input class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50" placeholder="Email" type="email"/>
+<button class="bg-primary text-white px-4 h-10 hover:opacity-90">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+                <div class="pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+                    © 2026 Lumini. All rights reserved.
+                </div>
+</div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body></html>
+

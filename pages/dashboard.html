@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lumini | Client Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <style>
+        .layout {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            align-self: flex-start;
+            overflow-y: auto;
+        }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: clip;
+        }
+
+        [dir="ltr"] {
+            direction: ltr;
+        }
+
+        [dir="rtl"] {
+            direction: rtl;
+        }
+
+        [dir="ltr"] .sidebar {
+            left: 0;
+            right: auto;
+        }
+
+        [dir="rtl"] .sidebar {
+            right: 0;
+            left: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <div class="layout min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar bg-white dark:bg-surface-dark border-inline-end border-slate-200 dark:border-accent-dark flex flex-col z-50 transition-all duration-300">
+            <div class="px-6 py-4">
+                <div class="flex items-center justify-between gap-3 mb-6">
+                    <div class="relative group flex items-center gap-2">
+                        <a href="index.html" class="flex items-center gap-1">
+                            <img src="../assets/images/logo.png"
+            alt="Logo" class="w-8 h-8 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform">
+                            <h2
+                                class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative">
+                                Lumini
+                            </h2>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+            <nav class="flex-1 px-3 space-y-1 mt-2" id="sidebar-nav">
+                <a class="flex items-center gap-3 px-3 py-2.5 bg-primary text-white font-bold text-sm transition-all shadow-md shadow-primary/20"
+                    href="javascript:void(0)" onclick="switchSection('overview')" id="nav-overview">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
+                    href="javascript:void(0)" onclick="switchSection('projects')" id="nav-projects">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="photo_library">photo_library</span>
+                    <span>My Projects</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
+                    href="javascript:void(0)" onclick="switchSection('appointments')" id="nav-appointments">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="calendar_month">calendar_month</span>
+                    <span>Appointments</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
+                    href="javascript:void(0)" onclick="switchSection('history')" id="nav-history">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+                    <span>Service History</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
+                    href="javascript:void(0)" onclick="switchSection('invoices')" id="nav-invoices">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+                    <span>Invoices</span>
+                </a>
+            </nav>
+            <!-- Bottom User Profile -->
+            <div class="p-4 mt-auto border-t border-slate-200 dark:border-accent-dark">
+                <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-accent-dark transition-all cursor-pointer group"
+                    onclick="switchSection('profile')" id="nav-profile-bottom">
+                    <div
+                        class="size-11 rounded-full border-2 border-primary/30 p-0.5 group-hover:scale-105 transition-transform shrink-0">
+                        <div class="h-full w-full rounded-full bg-cover bg-center"
+                            style="background-image: url('https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop?q=80&w=2058&auto=format&fit=crop')">
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-bold truncate text-slate-900 dark:text-slate-100">Alex Johnson</p>
+                        <p class="text-[10px] font-bold text-primary uppercase tracking-tighter truncate">Premium Member
+                        </p>
+                    </div>
+                    <button
+                        class="size-8 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">settings</span>
+                    </button>
+                </div>
+                <a href="index.html"
+                    class="mt-4 w-full flex items-center justify-center gap-2 py-2 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors">
+                    <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                    Sign Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content flex flex-col min-h-screen transition-all duration-300">
+            <!-- Fixed Top Header -->
+            <header
+                class="sticky top-0 z-40 w-full bg-white/80 dark:bg-surface-dark/80 backdrop-blur-xl border-b border-slate-200 dark:border-accent-dark px-4 md:px-8 py-4 flex items-center justify-between">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white" id="section-title">
+                        Dashboard Overview</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400" id="section-subtitle">Welcome back, Alex! Your
+                        photography studio at a glance.</p>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div
+                        class="flex items-center gap-2 p-1 bg-slate-50 dark:bg-accent-dark/30 rounded-lg border border-slate-100 dark:border-accent-dark/50">
+                        <button id="dir-toggle-nav"
+                            class="px-4 h-9 flex items-center justify-center text-[10px] font-black tracking-widest bg-transparent hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-accent-dark transition-all active:scale-95">LTR</button>
+                        <button id="theme-toggle-nav"
+                            class="w-12 h-9 flex items-center justify-center text-slate-500 hover:text-primary bg-transparent hover:bg-white/50 dark:hover:bg-slate-800/50 border border-transparent hover:border-slate-200 dark:hover:border-accent-dark transition-all active:scale-95">
+                            <span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
+                            <span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-4 md:p-8 pb-32 md:pb-8 flex-1" id="dashboard-content">
+                <!-- Content loaded via JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Section Templates -->
+    <script type="text/template" id="tmpl-overview">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row justify-end items-start md:items-end gap-4">
+                <div class="flex items-center gap-3">
+                    <button class="px-5 py-2.5 font-bold text-sm border border-slate-200 dark:border-accent-dark bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-primary transition-all flex items-center gap-2 shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">headset_mic</span>
+                        Support
+                    </button>
+                    <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 font-bold text-sm transition-all flex items-center gap-2 shadow-lg shadow-primary/20" onclick="switchSection('appointments')">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                        Book Session
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="size-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">Total Spend (YTD)</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">$12,840.00</span>
+                        <span class="text-xs text-emerald-500 font-bold flex items-center gap-1 mt-1">
+                            <span class="material-symbols-outlined text-xs">trending_up</span> +12% from 2024
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="size-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">Project Health</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">98/100</span>
+                        <span class="text-xs text-slate-400 font-medium mt-1">All deliveries on schedule</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="size-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                            <span class="material-symbols-outlined">stars</span>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">Reward Points</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">12,500</span>
+                        <span class="text-xs text-primary font-bold mt-1">Pro Tier Access</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="size-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500">
+                            <span class="material-symbols-outlined">history</span>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">Member Since</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">Nov 2021</span>
+                        <span class="text-xs text-slate-400 font-medium mt-1">3.2 Year Loyalty</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+
+    <div class="flex items-center justify-between">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Most Popular Services</h3>
+        <a href="#" class="text-primary text-sm font-bold hover:underline">View All Packages</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- CARD 1 -->
+<div class="bg-gradient-to-br from-[#0f172a] to-[#020617] 
+rounded-2xl border border-slate-800 
+min-h-[300px] flex flex-col">
+            <div class="relative h-36 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition duration-500"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+                <div class="absolute top-3 left-3 bg-primary text-white text-[10px] px-2 py-1 rounded uppercase font-bold">
+                    Most Booked
+                </div>
+            </div>
+
+            <!-- CONTENT -->
+    <div class="p-5 flex flex-col flex-1">
+
+        <h4 class="font-bold text-sm text-white mb-1">Gold Package</h4>
+        <p class="text-xs text-slate-400 mb-4">Full day studio & location shoot</p>
+
+        <div class="space-y-1 mb-4 text-[11px] text-slate-400">
+            <p>✔ 8 Hours Coverage</p>
+            <p>✔ Multiple Locations</p>
+            <p>✔ Digital Gallery</p>
+        </div>
+
+        <!-- 🔥 LOCKED BOTTOM -->
+        <div class="flex justify-between items-center mt-auto">
+            <span class="text-lg font-black text-primary">$250</span>
+            <button class="text-[11px] font-bold hover: transition-all btn-primary">
+                Accept
+            </button>
+        </div>
+
+    </div>
+        </div>
+
+
+        <!-- CARD 2 -->
+<div class="bg-gradient-to-br from-[#0f172a] to-[#020617] 
+rounded-2xl border border-slate-800 
+min-h-[300px] flex flex-col">
+            <div class="relative h-36 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition duration-500"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+                <div class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] px-2 py-1 rounded uppercase font-bold">
+                    Premium
+                </div>
+            </div>
+            <!-- CONTENT -->
+    <div class="p-5 flex flex-col flex-1">
+
+        <h4 class="font-bold text-sm text-white mb-1">Commercial Elite</h4>
+        <p class="text-xs text-slate-400 mb-4">High-end commercial campaign</p>
+
+        <div class="space-y-1 mb-4 text-[11px] text-slate-400">
+            <p>✔ Studio Rental</p>
+            <p>✔ Lighting Crew</p>
+            <p>✔ Full Retouching</p>
+        </div>
+
+        <!-- 🔥 LOCKED BOTTOM -->
+        <div class="flex justify-between items-center mt-auto">
+            <span class="text-lg font-black text-primary">$850</span>
+            <button class="text-[11px] font-bold hover: transition-all btn-primary">
+                Accept
+            </button>
+        </div>
+
+    </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+        <div class="bg-gradient-to-br from-[#0f172a] to-[#020617] rounded-2xl border border-slate-800 min-h-[300px] flex flex-col">
+            <div class="relative h-36 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition duration-500"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+                <div class="absolute top-3 left-3 bg-indigo-500 text-white text-[10px] px-2 py-1 rounded uppercase font-bold">
+                    Trending
+                </div>
+            </div>
+            <!-- CONTENT -->
+            <div class="p-5 flex flex-col flex-1">
+
+                <h4 class="font-bold text-sm text-white mb-1">Headshot Pro</h4>
+                <p class="text-xs text-slate-400 mb-4">Professional studio headshots</p>
+
+                <div class="space-y-1 mb-4 text-[11px] text-slate-400">
+                    <p>✔ Multiple Looks</p>
+                    <p>✔ Instant Proofing</p>
+                    <p>✔ Retouched Digitals</p>
+                </div>
+
+                <!-- 🔥 LOCKED BOTTOM -->
+                <div class="flex justify-between items-center mt-auto">
+                    <span class="text-lg font-black text-primary">$150</span>
+                    <button class="text-[11px] font-bold hover: transition-all btn-primary">
+                        Accept
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        
+
+    </div>
+</div>
+
+                <!-- Recent Activity -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                            <div class="size-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">
+                                <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-bold truncate">Editorial Fashion Shoot</p>
+                                <p class="text-xs text-slate-500">Completed 2 days ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-bold truncate">Invoice Paid #INV-2025</p>
+                                <p class="text-xs text-slate-500">Processed yesterday</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm opacity-60 hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                            <div class="size-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0">
+                                <span class="material-symbols-outlined text-[20px]">schedule</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-bold truncate">Product Shoot Scheduled</p>
+                                <p class="text-xs text-slate-500">Coming up in 5 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               
+            
+            <!-- 🔥 ADMIN INSIGHT CARDS -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- 1. LIVE SERVICE STATUS -->
+    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark p-5 shadow-sm hover:shadow-xl transition-all hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+
+        <div class="flex items-center justify-between mb-4">
+            <h4 class="font-bold text-sm">Live Service Status</h4>
+            <span class="text-[10px] bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded uppercase font-bold">
+                Active
+            </span>
+        </div>
+
+        <div class="space-y-4">
+
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                </div>
+                <p class="text-xs font-medium">Spring Campaign - Completed</p>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-amber-500/10 text-amber-500 rounded-full flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[16px]">autorenew</span>
+                </div>
+                <p class="text-xs font-medium">Brand Identity Shoot - In Progress</p>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-blue-500/10 text-blue-500 rounded-full flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[16px]">schedule</span>
+                </div>
+                <p class="text-xs font-medium">Corporate Event - Scheduled</p>
+            </div>
+
+        </div>
+
+        <button class="mt-4 w-full text-xs font-bold text-primary hover:underline">
+            View All Services →
+        </button>
+    </div>
+
+
+    <!-- 2. FEATURED PROJECT -->
+    <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+
+        <div class="relative h-44">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" class="w-full h-full object-cover"/>
+
+            <div class="absolute top-3 left-3 bg-primary text-white text-[10px] px-2 py-1 rounded uppercase font-bold">
+                Today’s Highlight
+            </div>
+
+            <div class="absolute bottom-3 left-3 bg-black/50 text-white text-[10px] px-2 py-1 rounded">
+                Retouching Completed
+            </div>
+        </div>
+
+        <div class="p-4">
+            <h4 class="font-bold text-sm">Fashion Editorial Spread</h4>
+            <p class="text-xs text-slate-500 mt-1">High-fashion magazine feature</p>
+        </div>
+    </div>
+
+
+    <!-- 3. BUSINESS PERFORMANCE -->
+    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark p-5 shadow-sm hover:shadow-xl transition-all hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+
+        <h4 class="font-bold text-sm mb-4">Today’s Performance</h4>
+
+        <div class="space-y-4">
+
+            <!-- Revenue -->
+            <div>
+                <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-500">Revenue</span>
+                    <span class="font-bold">$3,240</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full">
+                    <div class="h-2 bg-primary rounded-full" style="width: 75%"></div>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-500">Services Completed</span>
+                    <span class="font-bold">18</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full">
+                    <div class="h-2 bg-emerald-500 rounded-full" style="width: 60%"></div>
+                </div>
+            </div>
+
+            <!-- Customer Satisfaction -->
+            <div>
+                <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-500">Satisfaction</span>
+                    <span class="font-bold">98%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full">
+                    <div class="h-2 bg-indigo-500 rounded-full" style="width: 98%"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-[10px] text-slate-400 mt-4 italic">
+            *Static demo metrics for presentation
+        </p>
+    </div>
+
+</div>
+
+</div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-projects">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Subject Card 1 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop?q=80&w=1976&auto=format&fit=crop" alt="Coastal Wedding Shoot"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">In Post-Production</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">2025 Coastal Wedding Shoot</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">8 Hours • 500+ Photos</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">May 12, 2025</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Delivery Date</span>
+                                <span class="font-bold">Jan 2024</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold hover:/90 transition-all btn-primary">View Details</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-secondary">Project Timeline</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 2 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop?q=80&w=2069&auto=format&fit=crop" alt="Lamborghini Huracán"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-amber-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Review Pending</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Summer Fashion Campaign</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">Commercial • 5 Looks</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">Jun 02, 2023</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 text-amber-500 font-bold">Client Review</span>
+                                <span class="font-bold text-amber-500 italic">Pending since 2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold transition-all btn-accent">Review Gallery</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-primary">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 3 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" alt="Architecture Showcase"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Delivered</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Architecture Showcase</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">Real Estate • 3 Properties</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">Aug 10, 2025</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Delivery Date</span>
+                                <span class="font-bold">Feb 2026</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold hover:/90 transition-all btn-primary">View Details</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-secondary">Project Timeline</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 4 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop" alt="Product Branding Session"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-amber-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Planning</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Product Branding Session</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">E-Commerce • 50 Items</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Consultation</span>
+                                <span class="font-bold">Nov 05, 2024</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 text-amber-500 font-bold">Next Step</span>
+                                <span class="font-bold text-amber-500 italic">Shoot in 5 days</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold transition-all btn-secondary">View Moodboard</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-primary">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 5 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" alt="Corporate Headshots"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">In Post-Production</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Corporate Headshots</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">Corporate • 15 Team Members</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">Sep 15, 2025</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Delivery Date</span>
+                                <span class="font-bold">Mar 2026</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold hover:/90 transition-all btn-primary">View Details</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-secondary">Project Timeline</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 6 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop" alt="Automotive Editorial"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Delivered</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Automotive Editorial</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">Editorial • Location Shoot</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">Jul 20, 2025</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Delivery Date</span>
+                                <span class="font-bold">Jan 2026</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold hover:/90 transition-all btn-primary">View Details</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-secondary">Project Timeline</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 7 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1874&auto=format&fit=crop" alt="Luxury Brand Campaign"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">In Post-Production</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Luxury Brand Campaign</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">Commercial • Studio & Location</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">Oct 12, 2025</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Delivery Date</span>
+                                <span class="font-bold">Apr 2026</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold hover:/90 transition-all btn-primary">View Details</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-secondary">Project Timeline</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 8 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop" alt="Music Video BTS"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Delivered</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Music Video BTS</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">Event • 12 Hours Coverage</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">Sep 01, 2025</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Delivery Date</span>
+                                <span class="font-bold">Mar 2026</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold hover:/90 transition-all btn-primary">View Details</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-secondary">Project Timeline</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 9 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" alt="Urban Lifestyle Shoot"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">In Post-Production</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Urban Lifestyle Shoot</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">Fashion • Street Style</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">Oct 15, 2025</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Delivery Date</span>
+                                <span class="font-bold">Apr 2026</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 text-xs font-bold hover:/90 transition-all btn-primary">View Details</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-secondary">Project Timeline</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Card 10 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-blue-500/50 transition-all">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop" alt="Magazine Cover Story"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Project Active</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Magazine Cover Story</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">Editorial • Cover & Spread</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">camera_alt</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Shoot Date</span>
+                                <span class="font-bold">In Progress</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Status</span>
+                                <span class="font-bold">Retouching In-Progress</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 py-2.5 bg-primary text-white text-xs font-bold hover:bg-primary/90 transition-all">Track Progress</button>
+                            <button class="flex-1 dark: dark: text-xs font-bold transition-all btn-secondary">View Brief</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-appointments">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row md:items-end justify-end gap-4">
+                <div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+                    <button id="btn-upcoming" onclick="switchAppointmentView('upcoming')" class="px-6 py-2 text-xs font-bold bg-white dark:bg-slate-700 shadow-sm text-primary transition-all">Upcoming</button>
+                    <button id="btn-calendar" onclick="switchAppointmentView('calendar')" class="px-6 py-2 text-xs font-bold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all">Calendar View</button>
+                </div>
+            </div>
+
+            <div id="appointments-upcoming" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Upcoming Services List -->
+                <div class="lg:col-span-2 space-y-6">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">event_upcoming</span>
+                        Scheduled Sessions
+                    </h3>
+                    
+                    <div id="upcoming-appointments-list" class="space-y-6">
+                        <!-- Dynamic cards will be injected here by main.js -->
+                    </div>
+                </div>
+
+                <!-- Availability Widget -->
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">calendar_month</span>
+                        Availability
+                    </h3>
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <button class="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+                            <h4 class="font-bold text-sm">June 2025</h4>
+                            <button class="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 text-center mb-2">
+                             <span class="text-[10px] font-black text-slate-400">S</span>
+                             <span class="text-[10px] font-black text-slate-400">M</span>
+                             <span class="text-[10px] font-black text-slate-400">T</span>
+                             <span class="text-[10px] font-black text-slate-400">W</span>
+                             <span class="text-[10px] font-black text-slate-400">T</span>
+                             <span class="text-[10px] font-black text-slate-400">F</span>
+                             <span class="text-[10px] font-black text-slate-400">S</span>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1">
+                            <!-- Calendar for June 2025 (Week of 27th) -->
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">22</div>
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">23</div>
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">24</div>
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">25</div>
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">26</div>
+                            <div class="h-8 flex items-center justify-center text-xs font-black bg-primary text-white rounded-lg shadow-lg relative z-10 scale-110">27</div>
+                            <div class="h-8 flex items-center justify-center text-xs font-bold">28</div>
+                        </div>
+                        <div class="mt-8 bg-primary/5 border border-primary/20 rounded-xl p-4">
+                            <h4 class="font-bold text-xs mb-1 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">verified</span> Elite Guarantee</h4>
+                            <p class="text-[10px] text-slate-500 leading-tight">Priority slots are available for Pro members with same-day confirmation.</p>
+                        </div>
+                        <div class="mt-4 bg-indigo-500/5 border border-indigo-500/20 rounded-xl p-4">
+                            <h4 class="font-bold text-xs mb-1 flex items-center gap-2"><span class="material-symbols-outlined text-indigo-500 text-sm">stars</span> Membership Perks</h4>
+                            <ul class="space-y-2 mt-2">
+                                <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                    <span class="size-1 rounded-full bg-indigo-500"></span>
+                                    Complimentary image curation
+                                </li>
+                                <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                    <span class="size-1 rounded-full bg-indigo-500"></span>
+                                    10% discount on print orders
+                                </li>
+                                <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                    <span class="size-1 rounded-full bg-indigo-500"></span>
+                                    Access to private Creative Lounge
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 bg-primary/5 border border-primary/20 rounded-xl p-4">
+                            <h4 class="font-bold text-xs mb-1 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">license</span> Our Specialties</h4>
+                            <div class="grid grid-cols-2 gap-2 mt-3">
+                                <div class="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-accent-dark flex flex-col items-center text-center">
+                                    <span class="material-symbols-outlined text-primary text-lg mb-1">camera</span>
+                                    <span class="text-[8px] font-black uppercase tracking-widest text-slate-500">Portraits</span>
+                                </div>
+                                <div class="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-accent-dark flex flex-col items-center text-center">
+                                    <span class="material-symbols-outlined text-primary text-lg mb-1">flash_on</span>
+                                    <span class="text-[8px] font-black uppercase tracking-widest text-slate-500">Studio Lighting</span>
+                                </div>
+                                <div class="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-accent-dark flex flex-col items-center text-center">
+                                    <span class="material-symbols-outlined text-primary text-lg mb-1">edit</span>
+                                    <span class="text-[8px] font-black uppercase tracking-widest text-slate-500">Retouching</span>
+                                </div>
+                                <div class="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-accent-dark flex flex-col items-center text-center">
+                                    <span class="material-symbols-outlined text-primary text-lg mb-1">print</span>
+                                    <span class="text-[8px] font-black uppercase tracking-widest text-slate-500">Fine Art Prints</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="appointments-calendar" class="hidden animate-in fade-in duration-500 pb-12">
+                <div class="max-w-[1000px] mx-auto scale-[0.9] origin-top transition-all duration-500">
+
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark rounded-2xl overflow-hidden shadow-sm">
+                        <!-- Calendar Header -->
+                        <div class="p-5 border-b border-slate-100 dark:border-accent-dark flex items-center justify-between bg-white dark:bg-slate-900">
+                            <div class="flex items-center gap-6">
+                                <h2 class="text-lg font-black text-slate-900 dark:text-white tracking-tight min-w-[140px]" id="calendar-title">July 2025</h2>
+                                <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                                    <button class="p-1 hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm active:scale-95 flex items-center justify-center text-slate-500 hover:text-primary" onclick="prevMonth()">
+                                        <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                                    </button>
+                                    <button class="p-1 hover:bg-white dark:hover:bg-slate-700 transition-all shadow-sm active:scale-95 flex items-center justify-center text-slate-500 hover:text-primary" onclick="nextMonth()">
+                                        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="px-4 py-2 bg-primary text-white text-[11px] font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95" onclick="openAppointmentModal()">Add Appointment</button>
+                        </div>
+
+                        <!-- Weekday Header -->
+                        <div class="grid grid-cols-7 border-b border-slate-100 dark:border-accent-dark bg-slate-50/50 dark:bg-slate-800/30">
+                            <div class="py-3 text-center text-[10px] font-black uppercase text-slate-400 tracking-widest border-r border-slate-100 dark:border-accent-dark last:border-r-0">Sun</div>
+                            <div class="py-3 text-center text-[10px] font-black uppercase text-slate-400 tracking-widest border-r border-slate-100 dark:border-accent-dark last:border-r-0">Mon</div>
+                            <div class="py-3 text-center text-[10px] font-black uppercase text-slate-400 tracking-widest border-r border-slate-100 dark:border-accent-dark last:border-r-0">Tue</div>
+                            <div class="py-3 text-center text-[10px] font-black uppercase text-slate-400 tracking-widest border-r border-slate-100 dark:border-accent-dark last:border-r-0">Wed</div>
+                            <div class="py-3 text-center text-[10px] font-black uppercase text-slate-400 tracking-widest border-r border-slate-100 dark:border-accent-dark last:border-r-0">Thu</div>
+                            <div class="py-3 text-center text-[10px] font-black uppercase text-slate-400 tracking-widest border-r border-slate-100 dark:border-accent-dark last:border-r-0">Fri</div>
+                            <div class="py-3 text-center text-[10px] font-black uppercase text-slate-400 tracking-widest border-r border-slate-100 dark:border-accent-dark last:border-r-0">Sat</div>
+                        </div>
+
+                        <!-- Calendar Grid -->
+                        <div id="calendar-days" class="grid grid-cols-7 auto-rows-[minmax(90px,auto)] bg-slate-100 dark:bg-accent-dark/50 gap-px transition-all duration-300">
+                            <!-- Injected via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-history">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row justify-end items-start md:items-end gap-4">
+                <div class="flex gap-3">
+                    <button class="flex items-center gap-2 px-5 py-2.5 border border-slate-200 dark:border-accent-dark bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 text-sm font-bold hover:bg-slate-50 transition-all">
+                        <span class="material-symbols-outlined text-lg">download</span>
+                        Export Report
+                    </button>
+                    <button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-sm font-bold transition-all hover:bg-primary/90 shadow-lg shadow-primary/20" onclick="switchSection('appointments')">
+                        <span class="material-symbols-outlined text-lg">add</span>
+                        Book Session
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Filters -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-accent-dark p-2 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex gap-2 p-1 overflow-x-auto no-scrollbar w-full md:w-auto">
+                    <button class="px-4 py-2 text-xs font-bold leading-none bg-primary text-white">All Records</button>
+                    <button class="px-4 py-2 text-xs font-bold leading-none text-slate-500 hover:text-primary transition-all">Scheduled</button>
+                    <button class="px-4 py-2 text-xs font-bold leading-none text-slate-500 hover:text-primary transition-all">Completed</button>
+                </div>
+                <div class="flex items-center gap-3 w-full md:w-auto px-4">
+                    <div class="relative flex-1 md:w-64">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                        <input type="text" placeholder="Search project ID or name" class="w-full ps-10 pe-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-xs focus:ring-1 focus:ring-primary"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Data Table -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-accent-dark overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-slate-50 dark:bg-accent-dark/50 border-b border-slate-200 dark:border-accent-dark">
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Date & ID</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Project</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Description</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Status</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest text-right">Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-accent-dark">
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-5">
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Jun 12, 2025</span>
+                                        <span class="text-[10px] text-slate-400 font-bold uppercase">PRJ-88219</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded bg-slate-100 dark:bg-slate-800 bg-cover bg-center border border-slate-200 dark:border-accent-dark" style="background-image: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop')"></div>
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Coastal Wedding Shoot</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-[10px] font-black bg-primary/10 text-primary uppercase tracking-tighter">Wedding Coverage</span>
+                                    <span class="text-[10px] text-slate-500 ms-2 italic">+ Color Grading</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="size-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-bold text-emerald-600">Completed</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-right font-black text-sm">$1,240.00</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-5">
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Aug 15, 2023</span>
+                                        <span class="text-[10px] text-slate-400 font-bold uppercase">PRJ-85210</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded bg-slate-100 dark:bg-slate-800 bg-cover bg-center border border-slate-200 dark:border-accent-dark" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop?q=80&w=2069&auto=format&fit=crop')"></div>
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Summer Fashion Campaign</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-[10px] font-black bg-purple-500/10 text-purple-500 uppercase tracking-tighter">Commercial Shoot</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="size-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-bold text-emerald-600">Completed</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-right font-black text-sm">$820.00</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-5">
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">May 18, 2023</span>
+                                        <span class="text-[10px] text-slate-400 font-bold uppercase">PRJ-81045</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded bg-slate-100 dark:bg-slate-800 bg-cover bg-center border border-slate-200 dark:border-accent-dark" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop')"></div>
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Architecture Showcase</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-[10px] font-black bg-blue-500/10 text-blue-500 uppercase tracking-tighter">Retouching</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="size-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-bold text-emerald-600">Completed</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-right font-black text-sm">$1,450.00</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-5">
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Feb 09, 2023</span>
+                                        <span class="text-[10px] text-slate-400 font-bold uppercase">PRJ-80221</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded bg-slate-100 dark:bg-slate-800 bg-cover bg-center border border-slate-200 dark:border-accent-dark" style="background-image: url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop')"></div>
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Product Photography</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-[10px] font-black bg-slate-500/10 text-slate-500 uppercase tracking-tighter">Studio Session</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="size-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-bold text-emerald-600">Completed</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-right font-black text-sm">$250.00</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-5">
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Nov 30, 2022</span>
+                                        <span class="text-[10px] text-slate-400 font-bold uppercase">PRJ-79540</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded bg-slate-100 dark:bg-slate-800 bg-cover bg-center border border-slate-200 dark:border-accent-dark" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop')"></div>
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Corporate Headshots</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-[10px] font-black bg-amber-500/10 text-amber-500 uppercase tracking-tighter">Portrait Session</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="size-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-bold text-emerald-600">Completed</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-right font-black text-sm">$850.00</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-5">
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Sep 12, 2022</span>
+                                        <span class="text-[10px] text-slate-400 font-bold uppercase">PRJ-78105</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded bg-slate-100 dark:bg-slate-800 bg-cover bg-center border border-slate-200 dark:border-accent-dark" style="background-image: url('https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop')"></div>
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Automotive Editorial</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-[10px] font-black bg-rose-500/10 text-rose-500 uppercase tracking-tighter">Commercial Shoot</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="size-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-bold text-emerald-600">Completed</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-right font-black text-sm">$450.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination -->
+                <div class="px-6 py-4 bg-slate-50 dark:bg-accent-dark/30 border-t border-slate-100 dark:border-accent-dark flex justify-between items-center">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Showing 6 of 14 records</span>
+                    <div class="flex gap-2">
+                        <button class="px-3 py-1 border border-slate-200 dark:border-accent-dark text-xs font-bold disabled:opacity-50">Prev</button>
+                        <button class="px-3 py-1 bg-primary text-white text-xs font-bold">1</button>
+                        <button class="px-3 py-1 border border-slate-200 dark:border-accent-dark text-xs font-bold">2</button>
+                        <button class="px-3 py-1 border border-slate-200 dark:border-accent-dark text-xs font-bold">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-invoices">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row justify-end items-start md:items-end gap-4">
+                <div class="flex gap-3">
+                     <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 font-bold text-sm transition-all flex items-center gap-2 shadow-lg shadow-primary/20">
+                        <span class="material-symbols-outlined text-sm">payments</span>
+                        Pay Bills
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Summary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-slate-500 text-xs font-black uppercase tracking-widest">Total Paid (YTD)</p>
+                        <span class="p-2 bg-emerald-500/10 text-emerald-500 rounded-lg"><span class="material-symbols-outlined text-lg">check_circle</span></span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white">$128,400.00</h3>
+                        <span class="text-emerald-500 text-[10px] font-black">+12.5%</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-slate-500 text-xs font-black uppercase tracking-widest">Pending Payment</p>
+                        <span class="p-2 bg-amber-500/10 text-amber-500 rounded-lg"><span class="material-symbols-outlined text-lg">schedule</span></span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white">$12,250.00</h3>
+                        <span class="text-amber-500 text-[10px] font-black">+5.2%</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-slate-500 text-xs font-black uppercase tracking-widest">Avg. Project Cost</p>
+                        <span class="p-2 bg-indigo-500/10 text-indigo-500 rounded-lg"><span class="material-symbols-outlined text-lg">bar_chart</span></span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white">$4,200.00</h3>
+                        <span class="text-rose-500 text-[10px] font-black">-2.1%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoices Table -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-slate-50 dark:bg-accent-dark/50 border-b border-slate-200 dark:border-accent-dark">
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Invoice ID</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Project Item</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Date</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Status</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-accent-dark text-sm">
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-4 font-bold">#INV-9402</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-bold">Wedding Coverage</p>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Coastal Wedding Shoot</p>
+                                </td>
+                                <td class="px-6 py-4 font-bold">Oct 24, 2023</td>
+                                <td class="px-6 py-4">
+                                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-500 uppercase tracking-widest">Paid</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="p-2 bg-primary/10 text-primary hover:bg-primary transition-all hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-[18px]">download</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-4 font-bold">#INV-9388</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-bold">Commercial Shoot</p>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Summer Fashion Campaign</p>
+                                </td>
+                                <td class="px-6 py-4 font-bold">Aug 15, 2023</td>
+                                <td class="px-6 py-4">
+                                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-500 uppercase tracking-widest">Paid</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="p-2 bg-primary/10 text-primary hover:bg-primary transition-all hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-[18px]">download</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-4 font-bold">#INV-9350</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-bold">Retouching</p>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Architecture Showcase</p>
+                                </td>
+                                <td class="px-6 py-4 font-bold">May 18, 2023</td>
+                                <td class="px-6 py-4">
+                                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-500 uppercase tracking-widest">Paid</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="p-2 bg-primary/10 text-primary hover:bg-primary transition-all hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-[18px]">download</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-4 font-bold">#INV-9312</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-bold">Product Photography</p>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Product Branding Session</p>
+                                </td>
+                                <td class="px-6 py-4 font-bold">Feb 09, 2023</td>
+                                <td class="px-6 py-4">
+                                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-500 uppercase tracking-widest">Paid</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="p-2 bg-primary/10 text-primary hover:bg-primary transition-all hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-[18px]">download</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-4 font-bold">#INV-9280</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-bold">Portrait Session</p>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Corporate Headshots</p>
+                                </td>
+                                <td class="px-6 py-4 font-bold">Nov 30, 2022</td>
+                                <td class="px-6 py-4">
+                                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-500 uppercase tracking-widest">Paid</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="p-2 bg-primary/10 text-primary hover:bg-primary transition-all hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-[18px]">download</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-profile">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <!-- Header Card -->
+            <div class="bg-slate-900 rounded-[32px] p-8 md:p-12 border border-white/5 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none"></div>
+                <div class="relative flex flex-col md:flex-row items-center md:items-end gap-8">
+                    <div class="relative">
+                        <div class="size-32 md:size-40 rounded-[32px] overflow-hidden border-4 border-slate-800 shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                            <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop" alt="Alex Johnson"/>
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 bg-primary text-white text-[10px] font-black px-2 py-1 rounded-lg uppercase tracking-widest shadow-lg">Verified</div>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h2 class="text-4xl font-black text-white mb-2">Alex Johnson</h2>
+                        <div class="flex flex-wrap justify-center md:justify-start items-center gap-3">
+                            <span class="px-3 py-1 bg-primary text-white text-[10px] font-black rounded-full border border-primary/30 flex items-center gap-1 uppercase tracking-widest">
+                                <span class="material-symbols-outlined text-[14px]">stars</span> Pro Member
+                            </span>
+                            <span class="text-slate-400 text-xs font-bold uppercase tracking-tighter">Loyal since Nov 2021</span>
+                        </div>
+                    </div>
+                    <button class="bg-primary hover:bg-primary/90 text-white px-6 py-3 font-black text-sm transition-all flex items-center gap-2 shadow-xl shadow-primary/20">
+                        <span class="material-symbols-outlined text-lg">edit</span> Edit Profile
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">camera_alt</span>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white">48</p>
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+                            <span class="material-symbols-outlined">calendar_today</span>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white">3.2</p>
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Years of Loyalty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                            <span class="material-symbols-outlined">monetization_on</span>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white">12.5k</p>
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Reward Points</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Personal Info -->
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-accent-dark hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">person</span> Personal Information
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Full Name</label>
+                            <input type="text" value="Alex Johnson" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-accent-dark rounded-xl px-4 py-3 text-sm font-bold outline-none ring-primary/20 focus:ring-2 transition-all"/>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Email Address</label>
+                            <input type="email" value="alex.j@luxury.com" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-accent-dark rounded-xl px-4 py-3 text-sm font-bold outline-none ring-primary/20 focus:ring-2 transition-all"/>
+                        </div>
+                        <div class="space-y-2 md:col-span-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Street Address</label>
+                            <input type="text" value="742 Evergreen Terrace, Los Angeles, CA" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-accent-dark rounded-xl px-4 py-3 text-sm font-bold outline-none ring-primary/20 focus:ring-2 transition-all"/>
+                        </div>
+                    </div>
+                    <button class="mt-8 w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black text-sm transition-all hover:scale-[1.02] active:scale-[0.98]">Save Changes</button>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-accent-dark hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-purple-500">settings</span> Account Settings
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold text-sm">Email Notifications</p>
+                                    <p class="text-[10px] text-slate-500 uppercase font-black tracking-tighter">Booking confirmations</p>
+                                </div>
+                                <div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer"><div class="absolute right-1 top-1 size-3 bg-white rounded-full"></div></div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold text-sm">SMS Updates</p>
+                                    <p class="text-[10px] text-slate-500 uppercase font-black tracking-tighter">Service start alerts</p>
+                                </div>
+                                <div class="w-10 h-5 bg-slate-200 dark:bg-slate-700 rounded-full relative cursor-pointer"><div class="absolute left-1 top-1 size-3 bg-white rounded-full"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script>
+        function switchAppointmentView(viewType) {
+            const btnUpcoming = document.getElementById('btn-upcoming');
+            const btnCalendar = document.getElementById('btn-calendar');
+            const viewUpcoming = document.getElementById('appointments-upcoming');
+            const viewCalendar = document.getElementById('appointments-calendar');
+
+            if (viewType === 'upcoming') {
+                btnUpcoming.className = 'px-6 py-2 text-xs font-bold bg-white dark:bg-slate-700 shadow-sm rounded-lg text-primary transition-all';
+                btnCalendar.className = 'px-6 py-2 text-xs font-bold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all';
+                viewUpcoming.classList.remove('hidden');
+                viewCalendar.classList.add('hidden');
+
+                // Trigger dynamic cards render
+                if (window.renderUpcomingAppointments) window.renderUpcomingAppointments();
+            } else {
+                btnCalendar.className = 'px-6 py-2 text-xs font-bold bg-white dark:bg-slate-700 shadow-sm rounded-lg text-primary transition-all';
+                btnUpcoming.className = 'px-6 py-2 text-xs font-bold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all';
+                viewCalendar.classList.remove('hidden');
+                viewUpcoming.classList.add('hidden');
+
+                // Trigger dynamic calendar render
+                if (window.renderCalendar) window.renderCalendar(window.currentDate || new Date());
+            }
+        }
+
+    </script>
+    <!-- Appointment Modal -->
+    <div id="appointment-modal"
+        class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300 items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeAppointmentModal()"></div>
+
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-[600px] p-6 lg:p-0 scale-95 transition-transform duration-300"
+            id="modal-container">
+            <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark rounded-3xl shadow-2xl overflow-hidden">
+                <!-- Header -->
+                <div class="p-6 border-b border-slate-100 dark:border-accent-dark flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-black text-slate-900 dark:text-white tracking-tight italic uppercase">
+                            Schedule Appointment</h3>
+                        <p class="text-xs text-slate-500 mt-1 uppercase tracking-widest font-bold opacity-70">Step into
+                            the excellence</p>
+                    </div>
+                    <button
+                        class="size-10 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:text-primary transition-all active:scale-90"
+                        onclick="closeAppointmentModal()">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+
+                <!-- Form -->
+                <form id="appointment-form" class="p-6 space-y-5 overflow-y-auto max-h-[70vh] no-scrollbar">
+                    <!-- Subject Info -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ms-1">Project
+                                Type</label>
+                            <input type="text" name="make" placeholder="e.g. Wedding"
+                                class="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary dark:text-white transition-all"
+                                required>
+                        </div>
+                        <div class="space-y-1.5">
+                            <label
+                                class="text-[10px] font-black uppercase tracking-widest text-slate-400 ms-1">Location</label>
+                            <input type="text" name="model" placeholder="e.g. Los Angeles"
+                                class="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary dark:text-white transition-all"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Service & Date -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ms-1">Session
+                                Type</label>
+                            <!-- Custom Premium Dropdown -->
+                            <div class="relative premium-select" id="service-dropdown">
+                                <button type="button"
+                                    class="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 px-4 py-3 text-sm focus:outline-none focus:border-primary dark:text-white transition-all flex items-center justify-between group premium-select-trigger"
+                                    id="dropdown-trigger">
+                                    <span class="selected-value" id="selected-service">Select Session</span>
+                                    <span
+                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform duration-300 dropdown-arrow">expand_more</span>
+                                </button>
+
+                                <!-- Hidden Menu -->
+                                <div class="absolute left-0 right-0 top-[calc(100%+8px)] bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl z-50 opacity-0 invisible translate-y-2 transition-all duration-300 overflow-hidden premium-select-menu"
+                                    id="dropdown-menu">
+                                    <div class="max-h-[280px] overflow-y-auto premium-scrollbar py-2">
+                                        <div
+                                            class="px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-slate-400 opacity-60">
+                                            Studio Sessions</div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="premium">
+                                            <span class="material-symbols-outlined text-sm text-primary">auto_fix</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Editorial
+                                                Portrait</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="maintenance">
+                                            <span
+                                                class="material-symbols-outlined text-sm text-primary">water_drop</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Commercial
+                                                Shoot</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="interior">
+                                            <span
+                                                class="material-symbols-outlined text-sm text-primary">airline_seat_recline_extra</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Product
+                                                Photography</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="ppf">
+                                            <span class="material-symbols-outlined text-sm text-primary">shield</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Event
+                                                Coverage</span>
+                                        </div>
+
+                                        <div
+                                            class="px-3 py-1.5 mt-2 text-[9px] font-black uppercase tracking-widest text-slate-400 opacity-60">
+                                            Specialty Shoots</div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="recon">
+                                            <span
+                                                class="material-symbols-outlined text-sm text-primary">cleaning_services</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Headshot
+                                                Session</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="recon">
+                                            <span
+                                                class="material-symbols-outlined text-sm text-primary">wb_incandescent</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Lighting
+                                                Setup</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="recon">
+                                            <span
+                                                class="material-symbols-outlined text-sm text-primary">propeller</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Drone
+                                                Photography</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="recon">
+                                            <span
+                                                class="material-symbols-outlined text-sm text-primary">potted_plant</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Fine
+                                                Art Prints</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="tint">
+                                            <span class="material-symbols-outlined text-sm text-primary">window</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Photo
+                                                Editing</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="protection">
+                                            <span class="material-symbols-outlined text-sm text-primary">verified</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Digital
+                                                Delivery</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="protection">
+                                            <span class="material-symbols-outlined text-sm text-primary">chair</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Print
+                                                Delivery</span>
+                                        </div>
+                                        <div class="dropdown-item flex items-center gap-3 px-4 py-3 hover:bg-primary/10 cursor-pointer transition-colors group"
+                                            data-value="protection">
+                                            <span class="material-symbols-outlined text-sm text-primary">camera</span>
+                                            <span
+                                                class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">Gallery
+                                                Wrap Delivery</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="type" id="selected-type-input" value="premium"
+                                    class="premium-select-input">
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <label
+                                class="text-[10px] font-black uppercase tracking-widest text-slate-400 ms-1">Preferred
+                                Date</label>
+                            <input type="date" name="date"
+                                class="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-primary dark:text-white transition-all"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Image Upload -->
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ms-1">Project
+                            Images</label>
+                        <div class="relative group">
+                            <input type="file" multiple accept="image/*"
+                                class="absolute inset-0 opacity-0 cursor-pointer z-10" id="project-image-input"
+                                onchange="handleImageUpload(this)">
+                            <div
+                                class="border-2 border-dashed border-slate-200 dark:border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center gap-2 group-hover:border-primary/50 transition-colors bg-slate-50/50 dark:bg-slate-800/20">
+                                <span
+                                    class="material-symbols-outlined text-3xl text-slate-400 group-hover:text-primary group-hover:scale-110 transition-all">add_photo_alternate</span>
+                                <p class="text-[11px] font-bold text-slate-500 uppercase tracking-tighter">Drag or click
+                                    to upload</p>
+                            </div>
+                        </div>
+                        <!-- Preview Grid -->
+                        <div id="image-preview-grid" class="grid grid-cols-4 gap-2 mt-2">
+                            <!-- Previews injected here -->
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit"
+                        class="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest py-4 shadow-xl shadow-primary/20 transition-all active:scale-[0.98] mt-4 flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+                        Schedule Now
+                    </button>
+                    <p class="text-center text-[10px] text-slate-500 uppercase tracking-widest opacity-60 italic">* Our
+                        team will contact you for confirmation</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

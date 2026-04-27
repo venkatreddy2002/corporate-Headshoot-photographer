@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Login | Lumini</title>
+<meta name="description" content="Sign in to your Lumini account and access your premium photography experience." />
+
+<!-- Instant theme + dir apply BEFORE page renders (prevents flash) -->
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  var d = document.documentElement;
+  if(t==='dark'){ d.classList.add('dark'); d.classList.remove('light'); }
+  else { d.classList.remove('dark'); d.classList.add('light'); }
+  var dir = localStorage.getItem('dir') || 'ltr';
+  d.setAttribute('dir', dir);
+})();
+</script>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="../assets/js/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="../assets/images/logo.png">
+<style>
+  * { font-family: 'Public Sans', sans-serif; }
+
+  .input-icon-wrap { position: relative; }
+  .input-icon-wrap .field-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none;
+    color: #94a3b8;
+  }
+  .input-icon-wrap input { padding-left: 44px; }
+  .input-icon-wrap .eye-btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #94a3b8;
+    font-size: 18px;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  [dir="rtl"] .input-icon-wrap .field-icon { left: auto; right: 14px; }
+  [dir="rtl"] .input-icon-wrap input { padding-left: 16px; padding-right: 44px; }
+  [dir="rtl"] .input-icon-wrap .eye-btn { right: auto; left: 14px; }
+
+  .divider { display: flex; align-items: center; gap: 12px; color: #94a3b8; font-size: 12px; }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: 0.3; }
+</style>
+</head>
+
+<body class="min-h-screen relative flex items-center justify-center bg-cover bg-center"
+  style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop');">
+
+<!-- Overlay: elegant muted in light mode, deeper in dark mode -->
+<div class="absolute inset-0 z-0 transition-colors duration-500" style="background: rgba(255,255,255,0.78);" id="page-overlay"></div>
+<style>
+  html.dark #page-overlay { background: rgba(0,0,0,0.72) !important; }
+</style>
+
+<!-- ===== TOP BAR ===== -->
+<div class="fixed top-6 left-6 right-6 flex items-center justify-between z-50">
+  <a href="index.html" class="flex items-center gap-2.5">
+    <img src="../assets/images/logo.png" alt="Lumini Logo"
+      class="w-9 h-9 rounded-full object-cover border-2 border-white/30 shadow-md">
+    <span class="text-slate-900 dark:text-white font-black text-lg uppercase italic tracking-tight hover:opacity-80 transition-opacity">
+      Lumini
+    </span>
+  </a>
+
+  <div class="flex items-center gap-2">
+    <button id="dir-toggle-auth"
+      class="h-9 px-3.5 border border-slate-900/20 dark:border-white/20 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md text-slate-800 dark:text-white text-[11px] font-bold tracking-widest hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all">
+      LTR
+    </button>
+    <button id="theme-toggle-auth"
+      class="size-9 border border-slate-900/20 dark:border-white/20 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md flex items-center justify-center text-slate-800 dark:text-white hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all">
+      <span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
+      <span class="material-symbols-outlined text-[20px] hidden dark:block">light_mode</span>
+    </button>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT ===== -->
+<div class="relative z-10 w-full max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-screen">
+
+  <!-- ===== LEFT: Branding ===== -->
+  <div class="text-slate-900 dark:text-white">
+    <h1 class="text-[3.5rem] sm:text-[5rem] font-black leading-[1.05] tracking-tight mb-4">
+      Welcome<br>Back
+    </h1>
+    <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed mb-2 max-w-xs">
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.
+    </p>
+    <!-- Orange accent line -->
+    <div class="w-10 h-1 bg-primary rounded-full mt-4 mb-8"></div>
+
+    <!-- Social Icons -->
+    <div class="flex gap-3">
+      <a href="#" class="w-11 h-11 bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black hover:opacity-80 transition-opacity shadow-md">
+        <span class="material-symbols-outlined text-[18px]">public</span>
+      </a>
+      <a href="#" class="w-11 h-11 bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black hover:opacity-80 transition-opacity shadow-md">
+        <span class="material-symbols-outlined text-[18px]">share</span>
+      </a>
+      <a href="#" class="w-11 h-11 bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black hover:opacity-80 transition-opacity shadow-md">
+        <span class="material-symbols-outlined text-[18px]">camera</span>
+      </a>
+      <a href="#" class="w-11 h-11 bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black hover:opacity-80 transition-opacity shadow-md">
+        <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== RIGHT: Form ===== -->
+  <div class="w-full max-w-md lg:ml-auto text-slate-900 dark:text-white">
+    <h2 class="text-3xl font-bold mb-6">Sign in</h2>
+
+    <form class="space-y-4" onsubmit="return false;">
+
+      <!-- Email -->
+      <div class="input-icon-wrap">
+        <span class="material-symbols-outlined field-icon">mail</span>
+        <input type="email" placeholder="Enter your email"
+          class="w-full py-3 pr-4 rounded-md border-none outline-none
+                 bg-white dark:bg-[#1e2533] text-black dark:text-white
+                 placeholder:text-slate-400 dark:placeholder:text-slate-500
+                 focus:ring-2 focus:ring-primary shadow-sm" />
+      </div>
+
+      <!-- Password -->
+      <div class="input-icon-wrap">
+        <span class="material-symbols-outlined field-icon">lock</span>
+        <input type="password" placeholder="Enter your password"
+          class="w-full py-3 pr-12 rounded-md border-none outline-none
+                 bg-white dark:bg-[#1e2533] text-black dark:text-white
+                 placeholder:text-slate-400 dark:placeholder:text-slate-500
+                 focus:ring-2 focus:ring-primary shadow-sm" />
+        <button type="button" class="eye-btn material-symbols-outlined" onclick="togglePwd(this)">visibility</button>
+      </div>
+
+      <!-- Remember Me + Forgot -->
+      <div class="flex items-center justify-between pt-1">
+        <div class="flex items-center gap-2">
+          <input type="checkbox" id="remember"
+            class="w-4 h-4 border-slate-300 dark:border-slate-600 text-primary focus:ring-primary rounded-sm cursor-pointer" />
+          <label for="remember" class="text-sm text-slate-700 dark:text-slate-300 cursor-pointer">Remember Me</label>
+        </div>
+        <a href="#" class="text-sm text-primary font-semibold hover:underline">Lost your password?</a>
+      </div>
+
+      <!-- Sign In Button -->
+      <button type="button" onclick="window.location.href='dashboard.html'"
+        class="w-full bg-primary text-white py-3 font-bold text-sm tracking-wide hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-primary/30 mt-2">
+        Sign in now
+      </button>
+    </form>
+
+    <!-- Terms note -->
+    <p class="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center leading-relaxed">
+      By clicking on "Sign in now" you agree to<br>
+      <a href="#" class="text-slate-700 dark:text-slate-300 hover:text-primary font-medium">Terms of Service</a>
+      &nbsp;|&nbsp;
+      <a href="#" class="text-slate-700 dark:text-slate-300 hover:text-primary font-medium">Privacy Policy</a>
+    </p>
+
+    <!-- Create account -->
+    <p class="text-center text-sm text-slate-600 dark:text-slate-400 mt-5">
+      Don't have an account?
+      <a href="register.html" class="text-primary font-bold hover:underline ml-1">Create one</a>
+    </p>
+
+    <!-- Divider -->
+    <div class="divider my-6 text-slate-500 dark:text-slate-400">or continue with</div>
+
+    <!-- Social Login Buttons -->
+    <div class="grid grid-cols-3 gap-3">
+      <button class="flex items-center justify-center gap-2 py-2.5 border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#1e2533] text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#252d3e] transition-all shadow-sm text-xs font-semibold">
+        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        Google
+      </button>
+
+      <button class="flex items-center justify-center gap-2 py-2.5 border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#1e2533] text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#252d3e] transition-all shadow-sm text-xs font-semibold">
+        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="#1877F2">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        Facebook
+      </button>
+
+      <button class="flex items-center justify-center gap-2 py-2.5 border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#1e2533] text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#252d3e] transition-all shadow-sm text-xs font-semibold">
+        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        Apple
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// Password toggle only — theme/dir handled by main.js
+function togglePwd(btn) {
+  const input = btn.previousElementSibling;
+  if (input && input.tagName === 'INPUT') {
+    input.type = input.type === 'password' ? 'text' : 'password';
+    btn.textContent = input.type === 'password' ? 'visibility' : 'visibility_off';
+  }
+}
+</script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

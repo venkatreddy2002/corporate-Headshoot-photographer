@@ -1,0 +1,412 @@
+/* ============================================
+   Glass Navbar Scroll Effect
+   #navbar starts transparent; JS adds .scrolled
+   ============================================ */
+
+#navbar {
+    /* ensures backdrop-filter works even before scroll */
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+    transition: background-color 0.5s ease,
+        border-color 0.5s ease,
+        backdrop-filter 0.5s ease,
+        -webkit-backdrop-filter 0.5s ease,
+        box-shadow 0.5s ease,
+        padding 0.3s ease;
+}
+
+/* Light mode scrolled */
+#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.55) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Dark mode scrolled */
+html.dark #navbar.scrolled {
+    background-color: rgba(15, 15, 25, 0.60) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Shrink padding slightly on scroll for premium feel */
+#navbar.scrolled {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+}
+
+/* Ensure nav text stays readable on transparent navbar */
+#navbar:not(.scrolled) nav a,
+#navbar:not(.scrolled) h2,
+#navbar:not(.scrolled) button,
+#navbar:not(.scrolled) [id^="dir-toggle"],
+#navbar:not(.scrolled) [id^="theme-toggle"] {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   All values are original Tailwind base × 1.452:
+     py-2  (0.5rem)   → 0.726rem
+     px-4  (1rem)     → 1.452rem
+     px-6  (1.5rem)   → 2.178rem
+     h-7   (1.75rem)  → 2.541rem
+     h-8   (2rem)     → 2.904rem
+     text-[10px]      → 14.52px
+     text-[16px]      → 23.23px
+     text-[20px]      → 29.04px
+     text-sm (14px)   → 20.33px
+================================================================= */
+
+header {
+    padding-top: 0.8712rem !important;
+    padding-bottom: 0.8712rem !important;
+    padding-left: 1.5972rem !important;
+}
+
+@media (min-width: 1024px) {
+    header {
+        padding-left: 2.3958rem !important;
+        padding-right: 2.3958rem !important;
+    }
+}
+
+/* Nav link text (10% increased) */
+header nav a,
+header [class*="nav-"] {
+    font-size: 13px !important;
+}
+
+/* Brand / logo heading (10% increased) */
+header h2 {
+    font-size: 16px !important;
+}
+
+/* All Material Symbols icons in the header (10% increased) */
+header .material-symbols-outlined {
+    font-size: 22px !important;
+}
+
+/* Theme-toggle small icons (10% increased) */
+header #theme-toggle-nav .material-symbols-outlined {
+    font-size: 18px !important;
+}
+
+/* "Book Services" and "Login" buttons (10% increased) */
+header a[href="book-services.html"],
+header a[href="login.html"]:not(.rounded-full) {
+    height: 2.7951rem !important;
+    padding-left: 1.1979rem !important;
+    padding-right: 1.1979rem !important;
+}
+
+/* Account circle login button (10% increased) */
+header a[href="login.html"].rounded-full {
+    width: 3.1944rem !important;
+    height: 3.1944rem !important;
+}
+
+/* LTR/RTL direction toggle button */
+header #dir-toggle-nav {
+    font-size: 12px !important;
+    padding: 0.3993rem 0.7986rem !important;
+}
+
+/* Theme toggle button */
+header #theme-toggle-nav {
+    padding: 0.3993rem !important;
+}
+
+/* Mobile menu trigger (10% increased) */
+header #mobile-menu-trigger {
+    height: 3.1944rem !important;
+    width: 3.1944rem !important;
+}
+
+/* Vertical separator line (10% increased) */
+header .h-4.w-px {
+    height: 1.5972rem !important;
+}
+
+/* Dropdown nav link text */
+header .nav-dropdown a {
+    font-size: 13px !important;
+}
+
+/* Expand-more arrow icons in nav */
+header nav span.material-symbols-outlined {
+    font-size: 14px !important;
+}
+
+/* Make light-mode transparent navbar elements white so they contrast dark hero images */
+html:not(.dark) #navbar:not(.scrolled) h2,
+html:not(.dark) #navbar:not(.scrolled) nav>a:not(.text-primary),
+html:not(.dark) #navbar:not(.scrolled) nav>div>a.dropdown-trigger:not(.text-primary) {
+    color: #ffffff !important;
+}
+
+html:not(.dark) #navbar:not(.scrolled) nav>a:hover,
+html:not(.dark) #navbar:not(.scrolled) nav>div>a.dropdown-trigger:hover {
+    color: #3492eb !important;
+}
+
+html:not(.dark) #navbar:not(.scrolled) a[href="book-services.html"],
+html:not(.dark) #navbar:not(.scrolled) [id^="dir-toggle"],
+html:not(.dark) #navbar:not(.scrolled) [id^="theme-toggle"],
+html:not(.dark) #navbar:not(.scrolled) #mobile-menu-trigger {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+html:not(.dark) #navbar:not(.scrolled) a[href="book-services.html"]:hover,
+html:not(.dark) #navbar:not(.scrolled) [id^="dir-toggle"]:hover,
+html:not(.dark) #navbar:not(.scrolled) [id^="theme-toggle"]:hover,
+html:not(.dark) #navbar:not(.scrolled) #mobile-menu-trigger:hover {
+    color: #3492eb !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+html:not(.dark) #navbar:not(.scrolled) .h-4.w-px {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Reduce nav bar font boldness before the scroll animation */
+#navbar:not(.scrolled) h2 {
+    font-weight: 700 !important;
+    /* from black to bold */
+}
+
+#navbar:not(.scrolled) nav a {
+    font-weight: 500 !important;
+    /* from bold to medium */
+}
+
+/* Dark mode navbar overrides: white text */
+html.dark #navbar h2,
+html.dark #navbar nav>a:not(.text-primary),
+html.dark #navbar nav>div>a.dropdown-trigger:not(.text-primary),
+html.dark #navbar [id^="dir-toggle"],
+html.dark #navbar [id^="theme-toggle"],
+html.dark #navbar #mobile-menu-trigger {
+    color: #ffffff !important;
+}
+
+html.dark #navbar [id^="dir-toggle"] span,
+html.dark #navbar [id^="theme-toggle"] span,
+html.dark #navbar #mobile-menu-trigger span {
+    color: #ffffff !important;
+}
+
+/* Person icon white background in dark mode */
+html.dark #navbar a[href="book-services.html"] {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #ffffff !important;
+}
+
+html.dark #navbar a[href="book-services.html"] span {
+    color: #0f172a !important;
+}
+
+
+/* ============================================
+   Inline Subscription Success
+   ============================================ */
+.subscription-success-text {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.1rem !important;
+    color: #3492eb !important;
+    margin-top: 1rem !important;
+    font-style: italic !important;
+    font-weight: 700 !important;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+    display: block;
+}
+
+.subscription-success-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   Custom Premium Dropdown
+   ============================================ */
+.dropdown-arrow {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-select.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.premium-select-menu.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.premium-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.premium-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.premium-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(52, 146, 235, 0.2);
+    border-radius: 10px;
+}
+
+.premium-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(52, 146, 235, 0.4);
+}
+
+.dropdown-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.dropdown-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: #3492eb;
+    transition: height 0.3s ease;
+}
+
+.dropdown-item:hover::after {
+    height: 60%;
+}
+
+/* Dark mode adjustments for glassmorphism dropdown */
+html.dark .premium-select-menu {
+    background-color: rgba(15, 23, 42, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   Glass & Premium UI Components
+   ============================================ */
+
+/* 🌫️ GLASS (LIGHT + DARK SAFE) */
+.glass-premium {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+html.dark .glass-premium {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 🔥 GLASS EFFECT */
+.glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 🌈 GRADIENT BORDER */
+.gradient-border {
+    position: relative;
+    border-radius: 16px;
+}
+
+.gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #3492eb, #1e40af, #60a5fa);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* ✨ SHINE EFFECT */
+.shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transform: skewX(-25deg);
+}
+
+.shine:hover::after {
+    left: 130%;
+    transition: 0.8s;
+}
+
+/* ============================================
+   Button Color System
+   ============================================ */
+
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  transition: 0.3s ease !important;
+}
+
+.btn-primary:hover {
+  opacity: 0.9 !important;
+}
+
+.btn-secondary {
+  background: #1e293b !important;
+  color: #cbd5f5 !important;
+  border-radius: 0 !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  transition: 0.3s ease !important;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9 !important;
+}
+
+.btn-accent {
+  background: #f59e0b !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  transition: 0.3s ease !important;
+}
+
+.btn-accent:hover {
+  opacity: 0.9 !important;
+}
