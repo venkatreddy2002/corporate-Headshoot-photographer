@@ -24,6 +24,11 @@
     font-family: 'Playfair Display', serif !important;
 }
 
+/* Fix logo cutoff caused by object-cover */
+img[alt="Logo"] {
+    object-fit: contain !important;
+}
+
 #navbar {
     /* ensures backdrop-filter works even before scroll */
     -webkit-backdrop-filter: blur(0px);
