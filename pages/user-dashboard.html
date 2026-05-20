@@ -46,13 +46,26 @@
         }
 
         .sidebar {
-            width: 260px;
+            width: 70px;
             flex-shrink: 0;
             position: sticky;
             top: 0;
             height: 100vh;
             align-self: flex-start;
             overflow-y: auto;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 1023px) {
+            .sidebar {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar {
+                width: 260px;
+            }
         }
 
         .main-content {
@@ -60,7 +73,9 @@
             min-width: 0;
         }
 
-        html, body {
+        html,
+        body {
+            overflow-x: hidden;
             width: 100%;
             overflow-x: clip;
         }
@@ -83,136 +98,235 @@
             left: auto;
         }
     </style>
-    <link rel="icon" type="image/png"
-        href="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop">
+    <link rel="icon" type="image/png" href="../assets/images/Group 179.svg">
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
     <div class="layout min-h-screen">
         <!-- Sidebar Navigation -->
-        <aside class="sidebar bg-white dark:bg-surface-dark border-inline-end border-slate-200 dark:border-accent-dark hidden md:flex flex-col z-50 transition-all duration-300">
-            <div class="px-6 py-4">
+        <aside
+            class="sidebar bg-white dark:bg-surface-dark border-inline-end border-slate-200 dark:border-accent-dark flex flex-col z-50 transition-all duration-300">
+            <div class="px-6 py-4 max-lg:px-2">
                 <div class="flex items-center justify-between gap-3 mb-6">
                     <div class="relative group flex items-center gap-2">
-                        <a href="index.html" class="flex items-center gap-2 group">
-                            <img src="../assets/images/logo.png"
-            alt="Logo" class="w-8 h-8 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform">
+                        <a href="index.html" class="flex items-center gap-2.5 max-lg:justify-center">
+                            <div
+                                class="max-lg:w-11 max-lg:h-11 max-lg:rounded-full max-lg:bg-slate-100 max-lg:dark:bg-slate-800 max-lg:flex max-lg:items-center max-lg:justify-center transition-all">
+                                <img src="../assets/images/Group 179.svg" alt="Logo"
+                                    class="w-8 h-8 object-cover group-hover:scale-105 transition-transform">
+                            </div>
                             <h2
-                                class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative font-display">
+                                class="max-lg:hidden text-slate-900 dark:text-slate-100 text-[17px] font-serif font-bold leading-tight hover:text-primary transition-colors uppercase italic relative mt-1">
                                 Lumini
                             </h2>
-
                         </a>
                     </div>
                 </div>
 
 
             </div>
-            <nav class="flex-1 px-3 space-y-1 mt-2" id="sidebar-nav">
-                <a class="flex items-center gap-3 px-3 py-2.5 bg-primary text-white font-bold text-sm transition-all shadow-md shadow-primary/20"
+            <nav class="flex-1 px-3 max-lg:px-1 space-y-2 mt-2" id="sidebar-nav">
+                <a class="flex items-center max-lg:justify-center gap-3 px-3 py-2.5 bg-primary text-white font-bold text-sm transition-all shadow-md shadow-primary/20"
                     href="javascript:void(0)" onclick="switchSection('overview')" id="nav-overview">
                     <span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
-                    <span>Dashboard</span>
+                    <span class="max-lg:hidden">Dashboard</span>
                 </a>
 
-                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
+                <a class="flex items-center max-lg:justify-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
                     href="javascript:void(0)" onclick="switchSection('orders')" id="nav-orders">
                     <span class="material-symbols-outlined text-[20px]" data-icon="shopping_cart">shopping_cart</span>
-                    <span>Orders</span>
+                    <span class="max-lg:hidden">Orders</span>
                 </a>
-                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
+                <a class="flex items-center max-lg:justify-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
                     href="javascript:void(0)" onclick="switchSection('saved')" id="nav-saved">
                     <span class="material-symbols-outlined text-[20px]" data-icon="bookmark">bookmark</span>
-                    <span>Saved</span>
+                    <span class="max-lg:hidden">Saved</span>
                 </a>
-                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
+                <a class="flex items-center max-lg:justify-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium"
                     href="javascript:void(0)" onclick="switchSection('messages')" id="nav-messages">
                     <span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
-                    <span>Messages</span>
+                    <span class="max-lg:hidden">Messages</span>
                 </a>
             </nav>
+            <!-- Sidebar Bottom Actions -->
+            <div class="px-6 py-4 border-t border-slate-100 dark:border-white/10 space-y-4">
+                <div class="flex gap-2">
+                    <!-- RTL/LTR Toggle -->
+                    <button id="dir-toggle-sidebar"
+                        class="size-10 flex items-center justify-center bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 transition-all hover:bg-slate-100 dark:hover:bg-white/10 text-[10px] font-black uppercase tracking-widest text-slate-700 dark:text-slate-300">
+                        RTL
+                    </button>
+                    <button id="theme-toggle-sidebar"
+                        class="size-10 flex items-center justify-center bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 transition-all hover:bg-slate-100 dark:hover:bg-white/10">
+                        <span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
+                        <span
+                            class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
+                    </button>
+                </div>
+            </div>
             <!-- Bottom User Profile -->
-            <div class="p-4 mt-auto border-t border-slate-200 dark:border-accent-dark">
-                <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-accent-dark transition-all cursor-pointer group"
+            <div class="p-4 max-lg:p-2 mt-auto border-t border-slate-200 dark:border-accent-dark">
+                <div class="flex items-center max-lg:justify-center gap-3 p-3 rounded-none transition-all group"
                     onclick="switchSection('profile')" id="nav-profile-bottom">
                     <div
-                        class="size-11 rounded-full border-2 border-primary/30 p-0.5 group-hover:scale-105 transition-transform shrink-0">
+                        class="size-11 rounded-full border-2 border-primary/30 p-0.5 transition-transform shrink-0">
                         <div class="h-full w-full rounded-full bg-cover bg-center"
                             style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop')">
                         </div>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <p class="text-sm font-bold truncate text-slate-900 dark:text-slate-100">Jacob Bethel</p>
-                        <p class="text-[10px] font-bold text-primary uppercase tracking-tighter truncate">Premium Member
+                        <p class="text-sm font-bold truncate text-slate-900 dark:text-slate-100 max-lg:hidden">Jacob
+                            Bethel</p>
+                        <p class="text-[10px] font-bold text-primary uppercase tracking-tighter truncate max-lg:hidden">
+                            Premium Member
                         </p>
                     </div>
                     <button
-                        class="size-8 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors">
+                        class="max-lg:hidden size-8 flex items-center justify-center text-slate-400 transition-colors max-lg:h-10 max-lg:rounded-none">
                         <span class="material-symbols-outlined text-[20px]">settings</span>
                     </button>
                 </div>
                 <a href="index.html"
                     class="mt-4 w-full flex items-center justify-center gap-2 py-2 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors">
                     <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
-                    Sign Out
+                    <span class="max-lg:hidden">Sign Out</span>
                 </a>
             </div>
         </aside>
 
         <!-- Main Content Area -->
-        <main class="main-content flex flex-col min-h-screen transition-all duration-300">
+        <main class="main-content w-full w-full flex flex-col min-h-screen transition-all duration-300">
             <!-- Fixed Top Header -->
-            <header
-                class="sticky top-0 z-40 w-full bg-white/80 dark:bg-surface-dark/80 backdrop-blur-xl border-b border-slate-200 dark:border-accent-dark px-4 md:px-8 py-4 flex items-center justify-between">
-                <div>
-                    <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white" id="section-title">
-                        Dashboard Overview</h1>
-                    <p class="text-xs text-slate-500 dark:text-slate-400" id="section-subtitle">Welcome back, Jacob!
-                        Your photography studio at a glance.</p>
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <div
-                        class="flex items-center gap-2 p-1 bg-slate-50 dark:bg-accent-dark/30 rounded-lg border border-slate-100 dark:border-accent-dark/50">
-                        <button id="dir-toggle-nav"
-                            class="px-4 h-9 flex items-center justify-center text-[10px] font-black tracking-widest bg-transparent hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-accent-dark transition-all active:scale-95">LTR</button>
-                        <button id="theme-toggle-nav"
-                            class="w-12 h-9 flex items-center justify-center text-slate-500 hover:text-primary bg-transparent hover:bg-white/50 dark:hover:bg-slate-800/50 border border-transparent hover:border-slate-200 dark:hover:border-accent-dark transition-all active:scale-95">
-                            <span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
-                            <span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
-                        </button>
+                        <header
+                class="sticky top-0 z-40 w-full bg-white/80 dark:bg-[#030712]/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 px-4 md:px-8 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <button id="mobile-drawer-trigger" class="lg:hidden size-10 flex items-center justify-center bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-2xl">menu</span>
+                    </button>
+                    <div class="flex flex-col">
+                        <h1 class="text-base md:text-2xl font-bold text-slate-900 dark:text-white leading-tight" id="section-title">
+                            Dashboard Overview</h1>
+                        <p class="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 opacity-80" id="section-subtitle">
+                            Welcome back!
+                        </p>
                     </div>
                 </div>
+
+                
             </header>
 
-            <div class="p-4 md:p-8 pb-32 md:pb-8 flex-1" id="dashboard-content">
+            <div class="w-full pb-32 md:pb-8 flex-1" id="dashboard-content">
                 <!-- Content loaded via JavaScript -->
             </div>
         </main>
     </div>
 
+    <!-- Mobile Drawer -->
+    <div id="drawer-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300"></div>
+        <!-- Premium Mobile Drawer (Dashboard Version) -->
+    <div id="mobile-drawer"
+    class="fixed top-0 left-0 h-full w-[300px] bg-white/95 dark:bg-[#030712]/95 backdrop-blur-2xl text-slate-900 dark:text-white z-[101] -translate-x-full transition-transform duration-500 border-r border-slate-200 dark:border-white/10  flex flex-col overflow-hidden">
+    
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between p-8 border-b border-slate-100 dark:border-white/5">
+            <a href="../index.html" class="flex items-center gap-3 group">
+        <img src="../assets/images/Group 179.svg" alt="Logo" class="w-7 h-7 object-cover group-hover:scale-110 transition-transform">
+        <h2 class="text-slate-900 dark:text-white text-[17px] font-black leading-none uppercase italic tracking-tighter flex items-center group-hover:text-primary transition-colors">
+          Lumini
+        </h2>
+      </a>
+      <button id="mobile-drawer-close" class="group size-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white transition-all duration-300">
+        <span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform">close</span>
+      </button>
+    </div>
+
+    <!-- Drawer Links -->
+    <div class="flex-1 overflow-y-auto px-8 py-10 no-scrollbar">
+      <nav class="flex flex-col gap-6">
+        <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-2">Management</p>
+        
+        <div class="space-y-4">
+            <a href="javascript:void(0)" onclick="switchSection('overview'); closeDrawer()" class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors py-1">
+              <span class="size-9 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">dashboard</span>
+              Dashboard
+            </a>
+            <a href="javascript:void(0)" onclick="switchSection('orders'); closeDrawer()" class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors py-1">
+              <span class="size-9 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">shopping_cart</span>
+              Orders
+            </a>
+            <a href="javascript:void(0)" onclick="switchSection('saved'); closeDrawer()" class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors py-1">
+              <span class="size-9 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">bookmark</span>
+              Saved
+            </a>
+            <a href="javascript:void(0)" onclick="switchSection('messages'); closeDrawer()" class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors py-1">
+              <span class="size-9 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">mail</span>
+              Messages
+            </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-6 bg-slate-50 dark:bg-white/5 border-t border-slate-100 dark:border-white/10 space-y-6">
+        <!-- RTL & Dark Mode buttons strip -->
+        <div class="flex gap-3">
+            <button id="dir-toggle-drawer" class="flex-1 h-11 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
+                RTL View
+            </button>
+            <button id="theme-toggle-drawer" class="size-11 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all">
+                <span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
+                <span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
+            </button>
+        </div>
+
+        <!-- Profile & Sign Out (Matches desktop sidebar perfectly) -->
+        <div class="border-t border-slate-200 dark:border-slate-700/50 pt-4">
+            <div class="flex items-center gap-3 p-2 rounded-none transition-all group cursor-pointer"
+                onclick="switchSection('profile'); closeDrawer()">
+                <div class="size-11 rounded-full border-2 border-primary/30 p-0.5 transition-transform shrink-0">
+                    <div class="h-full w-full rounded-full bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop')">
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold truncate text-slate-900 dark:text-slate-100">Jacob Bethel</p>
+                    <p class="text-[10px] font-bold text-primary uppercase tracking-tighter truncate">Premium Member</p>
+                </div>
+                <button class="size-8 flex items-center justify-center text-slate-400 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">settings</span>
+                </button>
+            </div>
+            <a href="index.html"
+                class="mt-3 w-full flex items-center justify-center gap-2 py-2.5 text-sm font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 border border-transparent hover:border-red-200 dark:hover:border-red-900/30 transition-all uppercase tracking-wider text-[11px]">
+                <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+        </div>
+    </div>
+  </div><!-- End Mobile Drawer -->
+
     <!-- Section Templates -->
     <script type="text/template" id="tmpl-overview">
-    <div class="pt-2 md:pt-0 space-y-8 max-w-7xl mx-auto w-full">
+    <div class="w-full px-4 md:px-8 py-6 space-y-6 max-lg:space-y-4">
         <!-- Welcome Section -->
         <section>
             <p class="text-slate-500 dark:text-slate-400 mt-1 font-display">Your project status is updated in
                 real-time.</p>
         </section>
         <!-- Stats Bento Grid -->
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-nav-mobile:gap-4">
             <!-- Orders Card -->
             <div
-                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm p-6 rounded-2xl shadow-xl relative overflow-hidden group hover:border-primary 
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm p-6 rounded-none shadow-xl relative overflow-hidden group hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
                 <div class="relative z-10 ">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <div class="flex items-center justify-between gap-2 mb-4">
+                        <div class="w-10 h-10 rounded-none bg-primary/10 flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined">shopping_bag</span>
                         </div>
                         <span
-                            class="text-[#3492eb] text-xs font-bold px-2 py-1 bg-[#3492eb]/10 rounded-lg">+12.5%</span>
+                            class="text-[#3492eb] text-[11px] md:text-[11px] md:text-xs font-bold px-2 py-1 bg-[#3492eb]/10 rounded-none">+12.5%</span>
                     </div>
                     <h3 class="text-slate-500 dark:text-slate-400 text-sm font-medium">Active Bookings</h3>
                     <p class="text-3xl font-display font-extrabold text-slate-900 dark:text-white mt-1">1,284</p>
@@ -232,16 +346,16 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             </div>
             <!-- Activity Card -->
             <div
-                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm p-6 rounded-2xl shadow-xl relative overflow-hidden group hover:border-primary 
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm p-6 rounded-none shadow-xl relative overflow-hidden group hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
                 <div class="relative z-10">
-                    <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center justify-between gap-2 mb-4">
                         <div
-                            class="w-10 h-10 rounded-xl bg-[#3492eb]/10 flex items-center justify-center text-[#3492eb]">
+                            class="w-10 h-10 rounded-none bg-[#3492eb]/10 flex items-center justify-center text-[#3492eb]">
                             <span class="material-symbols-outlined">analytics</span>
                         </div>
-                        <span class="text-primary text-xs font-bold px-2 py-1 bg-primary/10 rounded-lg">Real-time</span>
+                        <span class="text-primary text-[11px] md:text-[11px] md:text-xs font-bold px-2 py-1 bg-primary/10 rounded-none">Real-time</span>
                     </div>
                     <h3 class="text-slate-500 dark:text-slate-400 text-sm font-medium">Project Completion</h3>
                     <p class="text-3xl font-display font-extrabold text-slate-900 dark:text-white mt-1">94.2%</p>
@@ -257,31 +371,31 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             </div>
             <!-- Saved Items Card -->
             <div
-                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm p-6 rounded-2xl shadow-xl relative overflow-hidden group hover:border-primary 
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm p-6 rounded-none shadow-xl relative overflow-hidden group hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
                 <div class="relative z-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <div class="flex items-center justify-between gap-2 mb-4">
+                        <div class="w-10 h-10 rounded-none bg-primary/10 flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined">favorite</span>
                         </div>
                         <span
-                            class="text-slate-500 dark:text-slate-400 text-xs font-medium px-2 py-1 bg-slate-400/10 rounded-lg">New</span>
+                            class="text-slate-500 dark:text-slate-400 text-[11px] md:text-[11px] md:text-xs font-medium px-2 py-1 bg-slate-400/10 rounded-none">New</span>
                     </div>
                     <h3 class="text-slate-500 dark:text-slate-400 text-sm font-medium">Wishlist Services</h3>
                     <p class="text-3xl font-display font-extrabold text-slate-900 dark:text-white mt-1">42</p>
                     <div class="mt-4 flex -space-x-2">
                         <img class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container"
                             data-alt="Project 1 preview thumbnail"
-                            src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop?q=80&w=2058&auto=format&fit=crop" />
+                            src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop" />
                         <img class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container"
                             data-alt="Project 2 preview thumbnail"
-                            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop?q=80&w=1976&auto=format&fit=crop" />
+                            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" />
                         <img class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container"
                             data-alt="Project 3 preview thumbnail"
-                            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop?q=80&w=2069&auto=format&fit=crop" />
+                            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" />
                         <div
-                            class="w-8 h-8 rounded-full border-2 border-surface bg-white dark:bg-slate-900 flex items-center justify-center text-[10px] text-primary">
+                            class="w-8 h-8 rounded-full border-2 border-surface bg-white dark:bg-slate-900 flex items-center justify-center text-[10px] text-primary ">
                             +39</div>
                     </div>
                 </div>
@@ -289,12 +403,36 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                     class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all">
                 </div>
             </div>
+            <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm p-6 rounded-none shadow-xl relative overflow-hidden group hover:border-primary 
+dark:hover:border-primary 
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
+                <div class="relative z-10">
+                    <div class="flex items-center justify-between gap-2 mb-4">
+                        <div
+                            class="w-10 h-10 rounded-none bg-[#3492eb]/10 flex items-center justify-center text-[#3492eb]">
+                            <span class="material-symbols-outlined">analytics</span>
+                        </div>
+                        <span class="text-primary text-[11px] md:text-[11px] md:text-xs font-bold px-2 py-1 bg-primary/10 rounded-none">Real-time</span>
+                    </div>
+                    <h3 class="text-slate-500 dark:text-slate-400 text-sm font-medium">Project Completion</h3>
+                    <p class="text-3xl font-display font-extrabold text-slate-900 dark:text-white mt-1">94.2%</p>
+                    <div class="mt-4 h-12 flex items-center justify-center">
+                        <div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-secondary to-primary-container w-[94%]"></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="absolute -right-4 -bottom-4 w-24 h-24 bg-[#3492eb]/5 rounded-full blur-3xl group-hover:bg-[#3492eb]/10 transition-all">
+                </div>
+            </div>
         </section>
         <!-- Main View Area (Bento Layout) -->
         <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <!-- Main Analytics Card -->
             <div
-                class="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-3xl overflow-hidden flex flex-col min-h-[400px]">
+                class="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-none overflow-hidden flex flex-col min-h-[400px] ">
                 <div class="p-8 flex justify-between items-center border-b border-slate-200 dark:border-accent-dark">
                     <div>
                         <h3 class="text-xl font-display font-bold text-primary">Analytics Overview</h3>
@@ -303,9 +441,9 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                     </div>
                     <div class="flex gap-2">
                         <button
-                            class="px-4 py-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white text-xs font-semibold hover:bg-primary/10 hover:text-primary transition-all duration-300">Daily</button>
+                            class="px-4 py-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white text-[11px] md:text-[11px] md:text-xs font-semibold hover:bg-primary/10 hover:text-primary transition-all duration-300  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">Daily</button>
                         <button
-                            class="px-4 py-2 bg-primary text-white text-xs font-semibold shadow-[0_0_20px_rgba(52,146,235,0.4)]">Weekly</button>
+                            class="px-4 py-2 bg-primary text-white text-[11px] md:text-[11px] md:text-xs font-semibold shadow-[0_0_20px_rgba(52,146,235,0.4)] max-lg:h-10 max-lg:rounded-none">Weekly</button>
                     </div>
                 </div>
                 <div class="flex-grow p-8 flex items-center justify-center relative">
@@ -333,72 +471,72 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                         class="absolute top-1/2 left-1/4 -translate-y-1/2 w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(192,193,255,0.8)] border-2 border-white">
                     </div>
                     <div
-                        class="absolute top-1/2 left-1/4 ms-6 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark text-[10px] backdrop-blur-md">
+                        class="absolute top-1/2 left-1/4 ms-6 p-2 rounded-none bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark text-[10px] backdrop-blur-md ">
                         <span class="text-slate-500 dark:text-slate-400">Peak Sat:</span> 8.4k Units
                     </div>
                 </div>
             </div>
             <!-- Activity Timeline -->
             <div
-                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-3xl p-8 space-y-6">
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-none p-8 space-y-6 ">
                 <div class="flex justify-between items-center">
                     <h3 class="text-lg font-display font-bold text-slate-900 dark:text-white">Recent Activity</h3>
-                    <button class="text-primary text-xs font-medium hover:underline">View All</button>
+                    <button class="text-primary text-[11px] md:text-[11px] md:text-xs font-medium hover:underline max-lg:h-10 max-lg:rounded-none">View All</button>
                 </div>
                 <div
                     class="space-y-6 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container">
                     <!-- Timeline Items -->
                     <div class="flex gap-4 relative">
                         <div
-                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10">
+                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10 ">
                             <div class="w-2 h-2 rounded-full bg-amber-500"></div>
                         </div>
                         <div>
                             <p class="text-sm font-medium text-slate-900 dark:text-white">Project #8420 Delivered</p>
-                            <p class="text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">2 minutes ago</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">2 minutes ago</p>
                         </div>
                     </div>
                     <div class="flex gap-4 relative">
                         <div
-                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10">
+                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10 ">
                             <div class="w-2 h-2 rounded-full bg-primary"></div>
                         </div>
                         <div>
                             <p class="text-sm font-medium text-slate-900 dark:text-white">New user registered: Sara T.
                             </p>
-                            <p class="text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">45 minutes ago</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">45 minutes ago</p>
                         </div>
                     </div>
                     <div class="flex gap-4 relative">
                         <div
-                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10">
+                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10 ">
                             <div class="w-2 h-2 rounded-full bg-indigo-500"></div>
                         </div>
                         <div>
                             <p class="text-sm font-medium text-slate-900 dark:text-white">System update successful</p>
-                            <p class="text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">2 hours ago</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">2 hours ago</p>
                         </div>
                     </div>
                     <div class="flex gap-4 relative">
                         <div
-                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10">
+                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10 ">
                             <div class="w-2 h-2 rounded-full bg-slate-500"></div>
                         </div>
                         <div>
                             <p class="text-sm font-medium text-slate-900 dark:text-white">Saved item "Cloud Engine"
                                 updated</p>
-                            <p class="text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">4 hours ago</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">4 hours ago</p>
                         </div>
                     </div>
                     <div class="flex gap-4 relative">
                         <div
-                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10">
+                            class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center z-10 ">
                             <div class="w-2 h-2 rounded-full bg-red-500"></div>
                         </div>
                         <div>
                             <p class="text-sm font-medium text-slate-900 dark:text-white">Failed login attempt detected
                             </p>
-                            <p class="text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">Yesterday</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400">Yesterday</p>
                         </div>
                     </div>
                 </div>
@@ -407,11 +545,11 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
         </section>
 
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-nav-mobile:gap-4 mt-8">
 
             <!-- 💎 PREMIUM (ONLY GLASS) -->
             <div
-                class="glass-premium rounded-2xl p-6 shadow-md hover:scale-[1.02] transition-all duration-300 flex flex-col h-full hover:border-primary 
+                class="glass-premium rounded-none p-6 shadow-md hover:scale-[1.02] transition-all duration-300 flex flex-col h-full hover:border-primary 
 dark:hover:border-primary 
 dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
@@ -419,12 +557,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                 <div>
                     <div class="flex justify-between items-center mb-4">
                         <h4 class="font-semibold text-sm text-slate-900 dark:text-white">Platinum Benefits</h4>
-                        <span class="text-[10px] bg-white/60 dark:bg-white/10 px-2 py-1 rounded uppercase">
+                        <span class="text-[10px] bg-white/60 dark:bg-white/10 px-2 py-1 rounded uppercase ">
                             Premium
                         </span>
                     </div>
 
-                    <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                    <ul class="space-y-2 text-[11px] md:text-[11px] md:text-xs text-slate-600 dark:text-slate-300">
                         <li>✔ Priority Booking</li>
                         <li>✔ Cloud Backup & Delivery</li>
                         <li>✔ Exclusive Discounts</li>
@@ -433,7 +571,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
                 <!-- BUTTON (PUSHED TO BOTTOM) -->
                 <button
-                    class="mt-auto w-full py-2 text-xs font-semibold bg-primary text-white hover:opacity-90 transition">
+                    class="mt-auto w-full py-2 text-[11px] md:text-[11px] md:text-xs font-semibold bg-primary text-white hover:opacity-90 transition max-lg:h-10 max-lg:rounded-none">
                     Upgrade Plan
                 </button>
 
@@ -441,34 +579,34 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
 
             <!-- ⚡ QUICK ACTIONS (ULTRA) -->
-            <div class="glass-card rounded-2xl p-5 hover:scale-[1.02] transition-all duration-300 hover:border-primary 
+            <div class="glass-card rounded-none p-5 hover:scale-[1.02] transition-all duration-300 hover:border-primary 
 dark:hover:border-primary 
 dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
                 <h4 class="font-bold text-sm mb-4">Quick Actions</h4>
 
-                <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="grid grid-cols-2 gap-3 text-[11px] md:text-[11px] md:text-xs">
 
                     <button
-                        class="p-3 bg-white/5 hover:bg-primary hover:text-white transition-all flex flex-col items-center gap-1">
+                        class="p-3 bg-white/5 transition-all flex flex-col items-center gap-1  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                         <span class="material-symbols-outlined text-lg">camera_alt</span>
                         Book Session
                     </button>
 
                     <button
-                        class="p-3 bg-white/5 hover:bg-primary hover:text-white transition-all flex flex-col items-center gap-1">
+                        class="p-3 bg-white/5 hover:bg-primary hover:text-white transition-all flex flex-col items-center gap-1  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                         <span class="material-symbols-outlined text-lg">event</span>
                         Schedule
                     </button>
 
                     <button
-                        class="p-3 bg-white/5 hover:bg-primary hover:text-white transition-all flex flex-col items-center gap-1">
+                        class="p-3 bg-white/5 hover:bg-primary hover:text-white transition-all flex flex-col items-center gap-1  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                         <span class="material-symbols-outlined text-lg">payments</span>
                         Payments
                     </button>
 
                     <button
-                        class="p-3 bg-white/5 hover:bg-primary hover:text-white transition-all flex flex-col items-center gap-1">
+                        class="p-3 bg-white/5 transition-all flex flex-col items-center gap-1  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                         <span class="material-symbols-outlined text-lg">support_agent</span>
                         Support
                     </button>
@@ -478,13 +616,13 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
 
             <!-- 📸 SESSION STATUS (ULTRA) -->
-            <div class="glass-card rounded-2xl p-5 hover:scale-[1.02] transition-all duration-300 hover:border-primary 
+            <div class="glass-card rounded-none p-5 hover:scale-[1.02] transition-all duration-300 hover:border-primary 
 dark:hover:border-primary 
 dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
                 <h4 class="font-bold text-sm mb-4">Session Status</h4>
 
-                <div class="space-y-3 text-xs">
+                <div class="space-y-3 text-[11px] md:text-[11px] md:text-xs">
 
                     <div class="flex justify-between">
                         <span class="text-slate-400">Project</span>
@@ -510,7 +648,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                         <span>85%</span>
                     </div>
 
-                    <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden ">
                         <div class="h-2 bg-gradient-to-r from-primary to-blue-400 rounded-full animate-pulse"
                             style="width: 85%"></div>
                     </div>
@@ -529,12 +667,13 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
     <script type="text/template" id="tmpl-profile">
 <!-- HEADER -->
     <!-- Header Section content moved to header -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div class="w-full px-4 md:px-8 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-nav-mobile:gap-4 items-start">
         <!-- Left Column: Avatar & Account Status (Bento Style) -->
         <div class="lg:col-span-4 space-y-6">
             <!-- Avatar Card -->
             <div
-                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-xl p-8 flex flex-col items-center text-center relative overflow-hidden group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-none p-8 flex flex-col items-center text-center relative overflow-hidden group hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 ">
                 <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
                 <div class="relative mb-6">
                     <div class="w-32 h-32 rounded-full p-1 bg-gradient-to-br from-primary to-amber-500">
@@ -546,25 +685,29 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                         </div>
                     </div>
                     <button
-                        class="absolute bottom-1 right-1 bg-primary text-white p-2 shadow-lg hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-sm">photo_camera</span>
+                        class="absolute bottom-1 right-1 bg-primary text-white flex items-center justify-center size-8 md:size-10 rounded-full shadow-lg hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-[16px] md:text-sm">photo_camera</span>
                     </button>
                 </div>
                 <h3 class="text-xl font-bold text-slate-900 dark:text-white font-serif">Jacob Bethel</h3>
                 <p class="text-primary text-sm font-medium mb-4">Master Photographer</p>
-                <div class="flex gap-2 w-full">
+                <div class="flex gap-2 w-full mt-2">
                     <button
-                        class="px-4 py-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white text-xs font-semibold hover:bg-primary/10 hover:text-primary transition-all duration-300 flex-1">Change
-                        Photo</button>
-                    <button class="p-2 text-red-500/80 hover:bg-red-500/10 transition-colors">
-                        <span class="material-symbols-outlined text-sm">delete</span>
+                        class="flex-1 px-4 py-3 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white text-sm font-bold hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center rounded-none shadow-sm">
+                        Change Photo
+                    </button>
+                    <button
+                        class="px-4 py-3 bg-red-50 dark:bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white transition-colors flex items-center justify-center rounded-none shadow-sm">
+                        <span class="material-symbols-outlined text-lg">delete</span>
                     </button>
                 </div>
             </div>
             <!-- Account Details Card -->
             <div
-                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-xl p-6 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300">
-                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Account Status</h4>
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-none p-6 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 ">
+                <h4
+                    class="text-[11px] md:text-[11px] md:text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">
+                    Account Status</h4>
                 <div class="space-y-4">
                     <div class="flex justify-between items-center">
                         <span class="text-sm text-slate-500 dark:text-slate-500 dark:text-slate-400">Tier</span>
@@ -588,72 +731,74 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
         <!-- Right Column: Profile Form -->
         <div class="lg:col-span-8">
             <div
-                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-xl p-8 border border-slate-200 dark:border-accent-dark">
-                <form class="space-y-8">
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm rounded-none p-8 border border-slate-200 dark:border-accent-dark ">
+                <form class="space-y-6 max-lg:space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Name Field -->
                         <div class="space-y-2">
                             <label
-                                class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ms-1">Full
+                                class="block text-[11px] md:text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ms-1">Full
                                 Name</label>
                             <div class="relative">
                                 <input
-                                    class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none"
+                                    class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-none px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none "
                                     type="text" value="Jacob Bethel" />
                             </div>
                         </div>
                         <!-- Email Field -->
                         <div class="space-y-2">
                             <label
-                                class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ms-1">Email
+                                class="block text-[11px] md:text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ms-1">Email
                                 Address</label>
                             <input
-                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none"
+                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-none px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none "
                                 type="email" value="jacobBethel@obsidian.io" />
                         </div>
                         <!-- Phone Field -->
                         <div class="space-y-2">
                             <label
-                                class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ms-1">Phone
+                                class="block text-[11px] md:text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ms-1">Phone
                                 Number</label>
                             <input
-                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none"
+                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-none px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none "
                                 type="tel" value="+1 (555) 000-1234" />
                         </div>
                         <!-- Occupation -->
                         <div class="space-y-2">
                             <label
-                                class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ms-1">Occupation</label>
+                                class="block text-[11px] md:text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ms-1">Occupation</label>
                             <input
-                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none"
+                                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-none px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none "
                                 type="text" value="Product Designer" />
                         </div>
                     </div>
                     <div class="space-y-2">
                         <label
-                            class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 ms-1">Biography</label>
+                            class="block text-[11px] md:text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 ms-1">Biography</label>
                         <textarea
-                            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none resize-none"
+                            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-none px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none resize-none "
                             rows="4">Delivering uncompromising visual perfection through professional photography and artistic retouching.</textarea>
                     </div>
                     <!-- Action Buttons -->
                     <div
                         class="flex flex-col sm:flex-row items-center justify-end gap-4 pt-6 border-t border-slate-200 dark:border-accent-dark">
                         <button
-                            class="w-full sm:w-auto px-8 py-3 text-sm font-semibold text-slate-700 dark:text-white hover:text-primary transition-colors"
+                            class="w-full sm:w-auto px-8 py-3 text-sm font-semibold text-slate-700 dark:text-white hover:text-primary transition-colors max-lg:h-10 max-lg:rounded-none"
                             type="button">Discard Changes</button>
                         <button
-                            class="w-full sm:w-auto px-10 py-3 bg-gradient-to-br from-primary to-blue-600 text-white font-bold hover:shadow-[0_0_30px_rgba(52,146,235,0.3)] transition-all active:scale-95"
+                            class="w-full sm:w-auto px-10 py-3 bg-gradient-to-br from-primary to-blue-600 text-white font-bold flex items-center justify-center hover:shadow-[0_0_30px_rgba(52,146,235,0.3)] transition-all active:scale-95 max-lg:h-12 max-lg:rounded-none"
                             type="submit">Save Profile</button>
                     </div>
                 </form>
             </div>
             <!-- Secondary Task: Security Notice -->
-            <div class="mt-8 flex items-start gap-4 p-6 bg-[#3492eb]/5 rounded-xl border border-[#3492eb]/20">
+            <div class="mt-8 flex items-start gap-4 p-6 bg-[#3492eb]/5 rounded-none border border-[#3492eb]/20">
                 <span class="material-symbols-outlined text-[#3492eb] mt-1">info</span>
                 <div>
                     <h5 class="text-sm font-bold text-[#3492eb] mb-1">Privacy &amp; Security</h5>
-                    <p class="text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400 leading-relaxed">Your data
+                    <p
+                        class="text-[11px] md:text-[11px] md:text-xs text-slate-500 dark:text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Your data
                         is encrypted with enterprise-grade standards. We never share your personal information with
                         third parties. Last login detected from New York, US on Oct 24, 2024.</p>
                 </div>
@@ -665,12 +810,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
     </script>
 
     <script type="text/template" id="tmpl-saved">
-    <div class="space-y-8 max-w-7xl mx-auto w-full">
+    <div class="w-full px-4 md:px-8 py-6 space-y-6 max-lg:space-y-4">
         <!-- Filter Bar -->
-        <div class="flex items-center gap-3 p-2">
-            <span class="text-xs font-display uppercase tracking-widest text-slate-400">Sorted by</span>
+        <div class="flex items-center max-lg:justify-center gap-3 p-2">
+            <span class="text-[11px] md:text-[11px] md:text-xs font-display uppercase tracking-widest text-slate-400">Sorted by</span>
             <button
-                class="bg-white dark:bg-slate-900 px-4 py-2 text-slate-700 dark:text-white text-sm font-medium border border-slate-200 dark:border-accent-dark flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                class="bg-white dark:bg-slate-900 px-4 py-2 text-slate-700 dark:text-white text-sm font-medium border border-slate-200 dark:border-accent-dark flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                 Recently Added
                 <span class="material-symbols-outlined text-sm">expand_more</span>
             </button>
@@ -680,10 +825,10 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 items-stretch">
         <!-- Card 1: Studio Session -->
         <div
-            class="relative group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 flex flex-col h-full">
+            class="relative group bg-white dark:bg-slate-900 rounded-none overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 flex flex-col h-full ">
             <!-- DELETE BUTTON -->
             <button
-                class="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur text-white p-2 hover:bg-red-500 transition">
+                class="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur text-white p-2 hover:bg-red-500 transition max-lg:h-10 max-lg:rounded-none">
                 <span class="material-symbols-outlined text-sm">delete</span>
             </button>
             <!-- IMAGE -->
@@ -694,14 +839,14 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             <!-- CONTENT -->
             <div class="p-5 flex flex-col flex-grow">
                 <div class="flex justify-between items-start mb-1">
-                    <h3 class="font-bold text-sm text-slate-900 dark:text-white leading-tight">Editorial Portrait Session</h3>
+                    <h3 class="font-bold text-sm text-white leading-tight">Editorial Portrait Session</h3>
                     <span class="text-primary font-bold text-sm ms-2">$1,299</span>
                 </div>
                 <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-4">Digital Delivery</p>
 
                 <!-- BUTTON (ALIGNED TO BOTTOM) -->
                 <button
-                    class="w-full py-2.5 text-xs font-semibold bg-primary text-white hover:opacity-90 transition flex items-center justify-center gap-2 mt-auto">
+                    class="w-full py-2.5 text-[11px] md:text-[11px] md:text-xs font-semibold bg-primary text-white hover:opacity-90 transition flex items-center justify-center gap-2 mt-auto max-lg:h-10 max-lg:rounded-none">
                     <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
                     Add to Cart
                 </button>
@@ -710,9 +855,9 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
         <!-- Card 2: Editorial Retouching -->
         <div
-            class="relative group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 flex flex-col h-full">
+            class="relative group bg-white dark:bg-slate-900 rounded-none overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 flex flex-col h-full ">
             <button
-                class="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur text-white p-2 hover:bg-red-500 transition">
+                class="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur text-white p-2 hover:bg-red-500 transition max-lg:h-10 max-lg:rounded-none">
                 <span class="material-symbols-outlined text-sm">delete</span>
             </button>
             <div class="h-44 overflow-hidden flex-shrink-0">
@@ -721,12 +866,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             </div>
             <div class="p-5 flex flex-col flex-grow">
                 <div class="flex justify-between items-start mb-1">
-                    <h3 class="font-bold text-sm text-slate-900 dark:text-white leading-tight">Advanced Retouching v3</h3>
+                    <h3 class="font-bold text-sm text-white leading-tight">Advanced Retouching v3</h3>
                     <span class="text-primary font-bold text-sm ms-2">$850</span>
                 </div>
                 <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-4">Post-Processing</p>
                 <button
-                    class="w-full py-2.5 text-xs font-semibold bg-primary text-white hover:opacity-90 transition flex items-center justify-center gap-2 mt-auto">
+                    class="w-full py-2.5 text-[11px] md:text-[11px] md:text-xs font-semibold bg-primary text-white hover:opacity-90 transition flex items-center justify-center gap-2 mt-auto max-lg:h-10 max-lg:rounded-none">
                     <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
                     Add to Cart
                 </button>
@@ -735,9 +880,9 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
         <!-- Card 3: Commercial Campaign -->
         <div
-            class="relative group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 flex flex-col h-full">
+            class="relative group bg-white dark:bg-slate-900 rounded-none overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 flex flex-col h-full ">
             <button
-                class="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur text-white p-2 hover:bg-red-500 transition">
+                class="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur text-white p-2 hover:bg-red-500 transition max-lg:h-10 max-lg:rounded-none">
                 <span class="material-symbols-outlined text-sm">delete</span>
             </button>
             <div class="h-44 overflow-hidden flex-shrink-0">
@@ -746,13 +891,13 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             </div>
             <div class="p-5 flex flex-col flex-grow">
                 <div class="flex justify-between items-start mb-1">
-                    <h3 class="font-bold text-sm text-slate-900 dark:text-white leading-tight">Bespoke Commercial Shoot
+                    <h3 class="font-bold text-sm text-white leading-tight">Bespoke Commercial Shoot
                     </h3>
                     <span class="text-primary font-bold text-sm ms-2">$450</span>
                 </div>
                 <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-4">Brand Storytelling</p>
                 <button
-                    class="w-full py-2.5 text-xs font-semibold bg-primary text-white hover:opacity-90 transition flex items-center justify-center gap-2 mt-auto">
+                    class="w-full py-2.5 text-[11px] md:text-[11px] md:text-xs font-semibold bg-primary text-white hover:opacity-90 transition flex items-center justify-center gap-2 mt-auto max-lg:h-10 max-lg:rounded-none">
                     <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
                     Add to Cart
                 </button>
@@ -761,9 +906,9 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
         <!-- Card 4: Product Highlight -->
         <div
-            class="relative group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 flex flex-col h-full">
+            class="relative group bg-white dark:bg-slate-900 rounded-none overflow-hidden border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 flex flex-col h-full ">
             <button
-                class="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur text-white p-2 hover:bg-red-500 transition">
+                class="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur text-white p-2 hover:bg-red-500 transition max-lg:h-10 max-lg:rounded-none">
                 <span class="material-symbols-outlined text-sm">delete</span>
             </button>
             <div class="h-44 overflow-hidden flex-shrink-0">
@@ -772,12 +917,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             </div>
             <div class="p-5 flex flex-col flex-grow">
                 <div class="flex justify-between items-start mb-1">
-                    <h3 class="font-bold text-sm text-slate-900 dark:text-white leading-tight">Event Coverage Pro</h3>
+                    <h3 class="font-bold text-sm text-white leading-tight">Event Coverage Pro</h3>
                     <span class="text-primary font-bold text-sm ms-2">$399</span>
                 </div>
                 <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-4">High-Res Gallery</p>
                 <button
-                    class="w-full py-2.5 text-xs font-semibold bg-primary text-white hover:opacity-90 transition flex items-center justify-center gap-2 mt-auto">
+                    class="w-full py-2.5 text-[11px] md:text-[11px] md:text-xs font-semibold bg-primary text-white hover:opacity-90 transition flex items-center justify-center gap-2 mt-auto max-lg:h-10 max-lg:rounded-none">
                     <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
                     Add to Cart
                 </button>
@@ -791,41 +936,41 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <!-- Item 1 -->
             <div
-                class="bg-slate-100 dark:bg-slate-800 rounded-2xl p-3 group cursor-pointer hover:bg-primary/10 transition-colors h-full">
+                class="bg-slate-100 dark:bg-slate-800 rounded-none p-3 group cursor-pointer hover:bg-primary/10 transition-colors h-full ">
                 <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop"
-                    class="w-full h-24 object-cover rounded-xl mb-2 group-hover:scale-105 transition-transform" />
-                <p class="text-xs font-semibold text-slate-900 dark:text-white">Product Photography</p>
+                    class="w-full h-24 object-cover rounded-none mb-2 group-hover:scale-105 transition-transform" />
+                <p class="text-[11px] md:text-[11px] md:text-xs font-semibold text-slate-900 dark:text-white">Product Photography</p>
             </div>
 
             <!-- Item 2 -->
             <div
-                class="bg-slate-100 dark:bg-slate-800 rounded-2xl p-3 group cursor-pointer hover:bg-primary/10 transition-colors h-full">
+                class="bg-slate-100 dark:bg-slate-800 rounded-none p-3 group cursor-pointer hover:bg-primary/10 transition-colors h-full ">
                 <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop"
-                    class="w-full h-24 object-cover rounded-xl mb-2 group-hover:scale-105 transition-transform" />
-                <p class="text-xs font-semibold text-slate-900 dark:text-white">Premium Color Grading</p>
+                    class="w-full h-24 object-cover rounded-none mb-2 group-hover:scale-105 transition-transform" />
+                <p class="text-[11px] md:text-[11px] md:text-xs font-semibold text-slate-900 dark:text-white">Premium Color Grading</p>
             </div>
 
             <!-- Item 3 -->
             <div
-                class="bg-slate-100 dark:bg-slate-800 rounded-2xl p-3 group cursor-pointer hover:bg-primary/10 transition-colors h-full">
+                class="bg-slate-100 dark:bg-slate-800 rounded-none p-3 group cursor-pointer hover:bg-primary/10 transition-colors h-full ">
                 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop?q=80&w=1999&auto=format&fit=crop"
-                    class="w-full h-24 object-cover rounded-xl mb-2 group-hover:scale-105 transition-transform" />
-                <p class="text-xs font-semibold text-slate-900 dark:text-white">Studio Lighting Setup</p>
+                    class="w-full h-24 object-cover rounded-none mb-2 group-hover:scale-105 transition-transform" />
+                <p class="text-[11px] md:text-[11px] md:text-xs font-semibold text-slate-900 dark:text-white">Studio Lighting Setup</p>
             </div>
 
             <!-- Item 4 -->
             <div
-                class="bg-slate-100 dark:bg-slate-800 rounded-2xl p-3 group cursor-pointer hover:bg-primary/10 transition-colors h-full">
+                class="bg-slate-100 dark:bg-slate-800 rounded-none p-3 group cursor-pointer hover:bg-primary/10 transition-colors h-full ">
                 <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?q=80&w=2070&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop"
-                    class="w-full h-24 object-cover rounded-xl mb-2 group-hover:scale-105 transition-transform" />
-                <p class="text-xs font-semibold text-slate-900 dark:text-white">Express 24h Delivery</p>
+                    class="w-full h-24 object-cover rounded-none mb-2 group-hover:scale-105 transition-transform" />
+                <p class="text-[11px] md:text-[11px] md:text-xs font-semibold text-slate-900 dark:text-white">Express 24h Delivery</p>
             </div>
         </div>
     </div>
     <!-- Empty State Example (Hidden by default, used when list is empty) -->
     <div class="hidden flex-col items-center justify-center py-32 text-center">
         <div
-            class="w-24 h-24 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mb-6 relative">
+            class="w-24 h-24 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mb-6 relative ">
             <span class="material-symbols-outlined text-5xl text-slate-400"
                 data-icon="bookmark_border">bookmark_border</span>
             <div
@@ -836,7 +981,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
         <p class="text-slate-500 dark:text-slate-400 max-w-xs mx-auto mb-8 font-display">Explore our premium photography services.
             packages and save your favorites to compare.</p>
         <button
-            class="px-8 py-3 bg-primary text-on-primary font-bold hover:shadow-[0_0_30px_rgba(52,146,235,0.4)] transition-shadow">
+            class="px-8 py-3 bg-primary text-on-primary font-bold hover:shadow-[0_0_30px_rgba(52,146,235,0.4)] transition-shadow max-lg:h-10 max-lg:rounded-none">
             Browse Services
         </button>
     </div>
@@ -845,16 +990,15 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
     </script>
 
     <script type="text/template" id="tmpl-orders">
-    <div class="pt-4 md:pt-0 max-w-7xl mx-auto space-y-10">
-    <div class="pt-10 px-6 md:px-12 max-w-7xl mx-auto space-y-10">
+    <div class="w-full min-h-full bg-slate-50/50 dark:bg-white/5 px-4 md:px-8 py-6 space-y-6 md:space-y-10">
         <!-- Page Header Section content moved to header -->
-        <div class="w-full max-w-none px-4 md:px-6 lg:px-8 space-y-10">
+        <div class="w-full space-y-6 md:space-y-10">
 
             <!-- HEADER ACTION BAR -->
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 
                 <!-- AVATARS -->
-                <div class="flex items-center gap-3">
+                <div class="flex items-center max-lg:justify-center gap-3">
                     <div class="flex -space-x-3">
                         <img class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover"
                             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" />
@@ -863,7 +1007,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                             src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop" />
 
                         <div
-                            class="h-8 w-8 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-[10px] font-bold ring-2 ring-white dark:ring-slate-900 text-primary">
+                            class="h-8 w-8 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-[10px] font-bold ring-2 ring-white dark:ring-slate-900 text-primary ">
                             +12
                         </div>
                     </div>
@@ -872,7 +1016,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                 <!-- BUTTON -->
                 <a href="book-services.html"
                     class="w-full sm:w-auto bg-gradient-to-br from-primary to-blue-600 text-white px-6 py-2.5 font-semibold text-sm shadow-md hover:shadow-lg active:scale-95 transition-all flex items-center justify-center">
-                    Book Services
+                    Book Now
                 </a>
 
             </div>
@@ -880,33 +1024,33 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             <!-- Quick Stats Bento -->
             <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
                 <div
-                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all p-6 rounded-3xl col-span-1 md:col-span-2 relative overflow-hidden group hover:border-primary 
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all p-6 rounded-none col-span-1 md:col-span-2 relative overflow-hidden group hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
                     <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                         <span class="material-symbols-outlined text-8xl"
                             style="font-variation-settings: 'FILL' 1;">package_2</span>
                     </div>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Total Spent</p>
+                    <p class="text-[11px] md:text-[11px] md:text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Total Spent</p>
                     <h3 class="font-display text-4xl font-bold text-slate-900 dark:text-white">$12,450.00</h3>
                     <div
-                        class="mt-4 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#3492eb]/20 text-[#3492eb]">
+                        class="mt-4 inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] md:text-[11px] md:text-xs font-medium bg-[#3492eb]/20 text-[#3492eb]">
                         <span class="material-symbols-outlined text-sm me-1">trending_up</span> +14.2% from last month
                     </div>
                 </div>
                 <div
-                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all p-6 rounded-3xl col-span-1 hover:border-primary 
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all p-6 rounded-none col-span-1 hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Active</p>
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
+                    <p class="text-[11px] md:text-[11px] md:text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Active</p>
                     <h3 class="font-display text-3xl font-bold text-slate-900 dark:text-white">12</h3>
                     <p class="text-slate-500 dark:text-slate-400 text-sm mt-2">Active projects</p>
                 </div>
                 <div
-                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all p-6 rounded-3xl col-span-1 hover:border-primary 
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all p-6 rounded-none col-span-1 hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Pending</p>
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
+                    <p class="text-[11px] md:text-[11px] md:text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Pending</p>
                     <h3 class="font-display text-3xl font-bold text-primary">04</h3>
                     <p class="text-slate-500 dark:text-slate-500 dark:text-slate-400 text-sm mt-2">Awaiting approval</p>
                 </div>
@@ -917,11 +1061,11 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                     <h3 class="text-lg font-bold font-display">Recent Activity</h3>
                     <div class="flex gap-2">
                         <button
-                            class="p-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white hover:text-primary transition-colors">
+                            class="p-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white hover:text-primary transition-colors  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                             <span class="material-symbols-outlined text-sm">filter_list</span>
                         </button>
                         <button
-                            class="p-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white hover:text-primary transition-colors">
+                            class="p-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white hover:text-primary transition-colors  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                             <span class="material-symbols-outlined text-sm">sort</span>
                         </button>
                     </div>
@@ -930,12 +1074,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                 <div class="space-y-4">
                     <!-- Card 1: Shipped -->
                     <div
-                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-3xl p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group hover:border-primary 
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-none p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
                         <div class="flex flex-col md:flex-row md:items-center gap-6">
                             <div
-                                class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
+                                class="w-16 h-16 rounded-none bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner ">
                                 <span class="material-symbols-outlined text-primary text-3xl">photo_library</span>
                             </div>
                             <div class="flex-1">
@@ -968,18 +1112,18 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                             </div>
                             <div class="flex items-center justify-end">
                                 <button
-                                    class="p-3 bg-slate-50 dark:bg-slate-800 text-slate-500 group-hover:text-primary transition-all">
+                                    class="p-3 bg-slate-50 dark:bg-slate-800 text-slate-500 group-hover:text-primary transition-all  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                                     <span class="material-symbols-outlined">expand_more</span>
                                 </button>
                             </div>
                         </div>
                         <!-- Detailed View (Hidden by default, shown on expansion) -->
                         <div class="mt-6 pt-6 border-t border-slate-200 dark:border-accent-dark hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-lg:gap-3">
                                 <div class="space-y-4">
-                                    <h5 class="text-xs font-bold uppercase text-slate-500 tracking-widest">Tracking Info
+                                    <h5 class="text-[11px] md:text-[11px] md:text-xs font-bold uppercase text-slate-500 tracking-widest">Tracking Info
                                     </h5>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center max-lg:justify-center gap-3">
                                         <span class="material-symbols-outlined text-primary">local_shipping</span>
                                         <div class="text-sm">
                                             <p class="text-slate-900 dark:text-white font-medium">FedEx Priority
@@ -989,7 +1133,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                                     </div>
                                 </div>
                                 <div class="col-span-2">
-                                    <h5 class="text-xs font-bold uppercase text-slate-500 tracking-widest mb-4">
+                                    <h5 class="text-[11px] md:text-[11px] md:text-xs font-bold uppercase text-slate-500 tracking-widest mb-4">
                                         Milestones
                                     </h5>
                                     <div
@@ -1000,15 +1144,15 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                                                 <span class="material-symbols-outlined text-[12px] text-white"
                                                     style="font-variation-settings: 'FILL' 1;">check</span>
                                             </div>
-                                            <p class="text-xs text-[#3492eb] font-bold">Arrived at Destination Facility
+                                            <p class="text-[11px] md:text-[11px] md:text-xs text-[#3492eb] font-bold">Arrived at Destination Facility
                                             </p>
                                             <p class="text-[10px] text-slate-500">London, UK - 09:42 AM</p>
                                         </div>
                                         <div class="relative">
                                             <div
-                                                class="absolute -left-[21px] w-[22px] h-[22px] bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center ring-4 ring-background border border-slate-200 dark:border-accent-dark">
+                                                class="absolute -left-[21px] w-[22px] h-[22px] bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center ring-4 ring-background border border-slate-200 dark:border-accent-dark ">
                                             </div>
-                                            <p class="text-xs text-slate-900 dark:text-white font-medium">Out for
+                                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-900 dark:text-white font-medium">Out for
                                                 Delivery
                                             </p>
                                             <p class="text-[10px] text-slate-500">Scheduled for today</p>
@@ -1020,12 +1164,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                     </div>
                     <!-- Card 2: Pending -->
                     <div
-                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-3xl p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group hover:border-primary 
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-none p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
                         <div class="flex flex-col md:flex-row md:items-center gap-6">
                             <div
-                                class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
+                                class="w-16 h-16 rounded-none bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner ">
                                 <span class="material-symbols-outlined text-primary text-3xl">celebration</span>
                             </div>
                             <div class="flex-1">
@@ -1058,7 +1202,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                             </div>
                             <div class="flex items-center justify-end">
                                 <button
-                                    class="p-3 bg-slate-50 dark:bg-slate-800 text-slate-500 group-hover:text-primary transition-all">
+                                    class="p-3 bg-slate-50 dark:bg-slate-800 text-slate-500 group-hover:text-primary transition-all  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                                     <span class="material-symbols-outlined">expand_more</span>
                                 </button>
                             </div>
@@ -1066,12 +1210,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                     </div>
                     <!-- Card 3: Cancelled -->
                     <div
-                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-3xl p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group opacity-70 grayscale-[0.5] hover:border-primary 
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-none p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group opacity-70 grayscale-[0.5] hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
                         <div class="flex flex-col md:flex-row md:items-center gap-6">
                             <div
-                                class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
+                                class="w-16 h-16 rounded-none bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner ">
                                 <span class="material-symbols-outlined text-red-500 text-3xl">inventory_2</span>
                             </div>
                             <div class="flex-1">
@@ -1104,7 +1248,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                             </div>
                             <div class="flex items-center justify-end">
                                 <button
-                                    class="p-3 bg-slate-50 dark:bg-slate-800 text-slate-500 transition-all">
+                                    class="p-3 bg-slate-50 dark:bg-slate-800 text-slate-500 transition-all  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                                     <span class="material-symbols-outlined">expand_more</span>
                                 </button>
                             </div>
@@ -1112,12 +1256,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                     </div>
                     <!-- Card 4: Shipped -->
                     <div
-                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-3xl p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group hover:border-primary 
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-none p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group hover:border-primary 
 dark:hover:border-primary 
-dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] ">
                         <div class="flex flex-col md:flex-row md:items-center gap-6">
                             <div
-                                class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
+                                class="w-16 h-16 rounded-none bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner ">
                                 <span class="material-symbols-outlined text-primary text-3xl">person_search</span>
                             </div>
                             <div class="flex-1">
@@ -1150,7 +1294,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                             </div>
                             <div class="flex items-center justify-end">
                                 <button
-                                    class="p-3 bg-slate-50 dark:bg-slate-800 text-slate-500 group-hover:text-primary transition-all">
+                                    class="p-3 bg-slate-50 dark:bg-slate-800 text-slate-500 group-hover:text-primary transition-all  max-lg:shadow-sm  max-lg:h-10 max-lg:rounded-none max-lg:p-4 max-lg:rounded-none max-lg:shadow-sm">
                                     <span class="material-symbols-outlined">expand_more</span>
                                 </button>
                             </div>
@@ -1164,26 +1308,26 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
     </script>
 
     <script type="text/template" id="tmpl-messages">
-<div class="h-[calc(100vh-140px)] md:h-[calc(100vh-80px)] flex flex-col animate-in fade-in duration-500">
+<div class="h-[calc(100vh-140px)] md:h-[calc(100vh-80px)] flex flex-col animate-in fade-in duration-500 w-full px-4 md:px-8 pb-4">
     <div class="flex flex-1 gap-4 overflow-hidden min-h-0 pt-2">
         <!-- LEFT PANEL (CONTACT LIST) -->
-        <div class="w-full md:w-[320px] lg:w-[380px] bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-accent-dark flex flex-col overflow-hidden shadow-sm">
+        <div class="w-full md:w-[320px] lg:w-[380px] bg-white dark:bg-slate-900 rounded-none border border-slate-200 dark:border-accent-dark flex flex-col overflow-hidden shadow-sm ">
             <!-- FILTERS -->
             <div class="p-4 border-b border-slate-200 dark:border-accent-dark shrink-0">
                 <div class="flex gap-2">
-                    <button class="px-5 py-1.5 bg-primary text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-primary/20">All</button>
-                    <button class="px-5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-accent-dark transition-colors">Unread</button>
-                    <button class="px-5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-accent-dark transition-colors">Important</button>
+                    <button class="px-5 py-1.5 bg-primary text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-primary/20 max-lg:h-10 max-lg:rounded-none">All</button>
+                    <button class="px-5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-accent-dark transition-colors max-lg:h-10 max-lg:rounded-none">Unread</button>
+                    <button class="px-5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-accent-dark transition-colors max-lg:h-10 max-lg:rounded-none">Important</button>
                 </div>
             </div>
 
             <!-- SCROLLABLE CONTACT LIST -->
             <div class="flex-1 overflow-y-auto p-3 space-y-2">
                 <!-- Alex Rivera (Active) -->
-                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 cursor-pointer border border-primary/20 relative group">
+                <div class="p-4 rounded-none bg-slate-50 dark:bg-slate-800 cursor-pointer border border-primary/20 relative group ">
                     <div class="flex gap-3">
                         <div class="relative flex-shrink-0">
-                            <img class="w-12 h-12 rounded-xl object-cover" src="https://images.unsplash.com/photo-1452780212657-6f426227ad3e?q=80&w=2070&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop" alt="Alex Rivera"/>
+                            <img class="w-12 h-12 rounded-none object-cover" src="../assets/images/team1.png" alt="Alex Rivera"/>
                             <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-slate-50 dark:border-slate-800 rounded-full"></div>
                         </div>
                         <div class="flex-1 min-w-0">
@@ -1191,7 +1335,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                                 <h3 class="font-bold text-slate-900 dark:text-white truncate">Alex Rivera</h3>
                                 <span class="text-[9px] text-slate-500 uppercase font-black">2m ago</span>
                             </div>
-                            <p class="text-xs text-slate-900 dark:text-white font-semibold truncate mt-0.5">The wedding gallery is ready for review...</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-900 dark:text-white font-semibold truncate mt-0.5">The wedding gallery is ready for review...</p>
                             <div class="mt-2 flex items-center gap-2">
                                 <span class="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[9px] font-bold tracking-wider">STUDIO-1</span>
                             </div>
@@ -1200,10 +1344,10 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                 </div>
 
                 <!-- Sarah Miller (Fixed Image) -->
-                <div class="p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent transition-all group">
+                <div class="p-4 rounded-none hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent transition-all group ">
                     <div class="flex gap-3 text-left">
                         <div class="relative flex-shrink-0">
-                            <img class="w-12 h-12 rounded-xl object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" alt="Sarah Miller"/>
+                            <img class="w-12 h-12 rounded-none object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" alt="Sarah Miller"/>
                             <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-indigo-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
                         </div>
                         <div class="flex-1 min-w-0">
@@ -1211,55 +1355,55 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                                 <h3 class="font-bold text-slate-500 dark:text-slate-400 truncate group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Sarah Miller</h3>
                                 <span class="text-[9px] text-slate-400 uppercase font-black">1h ago</span>
                             </div>
-                            <p class="text-xs text-slate-500 truncate mt-0.5">High-resolution delivery quote is ready for the project.</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 truncate mt-0.5">High-resolution delivery quote is ready for the project.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Marcus Vogt (Fixed Image) -->
-                <div class="p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent transition-all group">
+                <div class="p-4 rounded-none hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent transition-all group ">
                     <div class="flex gap-3 text-left">
                         <div class="relative flex-shrink-0">
-                            <img class="w-12 h-12 rounded-xl object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop?q=80&w=1974&auto=format&fit=crop" alt="Marcus Vogt"/>
+                            <img class="w-12 h-12 rounded-none object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop" alt="Marcus Vogt"/>
                         </div>
                         <div class="flex-1 min-w-0">
                             <div class="flex justify-between items-start">
                                 <h3 class="font-bold text-slate-500 dark:text-slate-400 truncate group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Marcus Vogt</h3>
                                 <span class="text-[9px] text-slate-400 uppercase font-black">Yesterday</span>
                             </div>
-                            <p class="text-xs text-slate-500 truncate mt-0.5">The equipment drop-off moved to 3 PM EST.</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 truncate mt-0.5">The equipment drop-off moved to 3 PM EST.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- David Chen (New Contact) -->
-                <div class="p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent transition-all group">
+                <div class="p-4 rounded-none hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent transition-all group ">
                     <div class="flex gap-3 text-left">
                         <div class="relative flex-shrink-0 text-left">
-                            <img class="w-12 h-12 rounded-xl object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop?q=80&w=2058&auto=format&fit=crop" alt="David Chen"/>
+                            <img class="w-12 h-12 rounded-none object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop" alt="David Chen"/>
                         </div>
                         <div class="flex-1 min-w-0">
                             <div class="flex justify-between items-start">
                                 <h3 class="font-bold text-slate-500 dark:text-slate-400 truncate group-hover:text-slate-900 dark:group-hover:text-white transition-colors">David Chen</h3>
                                 <span class="text-[9px] text-slate-400 uppercase font-black">Mar 22</span>
                             </div>
-                            <p class="text-xs text-slate-500 truncate mt-0.5">Digital restoration of the vintage set is complete.</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 truncate mt-0.5">Digital restoration of the vintage set is complete.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Jordan Smith (New Contact) -->
-                <div class="p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent transition-all group">
+                <div class="p-4 rounded-none hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent transition-all group ">
                     <div class="flex gap-3 text-left">
                         <div class="relative flex-shrink-0">
-                            <img class="w-12 h-12 rounded-xl object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop?q=80&w=1976&auto=format&fit=crop" alt="Jordan Smith"/>
+                            <img class="w-12 h-12 rounded-none object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" alt="Jordan Smith"/>
                         </div>
                         <div class="flex-1 min-w-0 text-left">
                             <div class="flex justify-between items-start">
                                 <h3 class="font-bold text-slate-500 dark:text-slate-400 truncate group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Jordan Smith</h3>
                                 <span class="text-[9px] text-slate-400 uppercase font-black">Mar 20</span>
                             </div>
-                            <p class="text-xs text-slate-500 truncate mt-0.5">Sent a request for High-Res Digital Art (Retouching).</p>
+                            <p class="text-[11px] md:text-[11px] md:text-xs text-slate-500 truncate mt-0.5">Sent a request for High-Res Digital Art (Retouching).</p>
                         </div>
                     </div>
                 </div>
@@ -1267,12 +1411,12 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
         </div>
 
         <!-- RIGHT PANEL (CHAT AREA) -->
-        <div class="hidden md:flex flex-1 flex-col bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-accent-dark overflow-hidden shadow-sm">
+        <div class="hidden md:flex flex-1 flex-col bg-white dark:bg-slate-900 rounded-none border border-slate-200 dark:border-accent-dark overflow-hidden shadow-sm ">
             <!-- CHAT HEADER -->
             <div class="p-4 border-b border-slate-200 dark:border-accent-dark flex justify-between items-center shrink-0">
-                <div class="flex items-center gap-3">
+                <div class="flex items-center max-lg:justify-center gap-3">
                     <div class="relative">
-                        <img class="w-10 h-10 rounded-xl object-cover" src="https://images.unsplash.com/photo-1452780212657-6f426227ad3e?q=80&w=2070&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop" alt="Alex Rivera"/>
+                        <img class="w-10 h-10 rounded-none object-cover" src="../assets/images/team1.png" alt="Alex Rivera"/>
                         <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
                     </div>
                     <div>
@@ -1281,13 +1425,13 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button class="p-2 text-slate-400 hover:text-primary transition-colors hover:bg-slate-50 dark:hover:bg-accent-dark">
+                    <button class="p-2 text-slate-400 hover:text-primary transition-colors hover:bg-slate-50 dark:hover:bg-accent-dark max-lg:h-10 max-lg:rounded-none">
                         <span class="material-symbols-outlined">call</span>
                     </button>
-                    <button class="p-2 text-slate-400 hover:text-primary transition-colors hover:bg-slate-50 dark:hover:bg-accent-dark">
+                    <button class="p-2 text-slate-400 hover:text-primary transition-colors hover:bg-slate-50 dark:hover:bg-accent-dark max-lg:h-10 max-lg:rounded-none">
                         <span class="material-symbols-outlined">videocam</span>
                     </button>
-                    <button class="p-2 text-slate-400 hover:text-primary transition-colors hover:bg-slate-50 dark:hover:bg-accent-dark">
+                    <button class="p-2 text-slate-400 hover:text-primary transition-colors hover:bg-slate-50 dark:hover:bg-accent-dark max-lg:h-10 max-lg:rounded-none">
                         <span class="material-symbols-outlined">more_vert</span>
                     </button>
                 </div>
@@ -1297,7 +1441,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             <div class="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/30 dark:bg-black/10">
                 <!-- Received Message -->
                 <div class="flex flex-col gap-2 max-w-[80%]">
-                    <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl rounded-bl-none text-sm leading-relaxed border border-slate-100 dark:border-accent-dark shadow-sm">
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-none rounded-bl-none text-sm leading-relaxed border border-slate-100 dark:border-accent-dark shadow-sm ">
                         Hey! I've just finished the preliminary analysis for the wedding & event coverage for the elite session. The color grading is showing great results under the studio monitors. 👋
                     </div>
                     <span class="text-[9px] text-slate-400 font-black uppercase ps-2">11:02 AM</span>
@@ -1305,7 +1449,7 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
                 <!-- Sent Message -->
                 <div class="flex flex-col items-end gap-2 max-w-[80%] ms-auto">
-                    <div class="bg-primary p-4 rounded-3xl rounded-br-none text-white text-sm font-medium leading-relaxed shadow-lg shadow-primary/20">
+                    <div class="bg-primary p-4 rounded-none rounded-br-none text-white text-sm font-medium leading-relaxed shadow-lg shadow-primary/20">
                         That's fantastic news. Did you manage to test the new lighting setup on the backdrops? I noticed some light reflections there yesterday.
                     </div>
                     <span class="text-[9px] text-slate-400 font-black uppercase pe-2">11:05 AM • READ</span>
@@ -1313,15 +1457,15 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 
                 <!-- Received with File -->
                 <div class="flex flex-col gap-3 max-w-[80%]">
-                    <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl rounded-bl-none text-sm leading-relaxed border border-slate-100 dark:border-accent-dark shadow-sm">
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-none rounded-bl-none text-sm leading-relaxed border border-slate-100 dark:border-accent-dark shadow-sm ">
                         Yes, I swapped to the soft-box lighting on those sections and it softened perfectly. Check out the latest inspection report attached here.
                     </div>
-                    <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl border border-primary/20 flex items-center gap-3 cursor-pointer hover:border-primary/50 transition-all group">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <div class="bg-white dark:bg-slate-800 p-3 rounded-none border border-primary/20 flex items-center gap-3 cursor-pointer hover:border-primary/50 transition-all group ">
+                        <div class="w-10 h-10 rounded-none bg-primary/10 flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined">description</span>
                         </div>
                         <div class="flex-1 min-w-0">
-                            <p class="text-[11px] font-bold truncate text-slate-900 dark:text-white">Session_Brief_001.pdf</p>
+                            <p class="text-[11px] font-bold truncate text-white">Session_Brief_001.pdf</p>
                             <p class="text-[9px] text-slate-400 font-black uppercase">2.4 MB • PDF Document</p>
                         </div>
                         <span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">download</span>
@@ -1331,16 +1475,16 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
             </div>
 
             <!-- MESSAGE INPUT -->
-            <div class="p-4 border-t border-slate-200 dark:border-accent-dark bg-white dark:bg-slate-900 shrink-0">
-                <div class="flex items-center gap-3">
-                    <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+            <div class="p-4 border-t border-slate-200 dark:border-accent-dark bg-white dark:bg-slate-900 shrink-0 ">
+                <div class="flex items-center max-lg:justify-center gap-3">
+                    <button class="p-2 text-slate-400 hover:text-primary transition-colors max-lg:h-10 max-lg:rounded-none">
                         <span class="material-symbols-outlined">add_circle</span>
                     </button>
                     <div class="flex-1 relative">
                         <input type="text" placeholder="Type a message..."
-                            class="w-full px-6 py-3 rounded-full bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary/20 text-sm">
+                            class="w-full px-6 py-3 rounded-full bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary/20 text-sm ">
                     </div>
-                    <button class="p-3 bg-primary text-white hover:shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                    <button class="p-3 bg-primary text-white hover:shadow-lg shadow-primary/20 active:scale-95 transition-all max-lg:h-10 max-lg:rounded-none">
                         <span class="material-symbols-outlined text-sm">send</span>
                     </button>
                 </div>
@@ -1351,14 +1495,14 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 </script>
 
     <script type="text/template" id="tmpl-settings">
-<div class="space-y-8 animate-in fade-in duration-500">
-    <div class="max-w-[960px] w-full mx-auto flex flex-col items-center pt-2">
+<div class="w-full px-4 md:px-8 py-6 space-y-6 max-lg:space-y-4 animate-in fade-in duration-500">
+    <div class="w-full mx-auto flex flex-col items-center pt-2">
 
     <!-- 404 Hero Image Section repurposed for Settings -->
     <div class="max-w-[960px] w-full mx-auto flex flex-col items-center">
         <div class="w-full @container">
             <div class="@[480px]:px-4 @[480px]:py-3">
-                <div class="relative bg-cover bg-center flex flex-col justify-center items-center overflow-hidden rounded-xl min-h-[400px] shadow-2xl" data-alt="High-end studio setup with professional lighting equipment" style='background-image: linear-gradient(rgba(34, 22, 16, 0.7), rgba(34, 22, 16, 0.7)), url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop?q=80&w=2069&auto=format&fit=crop");'>
+                <div class="relative bg-cover bg-center flex flex-col justify-center items-center overflow-hidden rounded-none min-h-[400px] shadow-2xl" data-alt="High-end studio setup with professional lighting equipment" style='background-image: linear-gradient(rgba(34, 22, 16, 0.7), rgba(34, 22, 16, 0.7)), url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop?q=80&w=2069&auto=format&fit=crop");'>
                     <div class="text-center z-10 px-6">
                         <h1 class="text-primary font-black text-8xl md:text-[120px] leading-none mb-2 tracking-tighter opacity-90">404</h1>
                         <div class="h-1 w-24 bg-primary mx-auto rounded-full mb-6"></div>
@@ -1376,8 +1520,8 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
                 <a href="#overview" onclick="switchSection('overview')" class="flex min-w-[180px] cursor-pointer items-center justify-center h-14 px-8 bg-primary text-white text-base font-bold leading-normal tracking-wide shadow-lg shadow-primary/30 hover:brightness-110 transition-all">
                     <span>Return to Studio</span>
                 </a>
-                <a href="#profile" onclick="switchSection('profile')" class="flex min-w-[180px] cursor-pointer items-center justify-center h-14 px-8 border-2 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-base font-bold leading-normal tracking-wide hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                    <span>My Profile</span>
+                <a href="#profile" onclick="switchSection('profile')" class="flex min-w-[180px] cursor-pointer items-center justify-center h-14 px-8 border-2 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-base font-bold leading-normal tracking-wide hover:bg-slate-100 dark:hover:bg-slate-800 transition-all ">
+                    <span class="max-lg:hidden">My Profile</span>
                 </a>
             </div>
         </div>
@@ -1385,38 +1529,86 @@ dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 </div>
 </script>
 
-    <!-- Mobile Bottom Navigation -->
-    <nav
-        class="md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-accent-dark px-2 pb-safe pt-2 flex justify-around items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
-        <a href="#overview"
-            class="menu-item flex flex-col items-center gap-1 p-2 w-16 text-slate-500 dark:text-slate-400 transition-colors">
-            <span class="material-symbols-outlined text-[22px]">grid_view</span>
-            <span class="text-[9px] font-bold uppercase tracking-[0.1em]">Home</span>
-        </a>
-        <a href="#orders"
-            class="menu-item flex flex-col items-center gap-1 p-2 w-16 text-slate-500 dark:text-slate-400 transition-colors">
-            <span class="material-symbols-outlined text-[22px]">shopping_cart</span>
-            <span class="text-[9px] font-bold uppercase tracking-[0.1em]">Orders</span>
-        </a>
-        <a href="#saved"
-            class="menu-item flex flex-col items-center gap-1 p-2 w-16 text-slate-500 dark:text-slate-400 transition-colors">
-            <span class="material-symbols-outlined text-[22px]">bookmark</span>
-            <span class="text-[9px] font-bold uppercase tracking-[0.1em]">Saved</span>
-        </a>
-        <a href="#messages"
-            class="menu-item flex flex-col items-center gap-1 p-2 w-16 text-slate-500 dark:text-slate-400 transition-colors">
-            <span class="material-symbols-outlined text-[22px]">mail</span>
-            <span class="text-[9px] font-bold uppercase tracking-[0.1em]">Inbox</span>
-        </a>
-        <a href="#profile"
-            class="menu-item flex flex-col items-center gap-1 p-2 w-16 text-slate-500 dark:text-slate-400 transition-colors">
-            <span class="material-symbols-outlined text-[22px]">person</span>
-            <span class="text-[9px] font-bold uppercase tracking-[0.1em]">Profile</span>
-        </a>
-    </nav>
+
 
     <script src="../assets/js/main.js"></script>
+    <script>
+        // MOBILE DRAWER LOGIC
+        const drawerTrigger = document.getElementById('mobile-drawer-trigger');
+        const drawerClose = document.getElementById('mobile-drawer-close');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        function openDrawer() {
+            mobileDrawer.classList.add("drawer-active");
+            drawerOverlay.classList.remove('invisible', 'opacity-0');
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.remove("drawer-active");
+            drawerOverlay.classList.add('invisible', 'opacity-0');
+        }
+
+        if (drawerTrigger) drawerTrigger.addEventListener('click', openDrawer);
+        if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+        if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
+        // Update active state in drawer
+        function updateDrawerActive(sectionId) {
+            const links = mobileDrawer.querySelectorAll('nav a');
+            links.forEach(link => {
+                const onclick = link.getAttribute('onclick');
+                const iconContainer = link.querySelector('span.size-9');
+                
+                if (onclick && onclick.includes(`'${sectionId}'`)) {
+                    link.classList.add('bg-primary', 'text-white');
+                    link.classList.remove('text-slate-900', 'dark:text-white/90', 'hover:text-primary');
+                    if (iconContainer) {
+                        iconContainer.classList.add('bg-white/20');
+                        iconContainer.classList.remove('bg-slate-100', 'dark:bg-white/5');
+                    }
+                } else if (onclick) {
+                    link.classList.remove('bg-primary', 'text-white');
+                    link.classList.add('text-slate-900', 'dark:text-white/90', 'hover:text-primary');
+                    if (iconContainer) {
+                        iconContainer.classList.remove('bg-white/20');
+                        iconContainer.classList.add('bg-slate-100', 'dark:bg-white/5');
+                    }
+                }
+            });
+        }
+
+        // Wrap switchSection to update drawer
+        const originalSwitchSection = window.switchSection;
+        window.switchSection = function(sectionId) {
+            if (originalSwitchSection) originalSwitchSection(sectionId);
+            updateDrawerActive(sectionId);
+        };
+    </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

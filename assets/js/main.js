@@ -16,6 +16,49 @@ document.addEventListener('DOMContentLoaded', () => {
         onScroll(); // Run once on load in case page is already scrolled
     }
 
+    // 0.1 Active Nav Link Highlighting
+    const highlightActiveNav = () => {
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('#navbar nav a');
+        
+        // Home pages list
+        const homePages = ['index.html', 'home2.html', ''];
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            let isActive = false;
+
+            if (href === currentPath) {
+                isActive = true;
+            } else if (homePages.includes(currentPath) && href === 'index.html' && link.classList.contains('nav-home')) {
+                // Special case for Home parent link when on any home page
+                isActive = true;
+            }
+
+            if (isActive) {
+                link.classList.add('active');
+                link.classList.add('text-primary');
+                
+                // If it's a dropdown child, also highlight the trigger
+                const dropdown = link.closest('.nav-dropdown');
+                if (dropdown) {
+                    const trigger = dropdown.parentElement.querySelector('.dropdown-trigger');
+                    if (trigger) {
+                        trigger.classList.add('active');
+                        trigger.classList.add('text-primary');
+                    }
+                }
+            } else {
+                // Only remove if it's not already handled as a parent trigger
+                if (!link.classList.contains('dropdown-trigger')) {
+                    link.classList.remove('active');
+                    link.classList.remove('text-primary');
+                }
+            }
+        });
+    };
+    highlightActiveNav();
+
 
     const html = document.documentElement;
     const themeToggles = document.querySelectorAll('[id^="theme-toggle"]');
@@ -62,23 +105,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Direction Logic
+    const updateDirUI = (dir) => {
+        html.setAttribute('dir', dir);
+        localStorage.setItem('dir', dir);
+        dirToggles.forEach(btn => {
+            // Always show the TARGET direction as the button label
+            btn.textContent = dir === 'ltr' ? 'RTL' : 'LTR';
+        });
+    };
+
     const currentDir = localStorage.getItem('dir') || 'ltr';
-    html.setAttribute('dir', currentDir);
-    dirToggles.forEach(btn => btn.textContent = currentDir.toUpperCase());
+    updateDirUI(currentDir);
 
     dirToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Disable transitions temporarily to prevent sweep animations
+            html.classList.add('disable-transitions');
+            
             const newDir = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
-            html.setAttribute('dir', newDir);
-            dirToggles.forEach(btn => btn.textContent = newDir.toUpperCase());
-            localStorage.setItem('dir', newDir);
+            updateDirUI(newDir);
+            
+            // Force reflow and re-enable transitions
+            setTimeout(() => {
+                html.classList.remove('disable-transitions');
+            }, 50);
         });
     });
 
     // 2. Global Hover Effects for Cards
     // Select any container that looks like a card based on typical Tailwind class names used in these templates
     const possibleCards = document.querySelectorAll(
-        '.group, [class*="rounded-2xl"], [class*="rounded-xl"], article'
+        '.group, [class*="rounded-none"], [class*="rounded-xl"], article'
     );
 
     possibleCards.forEach(card => {
@@ -121,36 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Click-Based Dropdowns
-    const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
-    const dropdowns = document.querySelectorAll('.nav-dropdown');
-
-    dropdownTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const parent = trigger.closest('.relative');
-            const dropdown = parent.querySelector('.nav-dropdown');
-            
-            // Close other dropdowns
-            dropdowns.forEach(d => {
-                if (d !== dropdown) {
-                    d.classList.add('opacity-0', 'invisible');
-                    d.classList.remove('opacity-100', 'visible');
-                }
-            });
-
-            // Toggle current
-            const isVisible = dropdown.classList.contains('visible');
-            if (isVisible) {
-                dropdown.classList.add('opacity-0', 'invisible');
-                dropdown.classList.remove('opacity-100', 'visible');
-            } else {
-                dropdown.classList.remove('opacity-0', 'invisible');
-                dropdown.classList.add('opacity-100', 'visible');
-            }
-        });
-    });
+    // 3. Dropdowns handled by CSS (hover)
 
     // 4. Mobile Menu Drawer Logic
     const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
@@ -189,13 +219,29 @@ document.addEventListener('DOMContentLoaded', () => {
         drawerOverlay.addEventListener('click', closeDrawer);
     }
 
+    // 3.1 Mobile Drawer Accordion Toggle
+    const accordionTriggers = document.querySelectorAll('.drawer-accordion-trigger');
+    accordionTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const content = trigger.nextElementSibling;
+            const icon = trigger.querySelector('.accordion-icon');
+            
+            if (content) {
+                content.classList.toggle('hidden');
+                if (icon) {
+                    icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            }
+        });
+    });
+
     // Close drawer on escape key
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeDrawer();
     });
 
     // 5. Coming Soon Floating Button Injection
- 
+    
 
     // 6. Global Form Validation
     const forms = document.querySelectorAll('form');
@@ -392,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusClass = event.status === 'Confirmed' ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : 'bg-amber-500/10 text-amber-500 border-amber-500/20';
             
             const card = document.createElement('div');
-            card.className = "bg-white dark:bg-slate-900 rounded-2xl overflow-hidden group border-t border-b ltr:border-r rtl:border-l border-slate-200 dark:border-accent-dark hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] transition-all duration-300 mb-6";
+            card.className = "bg-white dark:bg-slate-900 rounded-none overflow-hidden group border-t border-b ltr:border-r rtl:border-l border-slate-200 dark:border-accent-dark hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_30px_rgba(52,146,235,0.15)] shadow-none hover:shadow-2xl transition-all duration-300 mb-6";
             card.innerHTML = `
                 <div class="flex flex-col md:flex-row">
                     <div class="w-full md:w-48 h-48 md:h-auto bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style="background-image: url('${event.image || 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop?q=80&w=2069&auto=format&fit=crop?q=80&w=800&auto=format&fit=crop'}')"></div>
@@ -845,4 +891,9 @@ window.addEventListener('hashchange', () => {
         if (hash && document.getElementById('tmpl-' + hash)) window.switchSection(hash);
     }
 });
+
+
+
+
+
 

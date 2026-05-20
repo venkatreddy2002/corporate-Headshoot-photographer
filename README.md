@@ -120,7 +120,7 @@ All pages load `main.js`, which powers:
   <!-- Logo -->
   <h2 class="... uppercase italic relative">
     Precision Detail
-    <span class="absolute -right-2 top-0 text-blue-500 text-[10px]">●</span>
+     
   </h2>
 
   <!-- Desktop Nav (hidden below 915px) -->
@@ -153,7 +153,7 @@ All pages load `main.js`, which powers:
 <footer>
   <h4 class="... uppercase italic relative">
     Precision Detail
-    <span class="absolute -right-2 top-0 text-blue-500 text-[10px]">●</span>
+     
   </h4>
   <!-- Quick Links, Support, Subscribe -->
   <p>© 2025 Precision Detail. All rights reserved.</p>

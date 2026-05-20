@@ -20,22 +20,17 @@
     right: 0;
 }
 
-/* --- Mobile Drawer: open from left in RTL --- */
+/* --- Mobile Drawer: Mirror position to LEFT in RTL --- */
 [dir="rtl"] #mobile-drawer {
     right: auto;
     left: 0;
     border-left: none;
-    border-right: 1px solid;
-    transform: translateX(-100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-[dir="rtl"] #mobile-drawer.translate-x-0 {
-    transform: translateX(0);
-}
 
-[dir="rtl"] #mobile-drawer.translate-x-full {
-    transform: translateX(-100%);
-}
+
+
 
 /* --- General text alignment --- */
 [dir="rtl"] .text-right {
@@ -56,4 +51,41 @@
 [dir="rtl"] .fixed.bottom-6.right-6 {
     right: auto;
     left: 1.5rem;
+}
+
+/* In RTL, hide the drawer on the LEFT by sliding it -100% */
+[dir="rtl"] #mobile-drawer.translate-x-full {
+    transform: translateX(-100%) !important;
+}
+
+/* Open at the left edge in RTL */
+[dir="rtl"] #mobile-drawer.translate-x-0 {
+    transform: translateX(0) !important;
+}
+
+/* --- Mobile Drawer Internal Adjustments --- */
+[dir="rtl"] #mobile-drawer .material-symbols-outlined {
+    transform: scaleX(-1);
+}
+
+/* Flip physical borders and padding in the drawer */
+[dir="rtl"] #mobile-drawer .border-l-2 {
+    border-left: none;
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+
+[dir="rtl"] #mobile-drawer .pl-4 {
+    padding-left: 0;
+    padding-right: 1rem;
+}
+
+[dir="rtl"] #mobile-drawer .ml-1 {
+    margin-left: 0;
+    margin-right: 0.25rem;
+}
+
+/* Ensure drawer close button icon doesn't flip incorrectly if it's an 'X' */
+[dir="rtl"] #mobile-drawer #mobile-menu-close .material-symbols-outlined {
+    transform: none;
 }

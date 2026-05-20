@@ -3,6 +3,27 @@
    #navbar starts transparent; JS adds .scrolled
    ============================================ */
 
+/* ============================================
+   Typography & Global Classes
+   ============================================ */
+
+/* Fix browser default purple visited/active color on navbar links */
+#navbar nav a:visited,
+#navbar nav a:active,
+#navbar nav div a:visited,
+#navbar nav div a:active {
+    color: inherit;
+}
+#navbar nav a.text-primary:visited,
+#navbar nav a.text-primary:active,
+#navbar nav a.active:visited,
+#navbar nav a.active:active {
+    color: #3492eb !important;
+}
+.serif-heading {
+    font-family: 'Playfair Display', serif !important;
+}
+
 #navbar {
     /* ensures backdrop-filter works even before scroll */
     -webkit-backdrop-filter: blur(0px);
@@ -67,7 +88,7 @@ header {
     padding-left: 1.5972rem !important;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1150px) {
     header {
         padding-left: 2.3958rem !important;
         padding-right: 2.3958rem !important;
@@ -80,9 +101,14 @@ header [class*="nav-"] {
     font-size: 13px !important;
 }
 
-/* Brand / logo heading (10% increased) */
+/* Brand / logo heading and image - Consistent Height */
 header h2 {
-    font-size: 16px !important;
+    font-size: 22px !important;
+}
+
+header img.rounded-full {
+    height: 40px !important;
+    width: 40px !important;
 }
 
 /* All Material Symbols icons in the header (10% increased) */
@@ -95,35 +121,47 @@ header #theme-toggle-nav .material-symbols-outlined {
     font-size: 18px !important;
 }
 
-/* "Book Services" and "Login" buttons (10% increased) */
+/* "Book Now" and "Login" buttons - Consistent Height */
 header a[href="book-services.html"],
 header a[href="login.html"]:not(.rounded-full) {
-    height: 2.7951rem !important;
-    padding-left: 1.1979rem !important;
-    padding-right: 1.1979rem !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 20px !important;
 }
 
-/* Account circle login button (10% increased) */
+/* Account circle login button */
 header a[href="login.html"].rounded-full {
-    width: 3.1944rem !important;
-    height: 3.1944rem !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 
 /* LTR/RTL direction toggle button */
 header #dir-toggle-nav {
     font-size: 12px !important;
-    padding: 0.3993rem 0.7986rem !important;
+    height: 40px !important;
+    min-width: 60px !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 /* Theme toggle button */
 header #theme-toggle-nav {
-    padding: 0.3993rem !important;
+    height: 40px !important;
+    width: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-/* Mobile menu trigger (10% increased) */
+/* Mobile menu trigger */
 header #mobile-menu-trigger {
-    height: 3.1944rem !important;
-    width: 3.1944rem !important;
+    height: 40px !important;
+    width: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 /* Vertical separator line (10% increased) */
@@ -133,12 +171,90 @@ header .h-4.w-px {
 
 /* Dropdown nav link text */
 header .nav-dropdown a {
-    font-size: 13px !important;
+    font-size: 14px !important;
+}
+
+header nav a {
+    font-size: 12px !important; /* ~10-20% increase */
+    letter-spacing: 0.05em !important;
+}
+
+#navbar {
+    border: none !important;
+    box-shadow: none !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+    transition: all 0.4s ease !important;
+}
+
+#navbar.scrolled {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+}
+
+#navbar::after, #navbar::before {
+    display: none !important;
+}
+
+#navbar.scrolled {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+html.dark #navbar.scrolled {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+}
+
+/* Blog Page Navbar - No merging with image */
+body.page-blog #navbar:not(.scrolled) {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5) !important;
+}
+
+html.dark body.page-blog #navbar:not(.scrolled) {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.5) !important;
+}
+
+/* Ensure text colors are correct on Blog navbar when not scrolled */
+body.page-blog #navbar:not(.scrolled) nav a,
+body.page-blog #navbar:not(.scrolled) .dropdown-trigger,
+body.page-blog #navbar:not(.scrolled) h2 {
+    color: #1e293b !important;
+}
+
+html.dark body.page-blog #navbar:not(.scrolled) nav a,
+html.dark body.page-blog #navbar:not(.scrolled) .dropdown-trigger,
+html.dark body.page-blog #navbar:not(.scrolled) h2 {
+    color: #f1f5f9 !important;
+}
+
+@media (min-width: 1150px) {
+  #mobile-menu-trigger, 
+  header #mobile-menu-trigger {
+    display: none !important;
+  }
 }
 
 /* Expand-more arrow icons in nav */
 header nav span.material-symbols-outlined {
     font-size: 14px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.relative:hover > .dropdown-trigger .material-symbols-outlined {
+    transform: rotate(180deg) !important;
+}
+
+/* Hover Dropdown Logic */
+@media (min-width: 1150px) {
+    .relative:hover > .nav-dropdown {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+    }
 }
 
 /* Make light-mode transparent navbar elements white so they contrast dark hero images */
@@ -153,7 +269,6 @@ html:not(.dark) #navbar:not(.scrolled) nav>div>a.dropdown-trigger:hover {
     color: #3492eb !important;
 }
 
-html:not(.dark) #navbar:not(.scrolled) a[href="book-services.html"],
 html:not(.dark) #navbar:not(.scrolled) [id^="dir-toggle"],
 html:not(.dark) #navbar:not(.scrolled) [id^="theme-toggle"],
 html:not(.dark) #navbar:not(.scrolled) #mobile-menu-trigger {
@@ -201,16 +316,7 @@ html.dark #navbar #mobile-menu-trigger span {
     color: #ffffff !important;
 }
 
-/* Person icon white background in dark mode */
-html.dark #navbar a[href="book-services.html"] {
-    background-color: #ffffff !important;
-    color: #0f172a !important;
-    border-color: #ffffff !important;
-}
-
-html.dark #navbar a[href="book-services.html"] span {
-    color: #0f172a !important;
-}
+/* Dark mode Book Now - handled in global Book Now section below */
 
 
 /* ============================================
@@ -407,6 +513,211 @@ html.dark .glass-premium {
   transition: 0.3s ease !important;
 }
 
-.btn-accent:hover {
-  opacity: 0.9 !important;
+/* Login Button - Blue Style */
+header a[href="login.html"] {
+    background-color: #3492eb !important;
+    color: white !important;
+    border-radius: 0 !important;
+    font-weight: 900 !important;
+}
+
+/* Book Now Button - Global Premium UI */
+header a[href="book-services.html"] {
+    background-color: transparent !important;
+    color: #3492eb !important;
+    border: 2px solid #3492eb !important;
+    border-radius: 0 !important;
+    font-weight: 800 !important;
+    display: flex !important;
+    transition: all 0.3s ease !important;
+}
+
+header a[href="book-services.html"]:hover {
+    background-color: rgba(52, 146, 235, 0.08) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 146, 235, 0.15);
+}
+
+html.dark header a[href="book-services.html"] {
+    background-color: transparent !important;
+    color: #3492eb !important;
+    border: 2px solid #3492eb !important;
+}
+
+/* Active Navbar Link Highlight - Bold Underline */
+header nav a.active {
+    color: #bb85fa !important;               /* white text */
+    font-weight: 900 !important;             /* extra bold */
+    font-size: 14.5px !important;            /* 20% larger than base 12px */
+    -webkit-text-stroke: 0.4px #3492eb;      /* blue stroke outline (vendor-prefixed, all browsers) */
+    position: relative;
+}
+
+header nav a.active::after {
+    content: '' !important;
+    display: block !important;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3492eb;
+}
+
+
+
+/* Global Font Overrides */
+body { font-family: 'Inter', sans-serif !important; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif !important; }
+header nav a, header .dropdown-trigger, .nav-item { font-family: 'Inter', sans-serif !important; }
+
+/* ============================================
+   Dashboard Spacing (Mobile First)
+   ============================================ */
+.dashboard-view .dashboard-inner {
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 1150px) {
+  .dashboard-view .dashboard-inner {
+    max-width: 1200px;   /* tighter container → more visible side gaps */
+    margin: 0 auto;
+    padding-left: 40px;  /* increased spacing */
+    padding-right: 40px;
+  }
+
+  .dashboard-view .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dashboard-view .footer-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+  }
+}
+
+.dashboard-view .full-width {
+  width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* CONTACT PAGE FIX */
+.dashboard-view .contact-section .dashboard-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 1150px) {
+  .dashboard-view .contact-section .dashboard-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* BLOG PAGE GRID ALIGNMENT */
+.dashboard-view .blog-section .dashboard-inner,
+.dashboard-view .latest-insights {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HOME2 TRANSFORMATION SECTION FIX */
+.dashboard-view .transformation-section .dashboard-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-view .transformation-section .dashboard-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+}
+
+.dashboard-view section .dashboard-inner {
+  width: 100%;
+}
+
+.dashboard-view .grid,
+.dashboard-view .cards,
+.dashboard-view .features {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-view .stats-section .dashboard-inner,
+.dashboard-view .subscribe-section .dashboard-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard-view .stats-section .grid,
+.dashboard-view .features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-view section {
+  margin-bottom: 0px;
+}
+
+.dashboard-view h2:not(header h2):not(footer h2),
+.dashboard-view h3:not(header h3):not(footer h3) {
+  margin-bottom: 16px;
+}
+
+.dashboard-view header h2,
+.dashboard-view footer h4 {
+  margin-bottom: 0;
+}
+
+/* HERO CONTENT CENTERING (ABOUT & SERVICES) */
+@media (min-width: 1150px) {
+  .dashboard-view .hero-content {
+    margin: 0 auto !important;
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.dashboard-view .hero-content h1,
+.dashboard-view .hero-content h2,
+.dashboard-view .hero-content p,
+.dashboard-view .hero-content span {
+  text-align: center;
+}
+
+.dashboard-view .hero-content .buttons,
+.dashboard-view .hero-content .cta {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Mobile Drawer Active State */
+#mobile-drawer.drawer-active { transform: translateX(0) !important; }
+
+/* Disable transitions temporarily when switching themes or RTL */
+.disable-transitions * {
+    transition: none !important;
+}
+
+
+/* Apply shadow to mobile drawer ONLY when open (to prevent peeking off-screen shadow) */
+#mobile-drawer.translate-x-0 {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3) !important;
 }

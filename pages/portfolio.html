@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Portfolio | Lumini Photography</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <link rel="icon" type="image/png" href="../assets/images/Group 179.svg">
+
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+        }
+
+        .nav-portfolio {
+            color: #3492eb !important;
+        }
+
+        /* Grid Layout */
+        .portfolio-masonry {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .portfolio-masonry {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .portfolio-masonry {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .portfolio-item {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0px;
+            background: #1e293b;
+            height: 100%;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            position: relative;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            color: #3492eb;
+        }
+
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #3492eb;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .filter-btn.active::after {
+            width: 100%;
+        }
+
+        .filter-btn:hover,
+        .filter-btn:active,
+        .filter-btn:focus {
+            background: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Force navbar text colors for this page (override global white text) */
+        html:not(.dark) body #navbar:not(.scrolled) h2 {
+            color: #0f172a !important;
+        }
+
+        html:not(.dark) body #navbar:not(.scrolled) nav>a:not(.text-primary),
+        html:not(.dark) body #navbar:not(.scrolled) nav>div>a.dropdown-trigger:not(.text-primary) {
+            color: #475569 !important;
+        }
+
+        html:not(.dark) body #navbar:not(.scrolled) nav>a:hover:not(.text-primary),
+        html:not(.dark) body #navbar:not(.scrolled) nav>div>a.dropdown-trigger:hover:not(.text-primary) {
+            color: #3492eb !important;
+        }
+
+        html:not(.dark) body #navbar:not(.scrolled) [id^="dir-toggle"],
+        html:not(.dark) body #navbar:not(.scrolled) [id^="theme-toggle"],
+        html:not(.dark) body #navbar:not(.scrolled) #mobile-menu-trigger {
+            color: #475569 !important;
+            background-color: rgba(241, 245, 249, 0.5) !important;
+            border-color: #e2e8f0 !important;
+        }
+
+        html:not(.dark) body #navbar:not(.scrolled) a[href="login.html"] {
+            color: #475569 !important;
+            background-color: #f8fafc !important;
+            border-color: #e2e8f0 !important;
+        }
+
+        html:not(.dark) body #navbar:not(.scrolled) a[href="login.html"]:hover,
+        html:not(.dark) body #navbar:not(.scrolled) [id^="dir-toggle"]:hover,
+        html:not(.dark) body #navbar:not(.scrolled) [id^="theme-toggle"]:hover,
+        html:not(.dark) body #navbar:not(.scrolled) #mobile-menu-trigger:hover {
+            color: #3492eb !important;
+        }
+
+        /* Dark mode */
+        html.dark body #navbar h2 {
+            color: #f1f5f9 !important;
+        }
+
+        html.dark body #navbar nav>a:not(.text-primary),
+        html.dark body #navbar nav>div>a.dropdown-trigger:not(.text-primary),
+        html.dark body #navbar [id^="dir-toggle"],
+        html.dark body #navbar [id^="theme-toggle"],
+        html.dark body #navbar #mobile-menu-trigger {
+            color: #e2e8f0 !important;
+        }
+
+        html.dark body #navbar a[href="login.html"] {
+            color: #94a3b8 !important;
+            background-color: rgba(30, 41, 59, 0.5) !important;
+            border-color: #334155 !important;
+        }
+
+        html.dark body #navbar a[href="login.html"] span {
+            color: #94a3b8 !important;
+        }
+
+        html.dark body #navbar nav>a:hover:not(.text-primary),
+        html.dark body #navbar nav>div>a.dropdown-trigger:hover:not(.text-primary),
+        html.dark body #navbar a[href="login.html"]:hover,
+        html.dark body #navbar [id^="dir-toggle"]:hover,
+        html.dark body #navbar [id^="theme-toggle"]:hover,
+        html.dark body #navbar #mobile-menu-trigger:hover {
+            color: #3492eb !important;
+        }
+
+        html.dark body #navbar [id^="dir-toggle"] span,
+        html.dark body #navbar [id^="theme-toggle"] span,
+        html.dark body #navbar #mobile-menu-trigger span {
+            color: #e2e8f0 !important;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <header id="navbar" class="bg-transparent fixed top-0 left-0 w-full z-50 transition-colors duration-500 full-width">
+        <div class="dashboard-inner nav-inner flex items-center justify-between px-4 py-2 w-full">
+            <!-- LEFT (LOGO) -->
+            <div class="flex items-center gap-2">
+                <div class="relative group flex items-center gap-2">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <img src="../assets/images/Group 179.svg" alt="Logo"
+                            class="w-8 h-8 object-cover shadow-sm group-hover:scale-105 transition-transform">
+                        <h2
+                            class="text-slate-900 dark:text-slate-100 text-[17px] font-black leading-none hover:text-primary transition-colors uppercase italic relative flex items-center tracking-tighter">
+                            Lumini
+                        </h2>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CENTER (MENU) -->
+            <nav class="hidden nav-mobile:flex items-center gap-3 nav-mobile:gap-4">
+                <div class="relative">
+                    <a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
+                        href="index.html">Home <span
+                            class="material-symbols-outlined text-[12px]">expand_more</span></a>
+                    <div
+                        class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+                        <a href="index.html"
+                            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
+                            1</a>
+                        <a href="home2.html"
+                            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
+                            2</a>
+                    </div>
+                </div>
+                <a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+                    href="about.html">About</a>
+                <a class="nav-services text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+                    href="services.html">Services</a>
+                <a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+                    href="blog.html">Blog</a>
+                <a class="nav-gallery text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+                    href="gallery.html">Gallery</a>
+                <a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+                    href="contact.html">Contact</a>
+                <div class="relative">
+                    <a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
+                        href="dashboard.html">Dashboard <span
+                            class="material-symbols-outlined text-[12px]">expand_more</span></a>
+                    <div
+                        class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+                        <a href="dashboard.html"
+                            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
+                        <a href="user-dashboard.html"
+                            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- RIGHT (ACTIONS) -->
+            <div class="flex items-center gap-2 z-10">
+                <!-- RTL/LTR Toggle (Visible Everywhere) -->
+                <button id="dir-toggle-nav"
+                    class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hidden nav-mobile:flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
+                    RTL
+                </button>
+
+                <!-- MOBILE MENU ICON (Only Mobile) -->
+                <button id="mobile-menu-trigger"
+                    class="flex nav-mobile:hidden h-10 w-10 items-center justify-center text-slate-900 dark:text-white rounded-none border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md transition-all">
+                    <span class="material-symbols-outlined text-[32px]">menu</span>
+                </button>
+
+                <!-- DESKTOP ACTIONS (Hidden on Mobile) -->
+                <div class="hidden nav-mobile:flex items-center gap-2">
+
+                    <button id="theme-toggle-nav"
+                        class="size-9 items-center justify-center bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 ">
+                        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                    </button>
+                    <a href="book-services.html"
+                        class="h-9 px-4 flex items-center justify-center border-2 border-blue-500 text-primary bg-transparent font-bold uppercase text-xs tracking-wide shadow-sm hover:bg-primary/5 transition-all">
+                        Book Now
+                    </a>
+                    <a href="login.html"
+                        class="h-9 px-4 flex items-center justify-center bg-primary text-white text-xs font-bold uppercase shadow-md shadow-primary/20 hover:brightness-110 transition-all">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="drawer-overlay"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300">
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer"
+        class="fixed top-0 right-0 h-full w-[300px] bg-white/95 dark:bg-[#030712]/95 backdrop-blur-2xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-500 border-l border-slate-200 dark:border-white/10  flex flex-col overflow-hidden">
+
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between p-8 border-b border-slate-100 dark:border-white/5">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="../assets/images/Group 179.svg" alt="Logo"
+                    class="w-7 h-7 object-cover group-hover:scale-105 transition-transform">
+                <h2
+                    class="text-slate-900 dark:text-white text-[17px] font-black leading-none uppercase italic tracking-tighter flex items-center group-hover:text-primary transition-colors">
+                    Lumini
+                </h2>
+            </a>
+            <button id="mobile-menu-close"
+                class="group size-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white transition-all duration-300">
+                <span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform">close</span>
+            </button>
+        </div>
+
+        <!-- Drawer Links -->
+        <div class="flex-1 overflow-y-auto px-8 py-10 no-scrollbar">
+            <nav class="flex flex-col gap-8">
+                <!-- Main Links with Serif Style -->
+                <div class="space-y-6">
+                    <div class="drawer-accordion group">
+                        <div
+                            class="drawer-accordion-trigger flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl mb-4 cursor-pointer hover:text-primary transition-colors pb-2 border-b border-slate-100 dark:border-white/5">
+                            Home <span
+                                class="material-symbols-outlined text-sm opacity-100 group-hover:translate-x-1 transition-transform accordion-icon">expand_more</span>
+                        </div>
+                        <div
+                            class="drawer-accordion-content hidden flex flex-col gap-4 pl-4 border-l-2 border-primary/20 ml-1 mt-2 mb-4">
+                            <a href="index.html"
+                                class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">Home 1</a>
+                            <a href="home2.html"
+                                class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">Home 2</a>
+                        </div>
+                    </div>
+
+                    <a href="about.html"
+                        class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+                        About <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                    </a>
+
+                    <a href="services.html"
+                        class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+                        Services <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                    </a>
+
+                    <a href="gallery.html"
+                        class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+                        Gallery <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                    </a>
+
+                    <a href="blog.html"
+                        class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+                        Blog <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                    </a>
+
+                    <a href="contact.html"
+                        class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+                        Contact <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                    </a>
+                </div>
+
+                <!-- Dashboard Links Section -->
+                <div class="mt-8 pt-8 border-t border-slate-100 dark:border-white/10">
+                    <p
+                        class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-6">
+                        Management Portal</p>
+                    <div class="space-y-5">
+                        <a href="dashboard.html"
+                            class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">
+                            <span
+                                class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">admin_panel_settings</span>
+                            Admin Dashboard
+                        </a>
+                        <a href="user-dashboard.html"
+                            class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">
+                            <span
+                                class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">person</span>
+                            User Dashboard
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="p-8 bg-slate-50 dark:bg-white/5 border-t border-slate-100 dark:border-white/10 space-y-6">
+            <div class="flex gap-3">
+                <button id="dir-toggle-drawer"
+                    class="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
+                    RTL View
+                </button>
+                <button id="theme-toggle-drawer"
+                    class="size-12 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all">
+                    <span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
+                    <span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <a href="book-services.html"
+                    class="bg-primary text-white flex items-center justify-center w-full h-14 font-black uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
+                    Book Now
+                </a>
+                <a href="login.html"
+                    class="flex items-center justify-center w-full h-12 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest hover:bg-slate-300 dark:hover:bg-white/20 transition-all">
+                    Login
+                </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex items-center justify-center gap-6 pt-4">
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-xl">public</span></a>
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-xl">share</span></a>
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span
+                        class="material-symbols-outlined text-xl">alternate_email</span></a>
+            </div>
+        </div>
+    </div><!-- End Mobile Drawer -->
+
+    <main class="pt-20">
+        <!-- HERO SECTION -->
+        <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552"
+                    class="w-full h-full object-cover opacity-30 blur-sm scale-110" alt="Background">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-transparent via-background-light/50 dark:via-background-dark/50 to-background-light dark:to-background-dark">
+                </div>
+            </div>
+
+            <div class="relative z-10 text-center px-6 max-w-4xl mx-auto animate-fade-in-up">
+                <span class="text-primary font-black uppercase tracking-[0.3em] text-sm mb-4 block">Visual
+                    Excellence</span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-[0.9]">
+                    Our <span class="text-primary italic">Portfolio</span>
+                </h1>
+                <p
+                    class="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+                    A curated collection of timeless stories, captured with precision and crafted with soul. Explore our
+                    latest works across various categories.
+                </p>
+            </div>
+
+
+        </section>
+
+        <section
+            class="py-12 border-y border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark">
+            <div class="dashboard-inner flex flex-wrap justify-center gap-4 md:gap-8">
+                <button class="filter-btn active" data-filter="all">All Works</button>
+                <button class="filter-btn" data-filter="wedding">Weddings</button>
+                <button class="filter-btn" data-filter="portrait">Portraits</button>
+                <button class="filter-btn" data-filter="event">Events</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="travel">Travel</button>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO GRID -->
+        <section class="py-20 px-6">
+
+            <div class="dashboard-inner">
+                <div id="portfolio-masonry" class="portfolio-masonry">
+
+                    <!-- ITEM 1 -->
+                    <div class="portfolio-item wedding animate-fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop"
+                                alt="Wedding">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Weddings</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Eternal Grace</h3>
+                                <p class="text-white/60 text-xs italic">Palace Grounds, Jaipur</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 1.5 (New Wedding) -->
+                    <div class="portfolio-item wedding animate-fade-in-up" style="animation-delay: 0.15s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop"
+                                alt="Wedding">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Weddings</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Vows & Rings</h3>
+                                <p class="text-white/60 text-xs italic">Lake Como, Italy</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 1.6 (New Wedding) -->
+                    <div class="portfolio-item wedding animate-fade-in-up" style="animation-delay: 0.18s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop"
+                                alt="Wedding">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Weddings</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Bridal Glow</h3>
+                                <p class="text-white/60 text-xs italic">Boutique Hotel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2 -->
+                    <div class="portfolio-item portrait animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop"
+                                alt="Portrait">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Portraits</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Urban Soul</h3>
+                                <p class="text-white/60 text-xs italic">Editorial Studio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2.5 (New Portrait) -->
+                    <div class="portfolio-item portrait animate-fade-in-up" style="animation-delay: 0.25s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+                                alt="Portrait">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Portraits</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Classic Elegance</h3>
+                                <p class="text-white/60 text-xs italic">Natural Light Studio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2.6 (New Portrait) -->
+                    <div class="portfolio-item portrait animate-fade-in-up" style="animation-delay: 0.28s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop"
+                                alt="Portrait">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Portraits</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Bold Shadows</h3>
+                                <p class="text-white/60 text-xs italic">Location Shoot</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3 -->
+                    <div class="portfolio-item event animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop"
+                                alt="Event">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Events</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Gala Night</h3>
+                                <p class="text-white/60 text-xs italic">Grand Ballroom</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3.5 (New Event) -->
+                    <div class="portfolio-item event animate-fade-in-up" style="animation-delay: 0.35s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop"
+                                alt="Event">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Events</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Live Concert</h3>
+                                <p class="text-white/60 text-xs italic">Downtown Arena</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3.6 (New Event) -->
+                    <div class="portfolio-item event animate-fade-in-up" style="animation-delay: 0.38s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop"
+                                alt="Event">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Events</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Corporate Summit</h3>
+                                <p class="text-white/60 text-xs italic">Convention Center</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 4 -->
+                    <div class="portfolio-item commercial animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop"
+                                alt="Commercial">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Commercial</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Modern Flow</h3>
+                                <p class="text-white/60 text-xs italic">Product Campaign</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 4.5 (New Commercial) -->
+                    <div class="portfolio-item commercial animate-fade-in-up" style="animation-delay: 0.45s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop"
+                                alt="Commercial">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Commercial</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Audio Excellence</h3>
+                                <p class="text-white/60 text-xs italic">Brand Studio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 4.6 (New Commercial) -->
+                    <div class="portfolio-item commercial animate-fade-in-up" style="animation-delay: 0.48s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop"
+                                alt="Commercial">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Commercial</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Timeless Piece</h3>
+                                <p class="text-white/60 text-xs italic">Luxury Campaign</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 5 -->
+                    <div class="portfolio-item travel animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop"
+                                alt="Travel">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Travel</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Serene Blue</h3>
+                                <p class="text-white/60 text-xs italic">Coastal Maldives</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 5.5 (New Travel) -->
+                    <div class="portfolio-item travel animate-fade-in-up" style="animation-delay: 0.55s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop"
+                                alt="Travel">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Travel</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Alpine Peaks</h3>
+                                <p class="text-white/60 text-xs italic">Swiss Alps</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 5.6 (New Travel) -->
+                    <div class="portfolio-item travel animate-fade-in-up" style="animation-delay: 0.58s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1504150558240-0b4fd8946624?q=80&w=800&auto=format&fit=crop"
+                                alt="Travel">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Travel</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Desert Wonders</h3>
+                                <p class="text-white/60 text-xs italic">Sahara Expedition</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 6 -->
+                    <div class="portfolio-item wedding animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop"
+                                alt="Wedding">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Weddings</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Royal Union</h3>
+                                <p class="text-white/60 text-xs italic">Fort Heritage</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Wedding 1 -->
+                    <div class="portfolio-item wedding animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop"
+                                alt="Wedding">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Weddings</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Sacred Promise</h3>
+                                <p class="text-white/60 text-xs italic">Vintage Chapel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Wedding 2 -->
+                    <div class="portfolio-item wedding animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop"
+                                alt="Wedding">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Weddings</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">First Dance</h3>
+                                <p class="text-white/60 text-xs italic">Crystal Ballroom</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Travel 1 -->
+                    <div class="portfolio-item travel animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=800&auto=format&fit=crop"
+                                alt="Travel">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Travel</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Parisian Streets</h3>
+                                <p class="text-white/60 text-xs italic">France</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Travel 2 -->
+                    <div class="portfolio-item travel animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800&auto=format&fit=crop"
+                                alt="Travel">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Travel</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Tropical Paradise</h3>
+                                <p class="text-white/60 text-xs italic">Bora Bora</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Travel 3 -->
+                    <div class="portfolio-item travel animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop"
+                                alt="Travel">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Travel</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Grand Canyon</h3>
+                                <p class="text-white/60 text-xs italic">Arizona, USA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Portrait 1 -->
+                    <div class="portfolio-item portrait animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
+                                alt="Portrait">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Portraits</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Classic Beauty</h3>
+                                <p class="text-white/60 text-xs italic">Studio Session</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Portrait 2 -->
+                    <div class="portfolio-item portrait animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop"
+                                alt="Portrait">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Portraits</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Fashion Forward</h3>
+                                <p class="text-white/60 text-xs italic">Editorial Shoot</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Portrait 3 -->
+                    <div class="portfolio-item portrait animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
+                                alt="Portrait">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Portraits</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Monochrome</h3>
+                                <p class="text-white/60 text-xs italic">Artistic Portrait</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Event 1 -->
+                    <div class="portfolio-item event animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop"
+                                alt="Event">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Events</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Neon Nights</h3>
+                                <p class="text-white/60 text-xs italic">Exclusive Party</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Event 2 -->
+                    <div class="portfolio-item event animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=800&auto=format&fit=crop"
+                                alt="Event">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Events</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Summer Fest</h3>
+                                <p class="text-white/60 text-xs italic">Outdoor Festival</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Event 3 -->
+                    <div class="portfolio-item event animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=800&auto=format&fit=crop"
+                                alt="Event">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Events</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Live Symphony</h3>
+                                <p class="text-white/60 text-xs italic">Open Air Concert</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Commercial 1 -->
+                    <div class="portfolio-item commercial animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop"
+                                alt="Commercial">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Commercial</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Sneaker Drop</h3>
+                                <p class="text-white/60 text-xs italic">Product Launch</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Commercial 2 -->
+                    <div class="portfolio-item commercial animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop"
+                                alt="Commercial">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Commercial</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Luxury Time</h3>
+                                <p class="text-white/60 text-xs italic">Watch Campaign</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Commercial 3 -->
+                    <div class="portfolio-item commercial animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="portfolio-card">
+                            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop"
+                                alt="Commercial">
+                            <div class="portfolio-overlay">
+                                <span
+                                    class="text-primary text-[10px] font-black uppercase tracking-widest mb-2">Commercial</span>
+                                <h3 class="text-white text-2xl font-bold mb-2">Vision Clear</h3>
+                                <p class="text-white/60 text-xs italic">Eyewear Studio</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="py-32 px-6 bg-slate-950 text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div
+                    class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent">
+                </div>
+            </div>
+
+            <div class="relative z-10 dashboard-inner text-center">
+                <h2 class="serif-heading text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">Ready to <span
+                        class="text-primary italic">Capture</span> Yours?</h2>
+                <p class="text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-light">Join our elite circle of clients
+                    and experience photography at its most refined.</p>
+                <a href="contact.html"
+                    class="inline-flex h-16 px-12 items-center justify-center bg-primary text-white font-bold uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl shadow-primary/40">Inquire
+                    Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 full-width">
+        <div class="max-w-7xl mx-auto px-6 lg:px-20 pt-12 pb-6 dashboard-inner">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-6 footer-inner">
+                <div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+                    <div class="flex items-center gap-2 mb-6">
+                        <img src="../assets/images/Group 179.svg" alt="Logo" class="w-8 h-8 object-cover">
+                        <h4
+                            class="text-slate-900 dark:text-white font-black text-2xl tracking-tighter uppercase italic relative">
+                            Lumini
+                        </h4>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining artistic excellence
+                        through
+                        meticulous composition and premium photography services.</p>
+                    <div class="flex gap-4 mt-2"><a
+                            class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                            href="#"><span class="material-symbols-outlined text-[18px]">public</span></a><a
+                            class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                            href="#"><span class="material-symbols-outlined text-[18px]">share</span>
+                        </a>
+                    </div>
+                    <br>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 dark:text-white font-bold mb-4">Quick Links</h4>
+                    <br>
+                    <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="comingsoon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 dark:text-white font-bold mb-4">Support</h4>
+                    <br>
+                    <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 dark:text-white font-bold mb-4">Subscribe</h4>
+                    <br>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
+                    <div class="flex gap-2">
+                        <input
+                            class="bg-slate-50 dark:bg-slate-800 border-none text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50"
+                            placeholder="Email" type="email" />
+                        <button class="bg-primary text-white px-4 h-10 hover:opacity-90 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[20px]">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-6 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+                © 2026 Lumini. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // AOS Init
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    disable: window.innerWidth < 768
+                });
+            }
+
+            // Portfolio Filtering
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Active Button Class
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    items.forEach(item => {
+                        if (filter === 'all' || item.classList.contains(filter)) {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                            item.style.display = 'block';
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.95)';
+                            setTimeout(() => {
+                                if (!item.classList.contains(filter)) item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

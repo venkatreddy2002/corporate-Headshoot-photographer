@@ -13,7 +13,7 @@ tailwind.config = {
                 "border-dark": "#332218",
             },
             fontFamily: {
-                "display": ["Public Sans", "sans-serif"],
+                "display": ["Inter", "sans-serif"],
                 "serif": ["Playfair Display", "serif"]
             },
             transitionProperty: {
@@ -21,7 +21,7 @@ tailwind.config = {
                 'spacing': 'margin, padding',
             },
             screens: {
-                'nav-mobile': '915px',
+                'nav-mobile': '1150px',
             }
         },
     },

@@ -3,128 +3,144 @@
 <html class="dark" lang="en">
 
 <head>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Lumini | Professional Photography Studio</title>
   <meta name="description"
     content="Lumini offers premier portrait, wedding, and commercial photography services with a focus on capturing pure, artistic moments." />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;family=Playfair+Display:wght@700;900&amp;display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
+
+
   <script src="../assets/js/tailwind-config.js"></script>
   <style>
     body {
-      font-family: 'Public Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     .serif-heading {
       font-family: 'Playfair Display', serif;
     }
+
+    .process-line-container {
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .process-line-container::before {
+        content: '';
+        position: absolute;
+        top: 32px;
+        left: 12.5%;
+        right: 12.5%;
+        height: 2px;
+        background-color: rgba(52, 146, 235, 0.1);
+        z-index: 0;
+      }
+    }
   </style>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
-  <link rel="icon" type="image/png"
-    href="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop">
+  <link rel="icon" type="image/png" href="../assets/images/Group 179.svg">
 </head>
 
 
 <body
-  class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
-    <header id="navbar"
-    class="flex items-center justify-between px-4 lg:px-6 py-2 bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500">
+  class="bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300 dashboard-view">
+  <header id="navbar" class="bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500 full-width">
+    <div class="dashboard-inner nav-inner flex items-center justify-between px-4 py-2 w-full">
+      <!-- LEFT (LOGO) -->
+      <div class="flex items-center gap-2">
+        <div class="relative group flex items-center gap-2">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <img src="../assets/images/Group 179.svg" alt="Logo"
+              class="w-8 h-8 object-cover shadow-sm group-hover:scale-105 transition-transform">
+            <h2
+              class="text-slate-900 dark:text-slate-100 text-[17px] font-black leading-none hover:text-primary transition-colors uppercase italic relative flex items-center tracking-tighter">
+              Lumini
+            </h2>
+          </a>
+        </div>
+      </div>
 
-    <!-- LEFT (LOGO) -->
-    <div class="flex items-center gap-2">
-      <div class="relative group flex items-center gap-2">
-        <a href="index.html" class="flex items-center gap-2 group">
-          <img src="../assets/images/logo.png"
-            alt="Logo" class="w-8 h-8 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform">
-          <h2
-            class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative hidden md:block">
-            Lumini
-            <span class="absolute -right-2 top-0 text-blue-500 text-[10px]">●</span>
-          </h2>
-        </a>
+      <!-- CENTER (MENU) -->
+      <nav class="hidden nav-mobile:flex items-center gap-3 nav-mobile:gap-4">
+        <div class="relative">
+          <a class="nav-home text-primary dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
+            href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+          <div
+            class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+            <a href="index.html"
+              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
+              1</a>
+            <a href="home2.html"
+              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
+              2</a>
+          </div>
+        </div>
+        <a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+          href="about.html">About</a>
+        <a class="nav-services text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+          href="services.html">Services</a>
+        <a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+          href="blog.html">Blog</a>
+        <a class="nav-gallery text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+          href="gallery.html">Gallery</a>
+        <a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
+          href="contact.html">Contact</a>
+        <div class="relative">
+          <a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
+            href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+          <div
+            class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+            <a href="dashboard.html"
+              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
+            <a href="user-dashboard.html"
+              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- RIGHT (ACTIONS) -->
+      <div class="flex items-center gap-2 z-10">
+        <!-- RTL/LTR Toggle (Visible Everywhere) -->
+        <button id="dir-toggle-nav"
+          class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hidden nav-mobile:flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
+          RTL
+        </button>
+
+        <!-- MOBILE MENU ICON (Only Mobile) -->
+        <button id="mobile-menu-trigger"
+          class="flex nav-mobile:hidden h-10 w-10 items-center justify-center text-slate-900 dark:text-white rounded-none border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md transition-all">
+          <span class="material-symbols-outlined text-[32px]">menu</span>
+        </button>
+
+        <!-- DESKTOP ACTIONS (Hidden on Mobile) -->
+        <div class="hidden nav-mobile:flex items-center gap-2">
+
+          <button id="theme-toggle-nav"
+            class="size-9 items-center justify-center bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 ">
+            <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+            <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+          </button>
+          <a href="book-services.html"
+            class="h-9 px-4 flex items-center justify-center border-2 border-blue-500 text-primary bg-transparent font-bold uppercase text-xs tracking-wide shadow-sm hover:bg-primary/5 transition-all">
+            Book Now
+          </a>
+          <a href="login.html"
+            class="h-9 px-4 flex items-center justify-center bg-primary text-white text-xs font-bold uppercase shadow-md shadow-primary/20 hover:brightness-110 transition-all">
+            Login
+          </a>
+        </div>
       </div>
     </div>
-
-    <!-- CENTER (MENU) -->
-    <nav class="hidden nav-mobile:flex items-center gap-3 lg:gap-4">
-      <div class="relative">
-        <a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
-          href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
-        <div
-          class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
-          <a href="index.html"
-            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
-            1</a>
-          <a href="home2.html"
-            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home
-            2</a>
-        </div>
-      </div>
-      <a class="nav-services text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-        href="services.html">Services</a>
-      
-      <a class="nav-gallery text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-        href="gallery.html">Gallery</a>
-      <a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-        href="blog.html">Blog</a>
-      <a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-        href="contact.html">Contact</a>
-      <a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-        href="about.html">About</a>
-      <div class="relative">
-        <a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
-          href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
-        <div
-          class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
-          <a href="dashboard.html"
-            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
-          <a href="user-dashboard.html"
-            class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
-        </div>
-      </div>
-    </nav>
-        <!-- RIGHT (ACTIONS) -->
-        <div class="flex items-center gap-2 z-10">
-
-            <button id="dir-toggle-nav"
-                class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold tracking-widest transition-colors">
-                LTR
-            </button>
-
-            <button id="theme-toggle-nav"
-                class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 transition-colors">
-                <span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
-                <span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
-            </button>
-
-            <a href="book-services.html"
-                class="hidden nav-mobile:flex items-center justify-center h-9 px-4 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-all active:scale-95">
-                Book Sessions
-            </a>
-
-            <a href="login.html"
-                class="hidden nav-mobile:flex items-center justify-center h-9 px-4 bg-primary text-white text-[10px] font-black uppercase tracking-wider transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
-                Login
-            </a>
-
-            <!-- MOBILE MENU -->
-            <button id="mobile-menu-trigger"
-                class="nav-mobile:hidden h-9 w-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors active:scale-90">
-                <span class="material-symbols-outlined text-[20px]">menu</span>
-            </button>
-
-        </div>
-
   </header>
 
   <!-- Mobile Drawer Overlay -->
@@ -134,119 +150,139 @@
 
   <!-- Mobile Drawer -->
   <div id="mobile-drawer"
-    class="fixed top-0 right-0 h-full w-[280px] bg-white/80 dark:bg-[#030712]/80 backdrop-blur-xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-white/10 shadow-2xl flex flex-col overflow-hidden">
-    <!-- Header -->
-            <div class="flex items-center justify-between p-6">
-            <div class="flex items-center gap-2">
-                <img src="../assets/images/logo.png" alt="Logo" class="w-6 h-6 rounded-full object-cover">
-                <h2
-                    class="hidden md:block text-slate-900 dark:text-white text-lg font-black leading-tight tracking-tighter uppercase italic relative">
-                    Lumini
-                    <span class="absolute -right-2 top-0 text-blue-500 text-[10px]">●</span>
-                </h2>
+    class="fixed top-0 right-0 h-full w-[300px] bg-white/95 dark:bg-[#030712]/95 backdrop-blur-2xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-500 border-l border-slate-200 dark:border-white/10  flex flex-col overflow-hidden">
+
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between p-8 border-b border-slate-100 dark:border-white/5">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="../assets/images/Group 179.svg" alt="Logo"
+          class="w-7 h-7 object-cover group-hover:scale-105 transition-transform">
+        <h2
+          class="text-slate-900 dark:text-white text-[17px] font-black leading-none uppercase italic tracking-tighter flex items-center group-hover:text-primary transition-colors">
+          Lumini
+        </h2>
+      </a>
+      <button id="mobile-menu-close"
+        class="group size-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white transition-all duration-300">
+        <span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform">close</span>
+      </button>
+    </div>
+
+    <!-- Drawer Links -->
+    <div class="flex-1 overflow-y-auto px-8 py-10 no-scrollbar">
+      <nav class="flex flex-col gap-8">
+        <!-- Main Links with Serif Style -->
+        <div class="space-y-6">
+          <div class="drawer-accordion group">
+            <div
+              class="drawer-accordion-trigger flex items-center justify-between text-primary font-serif font-black italic text-2xl mb-4 cursor-pointer hover:text-primary transition-colors pb-2 border-b border-slate-100 dark:border-white/5">
+              Home <span
+                class="material-symbols-outlined text-sm opacity-100 group-hover:translate-x-1 transition-transform accordion-icon">expand_more</span>
             </div>
-            <button id="mobile-menu-close"
-                class="text-slate-500 dark:text-slate-600 dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors">
-                <span class="material-symbols-outlined text-2xl">close</span>
-            </button>
+            <div
+              class="drawer-accordion-content flex flex-col gap-4 pl-4 border-l-2 border-primary/20 ml-1 mt-2 mb-4">
+              <a href="index.html" class="text-primary hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">Home 1</a>
+              <a href="home2.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">Home 2</a>
+            </div>
+          </div>
+
+          <a href="about.html"
+            class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+            About <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+          </a>
+
+          <a href="services.html"
+            class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+            Services <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+          </a>
+
+          <a href="gallery.html"
+            class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+            Gallery <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+          </a>
+
+          <a href="blog.html"
+            class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+            Blog <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+          </a>
+
+          <a href="contact.html"
+            class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+            Contact <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+          </a>
         </div>
 
-
-    <!-- Navigation -->
-    <div class="flex-1 overflow-y-auto px-6 py-4">
-      <nav class="flex flex-col gap-6">
-        <!-- Home Links -->
-        <div>
-          <div
-            class="flex items-center justify-between text-slate-900 dark:text-white font-bold text-xl mb-4 group cursor-pointer border-b border-slate-200 dark:border-white/10 pb-2">
-            Home
-            <span class="material-symbols-outlined text-sm opacity-50">chevron_right</span>
-          </div>
-          <div class="flex flex-col gap-3 pl-4 border-l border-slate-200 dark:border-white/10 ml-1">
-            <a href="index.html"
-              class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors flex items-center justify-between">
-              Version 1
+        <!-- Dashboard Links Section -->
+        <div class="mt-8 pt-8 border-t border-slate-100 dark:border-white/10">
+          <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-6">
+            Management Portal</p>
+          <div class="space-y-5">
+            <a href="dashboard.html"
+              class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">
               <span
-                class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded uppercase tracking-widest opacity-50">Default</span>
+                class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">admin_panel_settings</span>
+              Admin Dashboard
             </a>
-            <a href="home2.html"
-              class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors">Version
-              2</a>
+            <a href="user-dashboard.html"
+              class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">
+              <span
+                class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">person</span>
+              User Dashboard
+            </a>
           </div>
-        </div>
-
-        <a href="services.html"
-          class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
-          Services
-          <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-        </a>
-        
-        <a href="gallery.html"
-          class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
-          Gallery
-          <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-        </a>
-        <a href="blog.html"
-          class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
-          Blog
-          <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-        </a>
-        <a href="contact.html"
-          class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
-          Contact
-          <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-        </a>
-        <a href="about.html"
-          class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
-          About
-          <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-        </a>
-
-        <!-- Dashboard/Profile -->
-        <div class="mt-4 pt-6 border-t border-slate-200 dark:border-white/5 space-y-4">
-          <a href="dashboard.html"
-            class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
-            Dashboard
-            <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-          </a>
-          <a href="user-dashboard.html"
-            class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
-            User Dashboard
-            <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-          </a>
         </div>
       </nav>
     </div>
 
-    <!-- Footer Section -->
-    <div class="p-6 bg-slate-50 dark:bg-white/5 border-t border-slate-200 dark:border-white/10 space-y-6">
-      <!-- Book Session Action -->
-      <a href="book-services.html"
-        class="flex items-center justify-center gap-2 w-full h-14 bg-[#3492eb] text-white font-black uppercase tracking-widest text-sm rounded-2xl shadow-xl shadow-[#3492eb]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
-        <span class="material-symbols-outlined text-lg">camera</span>
-        Book Session
-      </a>
+    <!-- Drawer Footer -->
+    <div class="p-8 bg-slate-50 dark:bg-white/5 border-t border-slate-100 dark:border-white/10 space-y-6">
+      <div class="flex gap-3">
+        <button id="dir-toggle-drawer"
+          class="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
+          RTL View
+        </button>
+        <button id="theme-toggle-drawer"
+          class="size-12 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all">
+          <span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
+          <span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
+        </button>
+      </div>
 
-      <!-- Social Icons -->
-      
+      <div class="flex flex-col gap-3">
+        <a href="book-services.html"
+          class="bg-primary text-white flex items-center justify-center w-full h-14 font-black uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
+          Book Now
+        </a>
+        <a href="login.html"
+          class="flex items-center justify-center w-full h-12 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest hover:bg-slate-300 dark:hover:bg-white/20 transition-all">
+          Login
+        </a>
+      </div>
 
-      <!-- Copyright -->
-      <p class="text-[9px] text-center text-slate-500 dark:text-white/30 uppercase tracking-[0.2em]">
-        © 2026 Lumini Photography Group
-      </p>
+      <!-- Social Links -->
+      <div class="flex items-center justify-center gap-6 pt-4">
+        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span
+            class="material-symbols-outlined text-xl">public</span></a>
+        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span
+            class="material-symbols-outlined text-xl">share</span></a>
+        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span
+            class="material-symbols-outlined text-xl">alternate_email</span></a>
+      </div>
     </div>
   </div><!-- End Mobile Drawer -->
   <!-- Hero Section -->
   <main class="flex-1">
-<section class="relative w-full min-h-screen flex items-center justify-center overflow-hidden">      <div class="absolute inset-0 z-0">
+    <section class="hero relative w-full min-h-screen flex items-center justify-center overflow-hidden full-width">
+      <div class="absolute inset-0 z-0">
         <div
           class="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-background-dark/40 to-background-dark z-10">
         </div>
         <div class="w-full h-full bg-cover bg-center" data-alt="Portrait of a person in a studio"
-          style="background-image: url('https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop?q=80&w=2058&auto=format&fit=crop?q=80&w=2058&auto=format&fit=crop');">
+          style="background-image: url('https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop');">
         </div>
       </div>
-      <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+      <div class="relative z-20 text-center px-4 max-w-4xl mx-auto dashboard-inner">
         <span class="text-primary font-bold tracking-[0.3em] text-sm uppercase mb-4 block">Excellence in Imagery</span>
         <h1 class="serif-heading text-5xl md:text-8xl text-white font-black leading-tight mb-6">
           Capturing <span class="text-primary italic">Moments That Matter</span>
@@ -260,9 +296,44 @@
             View Our Work
           </a>
           <a href="services.html"
-            class="flex items-center justify-center h-14 px-8 border border-white/20 text-white font-bold hover:bg-white/10 transition-colors">
+            class="flex items-center justify-center h-14 px-8 border-2 border-primary text-white font-bold hover:bg-primary/20 transition-colors">
             Our Services
           </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Stats -->
+    <section class="py-16 bg-slate-50 dark:bg-slate-900/50" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6 text-center dashboard-inner">
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+          <div>
+            <h3 class="text-3xl md:text-4xl text-primary font-black"><span class="counter" data-target="500">0</span>+
+            </h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Sessions Completed</p>
+          </div>
+
+          <div>
+            <h3 class="text-3xl md:text-4xl text-primary font-black"><span class="counter" data-target="10">0</span>+
+            </h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Years Experience</p>
+          </div>
+
+          <div>
+            <h3 class="text-3xl md:text-4xl text-primary font-black"><span class="counter" data-target="100">0</span>%
+            </h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Satisfaction</p>
+          </div>
+
+          <div>
+            <h3 class="text-3xl md:text-4xl text-primary font-black"><span class="counter"
+                data-target="24">0</span>/<span class="counter" data-target="7">0</span></h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Support</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -271,11 +342,14 @@
     <div class="h-px w-full bg-white relative z-10"></div>
 
     <!-- Our Craft Section -->
-    <section class="py-24 px-6 md:px-20 bg-background-light dark:bg-background-dark">
-      <div class="max-w-7xl mx-auto">
+    <section class="py-12 bg-white dark:bg-background-dark">
+      <div class="max-w-7xl mx-auto dashboard-inner">
         <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div class="max-w-xl">
-            <h2 class="serif-heading text-4xl md:text-5xl text-slate-900 dark:text-white mb-4">Our Craft</h2>
+            <h2
+              class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">
+              Our Craft
+            </h2>
             <p class="text-slate-600 dark:text-slate-400 text-lg">Meticulous composition meets state-of-the-art
               post-processing to create timeless visual stories.</p>
           </div>
@@ -287,11 +361,11 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Card 1 -->
           <div
-            class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 p-2 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-            <div class="aspect-[4/5] overflow-hidden rounded-xl">
+            class="group relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 p-2 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+            <div class="aspect-[4/5] overflow-hidden ">
               <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 data-alt="Professional studio portrait"
-                style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop?q=80&w=1976&auto=format&fit=crop?q=80&w=1976&auto=format&fit=crop');">
+                style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop');">
               </div>
             </div>
             <div class="p-6">
@@ -303,11 +377,11 @@
           </div>
           <!-- Card 2 -->
           <div
-            class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 p-2 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-            <div class="aspect-[4/5] overflow-hidden rounded-xl">
+            class="group relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 p-2 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+            <div class="aspect-[4/5] overflow-hidden ">
               <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 data-alt="Wedding couple in a beautiful landscape"
-                style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop?q=80&w=2069&auto=format&fit=crop?q=80&w=2069&auto=format&fit=crop');">
+                style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop');">
               </div>
             </div>
             <div class="p-6">
@@ -319,11 +393,11 @@
           </div>
           <!-- Card 3 -->
           <div
-            class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 p-2 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-            <div class="aspect-[4/5] overflow-hidden rounded-xl">
+            class="group relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 p-2 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+            <div class="aspect-[4/5] overflow-hidden ">
               <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 data-alt="Commercial product photography"
-                style="background-image: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop?q=80&w=1874&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop?q=80&w=2070&auto=format&fit=crop');">
+                style="background-image: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop');">
               </div>
             </div>
             <div class="p-6">
@@ -338,36 +412,37 @@
     </section>
 
     <!-- White Line Separator -->
-    <div class="h-px w-full bg-white relative z-10"></div>
+    <!-- <div class="h-px w-full bg-white relative z-10"></div> -->
 
 
 
 
 
     <!-- Results of Perfection Gallery -->
-    <section class="py-24 bg-background-light dark:bg-[#0f0f0f]">
-      <div class="max-w-7xl mx-auto px-6">
+    <section class="py-12 bg-slate-50 dark:bg-slate-900/50">
+      <div class="max-w-7xl mx-auto px-6 dashboard-inner">
         <div class="text-center mb-16">
-          <h2 class="serif-heading text-4xl md:text-5xl text-slate-900 dark:text-white mb-4">Capturing Excellence</h2>
+          <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">
+            Capturing Excellence</h2>
           <div class="w-24 h-1 bg-primary mx-auto"></div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="aspect-square rounded-xl overflow-hidden bg-slate-800" data-alt="Portrait of a woman"
+          <div class="aspect-square overflow-hidden bg-slate-800" data-alt="Portrait of a woman"
             style="background-image: url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop'); background-size: cover;">
           </div>
-          <div class="aspect-square rounded-xl overflow-hidden bg-slate-800" data-alt="Landscape mountains"
+          <div class="aspect-square overflow-hidden bg-slate-800" data-alt="Landscape mountains"
             style="background-image: url('../assets/images/gallery/landscape.png'); background-size: cover;"></div>
-          <div class="aspect-square rounded-xl overflow-hidden bg-slate-800 md:row-span-2 md:aspect-auto"
+          <div class="aspect-square overflow-hidden bg-slate-800 md:row-span-2 md:aspect-auto"
             data-alt="Wedding celebration"
             style="background-image: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop'); background-size: cover;">
           </div>
-          <div class="aspect-square rounded-xl overflow-hidden bg-slate-800" data-alt="Street photography"
+          <div class="aspect-square overflow-hidden bg-slate-800" data-alt="Street photography"
             style="background-image: url('../assets/images/gallery/street.png'); background-size: cover;"></div>
-          <div class="aspect-square rounded-xl overflow-hidden bg-slate-800" data-alt="Nature macro"
+          <div class="aspect-square overflow-hidden bg-slate-800" data-alt="Nature macro"
             style="background-image: url('../assets/images/gallery/macro.png'); background-size: cover;"></div>
-          <div class="aspect-square rounded-xl overflow-hidden bg-slate-800" data-alt="Fashion shoot"
+          <div class="aspect-square overflow-hidden bg-slate-800" data-alt="Fashion shoot"
             style="background-image: url('../assets/images/gallery/fashion.png'); background-size: cover;"></div>
-          <div class="aspect-square rounded-xl overflow-hidden bg-slate-800" data-alt="Product photography"
+          <div class="aspect-square overflow-hidden bg-slate-800" data-alt="Product photography"
             style="background-image: url('../assets/images/gallery/product.png'); background-size: cover;"></div>
         </div>
       </div>
@@ -375,18 +450,18 @@
 
 
     <!-- Testimonials -->
-    <section class="py-20 bg-slate-50 dark:bg-background-dark border-y border-slate-200 dark:border-white/5"
+    <section class="py-20 bg-white dark:bg-background-dark border-y border-slate-200 dark:border-white/5"
       data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="max-w-6xl mx-auto px-6 text-center dashboard-inner">
 
-        <h2 class="serif-heading text-4xl text-slate-900 dark:text-white mb-10">
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">
           Client Experience
         </h2>
-
+        <br>
         <div class="grid md:grid-cols-3 gap-8">
 
           <div
-            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 p-8 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300 hover:-translate-y-2 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] group">
+            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 p-8 shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300 hover:-translate-y-2 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] group">
             <div class="flex justify-center gap-1 mb-4 text-amber-400">
               <span class="material-symbols-outlined text-[18px]"
                 style="font-variation-settings: 'FILL' 1;">grade</span>
@@ -406,7 +481,7 @@
           </div>
 
           <div
-            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 p-8 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300 hover:-translate-y-2 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] group">
+            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 p-8 shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300 hover:-translate-y-2 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] group">
             <div class="flex justify-center gap-1 mb-4 text-amber-400">
               <span class="material-symbols-outlined text-[18px]"
                 style="font-variation-settings: 'FILL' 1;">grade</span>
@@ -426,7 +501,7 @@
           </div>
 
           <div
-            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 p-8 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300 hover:-translate-y-2 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] group">
+            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 p-8 shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300 hover:-translate-y-2 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] group">
             <div class="flex justify-center gap-1 mb-4 text-amber-400">
               <span class="material-symbols-outlined text-[18px]"
                 style="font-variation-settings: 'FILL' 1;">grade</span>
@@ -449,67 +524,47 @@
       </div>
     </section>
 
-    <!-- Stats -->
-    <section class="py-16 bg-white dark:bg-[#0a0a0a]" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-6 text-center">
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-
-          <div>
-            <h3 class="text-3xl md:text-4xl text-primary font-black">500+</h3>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Sessions Completed</p>
-          </div>
-
-          <div>
-            <h3 class="text-3xl md:text-4xl text-primary font-black">10+</h3>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Years Experience</p>
-          </div>
-
-          <div>
-            <h3 class="text-3xl md:text-4xl text-primary font-black">100%</h3>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Satisfaction</p>
-          </div>
-
-          <div>
-            <h3 class="text-3xl md:text-4xl text-primary font-black">24/7</h3>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">Support</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
 
     <!-- Our Process -->
-    <section class="py-20 bg-slate-50 dark:bg-[#0a0a0a]" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-6 text-center">
+    <section class="pt-12 pb-6 bg-slate-50 dark:bg-slate-900/50" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6 text-center dashboard-inner">
 
-        <h2 class="serif-heading text-4xl text-slate-900 dark:text-white mb-10">
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">
           Our Process
         </h2>
+        <br>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 process-line-container">
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-
-          <div>
-            <div class="text-primary text-3xl font-black">01</div>
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 mx-auto bg-[#ebf4fd] dark:bg-white/10 border-2 border-[#ebf4fd] dark:border-white/10 flex items-center justify-center text-primary font-black text-3xl rounded-full">
+              01</div>
             <p class="text-slate-900 dark:text-white mt-2 font-bold">Consultation</p>
             <p class="text-slate-500 dark:text-slate-400 text-sm">Defining your vision</p>
           </div>
 
-          <div>
-            <div class="text-primary text-3xl font-black">02</div>
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 mx-auto bg-[#ebf4fd] dark:bg-white/10 border-2 border-[#ebf4fd] dark:border-white/10 flex items-center justify-center text-primary font-black text-3xl rounded-full">
+              02</div>
             <p class="text-slate-900 dark:text-white mt-2 font-bold">The Shoot</p>
             <p class="text-slate-500 dark:text-slate-400 text-sm">Capturing the magic</p>
           </div>
 
-          <div>
-            <div class="text-primary text-3xl font-black">03</div>
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 mx-auto bg-[#ebf4fd] dark:bg-white/10 border-2 border-[#ebf4fd] dark:border-white/10 flex items-center justify-center text-primary font-black text-3xl rounded-full">
+              03</div>
             <p class="text-slate-900 dark:text-white mt-2 font-bold">Selection</p>
             <p class="text-slate-500 dark:text-slate-400 text-sm">Choosing best shots</p>
           </div>
 
-          <div>
-            <div class="text-primary text-3xl font-black">04</div>
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 mx-auto bg-[#ebf4fd] dark:bg-white/10 border-2 border-[#ebf4fd] dark:border-white/10 flex items-center justify-center text-primary font-black text-3xl rounded-full">
+              04</div>
             <p class="text-slate-900 dark:text-white mt-2 font-bold">Delivery</p>
             <p class="text-slate-500 dark:text-slate-400 text-sm">High-res final art</p>
           </div>
@@ -518,45 +573,30 @@
       </div>
     </section>
 
-
-
-
-
-    <!-- ADMIN EDIT -->
-    <div
-      class="text-center py-16 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-white/5 shadow-2xl z-10 relative">
-      <h1 id="heroTitle" class="serif-heading text-4xl md:text-6xl text-slate-900 dark:text-white mb-6 drop-shadow-sm">
-        Capturing Moments That Matter
-      </h1>
-      <button onclick="editText()"
-        class="px-6 py-2.5 bg-primary text-white font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:scale-[1.05] transition-transform">
-        Edit Title
-      </button>
-    </div>
-
-
     <!-- WHY CHOOSE US -->
-    <section class="py-20 bg-slate-50 dark:bg-background-dark text-center border-t border-slate-200 dark:border-white/5"
+    <section class="py-12 bg-white dark:bg-background-dark text-center border-t border-slate-200 dark:border-white/5"
       data-aos="fade-up">
-      <h2 class="serif-heading text-4xl text-slate-900 dark:text-white mb-10">Why Choose Us</h2>
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+      <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">Why
+        Choose Us</h2>
+      <br>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6 dashboard-inner">
 
         <div
-          class="p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent rounded-2xl shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+          class="p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
           <h3 class="text-primary text-xl font-bold">Creative Vision</h3>
           <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 leading-relaxed">Unique perspective and artistic
             storytelling.</p>
         </div>
 
         <div
-          class="p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent rounded-2xl shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+          class="p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
           <h3 class="text-primary text-xl font-bold">High-End Gear</h3>
           <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 leading-relaxed">Top-tier cameras, lenses, and
             lighting equipment.</p>
         </div>
 
         <div
-          class="p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent rounded-2xl shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
+          class="p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
           <h3 class="text-primary text-xl font-bold">Pro Editing</h3>
           <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 leading-relaxed">Expert post-processing for a
             polished finish.</p>
@@ -566,7 +606,33 @@
     </section>
 
     <!-- Lead Gen CTA -->
-
+    <section
+      class="py-32 px-6 bg-slate-950 dark:bg-black text-white relative overflow-hidden full-width border-y border-slate-900/50 dark:border-white/10">
+      <div class="absolute inset-0 opacity-20">
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent">
+        </div>
+      </div>
+      <div class="relative z-10 dashboard-inner text-center">
+        <h2 class="serif-heading text-white text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-6">
+          Ready to <span class="text-primary italic">Elevate</span> Your Vision?
+        </h2>
+        <p class="text-lg md:text-xl text-slate-200 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+          Join our elite circle of clients and experience professional photography at its most refined. Let us capture
+          your moments with precision and artistry.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a href="book-services.html"
+            class="inline-flex h-14 px-10 items-center justify-center bg-primary text-white font-bold uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-xl shadow-primary/30 w-full sm:w-auto">
+            Book a Session
+          </a>
+          <a href="contact.html"
+            class="inline-flex h-14 px-10 items-center justify-center border border-white/20 text-white font-bold uppercase tracking-[0.2em] hover:bg-white/10 transition-colors w-full sm:w-auto">
+            Contact Studio
+          </a>
+        </div>
+      </div>
+    </section>
 
 
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -579,40 +645,41 @@
 
   </main>
   <!-- Footer -->
-  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
-    <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 full-width">
+    <div class="max-w-7xl mx-auto px-6 lg:px-20 pt-12 pb-6 dashboard-inner">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-6 footer-inner">
         <div class="col-span-1 md:col-span-1 flex flex-col gap-6">
           <div class="flex items-center gap-2 mb-6">
-                    <img src="../assets/images/logo.png" alt="Logo" class="w-8 h-8 rounded-full object-cover">
-                    <h4 class="text-slate-900 dark:text-white font-black text-xl tracking-tighter uppercase italic relative">
-                        Lumini
-                    </h4>
-                </div>
+            <img src="../assets/images/Group 179.svg" alt="Logo" class="w-8 h-8 object-cover">
+            <h4 class="text-slate-900 dark:text-white font-black text-2xl tracking-tighter uppercase italic relative">
+              Lumini
+            </h4>
+          </div>
           <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining artistic excellence through
             meticulous composition and premium photography services.</p>
-          <div class="flex gap-4">
-            <a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
-              href="#">
-              <span class="material-symbols-outlined text-[18px]">public</span>
-            </a>
-            <a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
-              href="#">
-              <span class="material-symbols-outlined text-[18px]">share</span>
+          <div class="flex gap-4 mt-2"><a
+              class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              href="#"><span class="material-symbols-outlined text-[18px]">public</span></a><a
+              class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              href="#"><span class="material-symbols-outlined text-[18px]">share</span>
             </a>
           </div>
+          <br>
         </div>
         <div>
-          <h4 class="text-slate-900 dark:text-white font-bold mb-6">Quick Links</h4>
+          <h4 class="text-slate-900 dark:text-white font-bold mb-4">Quick Links</h4>
+          <br>
           <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
             <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
             <li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
             <li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
             <li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
+            <li><a class="hover:text-primary transition-colors" href="comingsoon.html">Coming Soon</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="text-slate-900 dark:text-white font-bold mb-6">Support</h4>
+          <h4 class="text-slate-900 dark:text-white font-bold mb-4">Support</h4>
+          <br>
           <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
             <li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
             <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
@@ -621,20 +688,21 @@
           </ul>
         </div>
         <div>
-          <h4 class="text-slate-900 dark:text-white font-bold mb-6">Subscribe</h4>
+          <h4 class="text-slate-900 dark:text-white font-bold mb-4">Subscribe</h4>
+          <br>
           <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
           <div class="flex gap-2">
             <input
-              class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50"
+              class="bg-slate-50 dark:bg-slate-800 border-none text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50"
               placeholder="Email" type="email" />
-            <button class="bg-primary text-white px-4 h-10 hover:opacity-90">
+            <button class="bg-primary text-white px-4 h-10 hover:opacity-90 flex items-center justify-center">
               <span class="material-symbols-outlined text-[20px]">send</span>
             </button>
           </div>
         </div>
       </div>
       <div
-        class="pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+        class="pt-6 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
         © 2026 Lumini. All rights reserved.
       </div>
     </div>
@@ -653,25 +721,46 @@
         disable: window.innerWidth < 768
       });
 
-      // HERO TEXT
-      const hero = document.getElementById("heroTitle");
-      if (hero) {
-        hero.innerText = localStorage.getItem("heroTitle") || hero.innerText;
-      }
 
-      // EDIT FUNCTION
-      window.editText = function () {
-        let text = prompt("Edit Title:");
-        if (text && hero) {
-          hero.innerText = text;
-          localStorage.setItem("heroTitle", text);
-        }
-      };
 
       // SCROLL TOP
       window.scrollToTop = function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
+
+      // COUNTER ANIMATION
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200;
+
+      const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(() => animateCounter(counter), 1);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      const observerOptions = {
+        threshold: 1.0
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
 
     });
   </script>
