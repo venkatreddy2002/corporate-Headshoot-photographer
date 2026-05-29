@@ -14,12 +14,14 @@
 #navbar nav div a:active {
     color: inherit;
 }
+
 #navbar nav a.text-primary:visited,
 #navbar nav a.text-primary:active,
 #navbar nav a.active:visited,
 #navbar nav a.active:active {
     color: #3492eb !important;
 }
+
 .serif-heading {
     font-family: 'Playfair Display', serif !important;
 }
@@ -171,12 +173,72 @@ header .h-4.w-px {
 
 /* Dropdown nav link text */
 header .nav-dropdown a {
-    font-size: 14px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    /* slate-600 */
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+    -webkit-text-stroke: 0px transparent !important;
+    position: relative !important;
+    padding: 10px 16px !important;
+    display: block !important;
+    width: 100% !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5) !important;
+    transition: all 0.25s ease !important;
+}
+
+html.dark header .nav-dropdown a {
+    color: #cbd5e1 !important;
+    /* slate-300 */
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important;
+}
+
+/* Remove active underlines/outlines from dropdown links */
+header .nav-dropdown a.active::after,
+header .nav-dropdown a::after {
+    display: none !important;
+}
+
+header .nav-dropdown a.active {
+    color: #3492eb !important;
+    /* active blue */
+    font-weight: 600 !important;
+    background-color: rgba(52, 146, 235, 0.05) !important;
+    -webkit-text-stroke: 0px transparent !important;
+}
+
+/* Hover style */
+header .nav-dropdown a:hover {
+    background-color: rgba(52, 146, 235, 0.08) !important;
+    color: #3492eb !important;
+    padding-left: 20px !important;
+    /* smooth slide-in hover effect */
+}
+
+/* Remove border on the last item */
+header .nav-dropdown a:last-child {
+    border-bottom: none !important;
+}
+
+/* Dropdown nav container */
+header .nav-dropdown {
+    border-radius: 8px !important;
+    margin-top: 8px !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+
+html.dark header .nav-dropdown {
+    border: 1px solid rgba(51, 65, 85, 0.8) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3) !important;
 }
 
 header nav a {
-    font-size: 12px !important; /* ~10-20% increase */
+    font-size: 12px !important;
+    /* ~10-20% increase */
     letter-spacing: 0.05em !important;
+    font-weight: 500 !important;
 }
 
 #navbar {
@@ -192,7 +254,8 @@ header nav a {
     padding-bottom: 0.4rem !important;
 }
 
-#navbar::after, #navbar::before {
+#navbar::after,
+#navbar::before {
     display: none !important;
 }
 
@@ -232,10 +295,11 @@ html.dark body.page-blog #navbar:not(.scrolled) h2 {
 }
 
 @media (min-width: 1150px) {
-  #mobile-menu-trigger, 
-  header #mobile-menu-trigger {
-    display: none !important;
-  }
+
+    #mobile-menu-trigger,
+    header #mobile-menu-trigger {
+        display: none !important;
+    }
 }
 
 /* Expand-more arrow icons in nav */
@@ -244,13 +308,13 @@ header nav span.material-symbols-outlined {
     transition: transform 0.3s ease !important;
 }
 
-.relative:hover > .dropdown-trigger .material-symbols-outlined {
+.relative:hover>.dropdown-trigger .material-symbols-outlined {
     transform: rotate(180deg) !important;
 }
 
 /* Hover Dropdown Logic */
 @media (min-width: 1150px) {
-    .relative:hover > .nav-dropdown {
+    .relative:hover>.nav-dropdown {
         opacity: 1 !important;
         visibility: visible !important;
         transform: translateY(0) !important;
@@ -479,38 +543,38 @@ html.dark .glass-premium {
    ============================================ */
 
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
-  color: #ffffff !important;
-  border-radius: 0 !important;
-  padding: 10px 16px !important;
-  border: none !important;
-  transition: 0.3s ease !important;
+    background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+    color: #ffffff !important;
+    border-radius: 0 !important;
+    padding: 10px 16px !important;
+    border: none !important;
+    transition: 0.3s ease !important;
 }
 
 .btn-primary:hover {
-  opacity: 0.9 !important;
+    opacity: 0.9 !important;
 }
 
 .btn-secondary {
-  background: #1e293b !important;
-  color: #cbd5f5 !important;
-  border-radius: 0 !important;
-  padding: 10px 16px !important;
-  border: none !important;
-  transition: 0.3s ease !important;
+    background: #1e293b !important;
+    color: #cbd5f5 !important;
+    border-radius: 0 !important;
+    padding: 10px 16px !important;
+    border: none !important;
+    transition: 0.3s ease !important;
 }
 
 .btn-secondary:hover {
-  opacity: 0.9 !important;
+    opacity: 0.9 !important;
 }
 
 .btn-accent {
-  background: #f59e0b !important;
-  color: #ffffff !important;
-  border-radius: 0 !important;
-  padding: 10px 16px !important;
-  border: none !important;
-  transition: 0.3s ease !important;
+    background: #f59e0b !important;
+    color: #ffffff !important;
+    border-radius: 0 !important;
+    padding: 10px 16px !important;
+    border: none !important;
+    transition: 0.3s ease !important;
 }
 
 /* Login Button - Blue Style */
@@ -544,12 +608,11 @@ html.dark header a[href="book-services.html"] {
     border: 2px solid #3492eb !important;
 }
 
-/* Active Navbar Link Highlight - Bold Underline */
+/* Active Navbar Link Highlight - Normal Underline */
 header nav a.active {
-    color: #bb85fa !important;               /* white text */
-    font-weight: 900 !important;             /* extra bold */
-    font-size: 14.5px !important;            /* 20% larger than base 12px */
-    -webkit-text-stroke: 0.4px #3492eb;      /* blue stroke outline (vendor-prefixed, all browsers) */
+    color: #bb85fa !important;
+    font-weight: 500 !important;
+    font-size: 14.5px !important;
     position: relative;
 }
 
@@ -567,149 +630,168 @@ header nav a.active::after {
 
 
 /* Global Font Overrides */
-body { font-family: 'Inter', sans-serif !important; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif !important; }
-header nav a, header .dropdown-trigger, .nav-item { font-family: 'Inter', sans-serif !important; }
+body {
+    font-family: 'Inter', sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif !important;
+}
+
+header nav a,
+header .dropdown-trigger,
+.nav-item {
+    font-family: 'Inter', sans-serif !important;
+}
 
 /* ============================================
    Dashboard Spacing (Mobile First)
    ============================================ */
 .dashboard-view .dashboard-inner {
-  width: 100%;
-  padding-left: 24px;
-  padding-right: 24px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 @media (min-width: 1150px) {
-  .dashboard-view .dashboard-inner {
-    max-width: 1200px;   /* tighter container → more visible side gaps */
-    margin: 0 auto;
-    padding-left: 40px;  /* increased spacing */
-    padding-right: 40px;
-  }
+    .dashboard-view .dashboard-inner {
+        max-width: 1440px;
+        /* wider container → less side gaps */
+        margin: 0 auto;
+        padding-left: 32px;
+        /* optimized spacing */
+        padding-right: 32px;
+    }
 
-  .dashboard-view .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+    .dashboard-view .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-  .dashboard-view .footer-inner {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-  }
+    .dashboard-view .footer-inner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
 }
 
 .dashboard-view .full-width {
-  width: 100%;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 
 /* CONTACT PAGE FIX */
 .dashboard-view .contact-section .dashboard-inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
 }
 
 @media (min-width: 1150px) {
-  .dashboard-view .contact-section .dashboard-inner {
-    grid-template-columns: 1fr 1fr;
-  }
+    .dashboard-view .contact-section .dashboard-inner {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* BLOG PAGE GRID ALIGNMENT */
 .dashboard-view .blog-section .dashboard-inner,
 .dashboard-view .latest-insights {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 /* HOME2 TRANSFORMATION SECTION FIX */
 .dashboard-view .transformation-section .dashboard-inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 30px;
 }
 
 @media (min-width: 768px) {
-  .dashboard-view .transformation-section .dashboard-inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-  }
+    .dashboard-view .transformation-section .dashboard-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
 }
 
 .dashboard-view section .dashboard-inner {
-  width: 100%;
+    width: 100%;
 }
 
 .dashboard-view .grid,
 .dashboard-view .cards,
 .dashboard-view .features {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .dashboard-view .stats-section .dashboard-inner,
 .dashboard-view .subscribe-section .dashboard-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .dashboard-view .stats-section .grid,
 .dashboard-view .features-grid {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .dashboard-view section {
-  margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .dashboard-view h2:not(header h2):not(footer h2),
 .dashboard-view h3:not(header h3):not(footer h3) {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .dashboard-view header h2,
 .dashboard-view footer h4 {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 /* HERO CONTENT CENTERING (ABOUT & SERVICES) */
 @media (min-width: 1150px) {
-  .dashboard-view .hero-content {
-    margin: 0 auto !important;
-    text-align: center;
-    max-width: 900px;
-    width: 100%;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+    .dashboard-view .hero-content {
+        margin: 0 auto !important;
+        text-align: center;
+        max-width: 900px;
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 }
 
 .dashboard-view .hero-content h1,
 .dashboard-view .hero-content h2,
 .dashboard-view .hero-content p,
 .dashboard-view .hero-content span {
-  text-align: center;
+    text-align: center;
 }
 
 .dashboard-view .hero-content .buttons,
 .dashboard-view .hero-content .cta {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
 }
 
 /* Mobile Drawer Active State */
-#mobile-drawer.drawer-active { transform: translateX(0) !important; }
+#mobile-drawer.drawer-active {
+    transform: translateX(0) !important;
+}
 
 /* Disable transitions temporarily when switching themes or RTL */
 .disable-transitions * {
@@ -720,4 +802,95 @@ header nav a, header .dropdown-trigger, .nav-item { font-family: 'Inter', sans-s
 /* Apply shadow to mobile drawer ONLY when open (to prevent peeking off-screen shadow) */
 #mobile-drawer.translate-x-0 {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Permanently hide the mobile menu drawer footer container */
+#mobile-drawer>.p-8.bg-slate-50,
+#mobile-drawer>.bg-slate-50,
+#mobile-drawer>[class*="bg-slate-50"] {
+    display: none !important;
+}
+
+/* ============================================
+   Footer Spacing Optimizations (Mobile & Desktop)
+   ============================================ */
+
+/* 1. Hide all vertical spacing <br> elements inside the footer */
+footer br {
+    display: none !important;
+}
+
+/* 2. Optimize the footer container padding */
+footer {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2rem !important;
+}
+
+@media (min-width: 1024px) {
+
+    /* Significantly reduce top padding of footer container on desktop to remove white space */
+    footer {
+        padding-top: 1rem !important;
+    }
+
+    /* Override pt-12 (3rem) inner wrapper padding to 1rem on desktop */
+    footer .footer-inner {
+        padding-top: 1rem !important;
+    }
+}
+
+/* 3. Reduce vertical gap between grid columns in mobile stacked view, and adjust desktop gap */
+footer .footer-inner {
+    gap: 1.75rem !important;
+    /* Reduced from gap-12 (3rem) on mobile */
+}
+
+@media (min-width: 768px) {
+    footer .footer-inner {
+        gap: 2.5rem !important;
+        /* Balanced gap on tablets */
+    }
+}
+
+@media (min-width: 1024px) {
+    footer .footer-inner {
+        gap: 3rem !important;
+        /* Standard gap on large screens */
+    }
+}
+
+/* 4. Reduce spacing inside columns */
+footer .footer-inner>div:first-child {
+    gap: 0.75rem !important;
+    /* Reduced from gap-6 (1.5rem) */
+}
+
+/* 5. Reduce spacing under the Logo in the first column */
+footer .footer-inner .flex.items-center.gap-2.mb-6 {
+    margin-bottom: 0.5rem !important;
+    /* Reduced from mb-6 (1.5rem) */
+}
+
+/* 6. Reduce margin below headings in other columns */
+footer h4 {
+    margin-bottom: 0.75rem !important;
+    /* Reduced from mb-4 (1rem) */
+    margin-top: 0 !important;
+}
+
+/* 7. Reduce vertical list spacing between links */
+footer ul.flex-col {
+    gap: 0.5rem !important;
+    /* Reduced from gap-4 (1rem) */
+}
+
+footer ul.flex-col li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+footer ul.flex-col li a {
+    display: inline-block !important;
+    padding-top: 0.125rem !important;
+    padding-bottom: 0.125rem !important;
 }

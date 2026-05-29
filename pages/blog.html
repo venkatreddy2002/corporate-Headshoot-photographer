@@ -4,36 +4,50 @@
 
 <head>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap"
     rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script src="../assets/js/tailwind-config.js"></script>
-  <style>    .filter-btn:hover {      background-color: #3492eb !important;      color: #ffffff !important;      border-color: #3492eb !important;    }    .filter-btn.active {      background-color: #3492eb !important;      color: #ffffff !important;      border-color: #3492eb !important;    }
+  <style>
+    .filter-btn:hover {
+      background-color: #3492eb !important;
+      color: #ffffff !important;
+      border-color: #3492eb !important;
+    }
+
+    .filter-btn.active {
+      background-color: #3492eb !important;
+      color: #ffffff !important;
+      border-color: #3492eb !important;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
     }
   </style>
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
-  <link rel="icon" type="image/png" href="../assets/images/Group 179.svg">
+  <link href="../assets/css/style.css" rel="stylesheet" />
+  <link href="../assets/css/dark-mode.css" rel="stylesheet" />
+  <link href="../assets/css/rtl.css" rel="stylesheet" />
+  <link href="../assets/images/Group 179.svg" rel="icon" type="image/png" />
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200 dashboard-view">
-  <header id="navbar" class="bg-transparent fixed top-0 left-0 w-full z-50 transition-colors duration-500 full-width">
+<body
+  class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200 dashboard-view">
+  <header class="bg-transparent fixed top-0 left-0 w-full z-50 transition-colors duration-500 full-width" id="navbar">
     <div class="dashboard-inner nav-inner flex items-center justify-between px-4 py-2 w-full">
       <!-- LEFT (LOGO) -->
       <div class="flex items-center gap-2">
         <div class="relative group flex items-center gap-2">
-          <a href="index.html" class="flex items-center gap-2 group">
-            <img src="../assets/images/Group 179.svg" alt="Logo"
-              class="w-8 h-8 object-cover shadow-sm group-hover:scale-105 transition-transform">
+          <a class="flex items-center gap-2 group" href="index.html">
+            <img alt="Logo" class="w-8 h-8 object-cover shadow-sm group-hover:scale-105 transition-transform"
+              src="../assets/images/Group 179.svg" />
             <h2
               class="text-slate-900 dark:text-slate-100 text-[17px] font-black leading-none hover:text-primary transition-colors uppercase italic relative flex items-center tracking-tighter">
               Lumini
@@ -41,7 +55,6 @@
           </a>
         </div>
       </div>
-
       <!-- CENTER (MENU) -->
       <nav class="hidden nav-mobile:flex items-center gap-3 nav-mobile:gap-4">
         <div class="relative">
@@ -49,10 +62,10 @@
             href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
           <div
             class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
-            <a href="index.html"
-              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 1</a>
-            <a href="home2.html"
-              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 2</a>
+            <a class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary"
+              href="index.html">Home 1</a>
+            <a class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary"
+              href="home2.html">Home 2</a>
           </div>
         </div>
         <a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
@@ -70,160 +83,163 @@
             href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
           <div
             class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
-            <a href="dashboard.html"
-              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
-            <a href="user-dashboard.html"
-              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
+            <a class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary"
+              href="dashboard.html">Admin</a>
+            <a class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary"
+              href="user-dashboard.html">User</a>
           </div>
         </div>
       </nav>
-
       <!-- RIGHT (ACTIONS) -->
       <div class="flex items-center gap-2 z-10">
         <!-- RTL/LTR Toggle (Visible Everywhere) -->
-        <button id="dir-toggle-nav"
-            class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hidden nav-mobile:flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
-            RTL
-          </button>
-        
+        <button
+          class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hidden nav-mobile:flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all"
+          id="dir-toggle-nav">
+          RTL
+        </button>
         <!-- MOBILE MENU ICON (Only Mobile) -->
-        <button id="mobile-menu-trigger" class="flex nav-mobile:hidden h-10 w-10 items-center justify-center text-slate-900 dark:text-white rounded-none border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md transition-all">
+        <button
+          class="flex nav-mobile:hidden h-10 w-10 items-center justify-center text-slate-900 dark:text-white rounded-none border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md transition-all"
+          id="mobile-menu-trigger">
           <span class="material-symbols-outlined text-[32px]">menu</span>
         </button>
-
         <!-- DESKTOP ACTIONS (Hidden on Mobile) -->
         <div class="hidden nav-mobile:flex items-center gap-2">
-          
-          <button id="theme-toggle-nav"
-            class="size-9 items-center justify-center bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 ">
+          <button
+            class="size-9 items-center justify-center bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700"
+            id="theme-toggle-nav">
             <span class="material-symbols-outlined dark:hidden">dark_mode</span>
             <span class="material-symbols-outlined hidden dark:block">light_mode</span>
           </button>
-          <a href="book-services.html"
-            class="h-9 px-4 flex items-center justify-center border-2 border-blue-500 text-primary bg-transparent font-bold uppercase text-xs tracking-wide shadow-sm hover:bg-primary/5 transition-all">
+          <a class="h-9 px-4 flex items-center justify-center border-2 border-blue-500 text-primary bg-transparent font-bold uppercase text-xs tracking-wide shadow-sm hover:bg-primary/5 transition-all"
+            href="book-services.html">
             Book Now
           </a>
-          <a href="login.html"
-            class="h-9 px-4 flex items-center justify-center bg-primary text-white text-xs font-bold uppercase shadow-md shadow-primary/20 hover:brightness-110 transition-all">
+          <a class="h-9 px-4 flex items-center justify-center bg-primary text-white text-xs font-bold uppercase shadow-md shadow-primary/20 hover:brightness-110 transition-all"
+            href="login.html">
             Login
           </a>
         </div>
       </div>
-</div>
-</header>
-
+    </div>
+  </header>
   <!-- Mobile Drawer Overlay -->
-  <div id="drawer-overlay"
-    class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300">
+  <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300"
+    id="drawer-overlay">
   </div>
-
   <!-- Mobile Drawer -->
-  <div id="mobile-drawer"
-    class="fixed top-0 right-0 h-full w-[300px] bg-white/95 dark:bg-[#030712]/95 backdrop-blur-2xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-500 border-l border-slate-200 dark:border-white/10  flex flex-col overflow-hidden">
-    
+  <div
+    class="fixed top-0 right-0 h-full w-[300px] bg-white/95 dark:bg-[#030712]/95 backdrop-blur-2xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-500 border-l border-slate-200 dark:border-white/10 flex flex-col overflow-hidden"
+    id="mobile-drawer">
     <!-- Drawer Header -->
     <div class="flex items-center justify-between p-8 border-b border-slate-100 dark:border-white/5">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="../assets/images/Group 179.svg" alt="Logo" class="w-7 h-7 object-cover group-hover:scale-105 transition-transform">
-        <h2 class="text-slate-900 dark:text-white text-[17px] font-black leading-none uppercase italic tracking-tighter flex items-center group-hover:text-primary transition-colors">
+      <a class="flex items-center gap-3 group" href="index.html">
+        <img alt="Logo" class="w-7 h-7 object-cover group-hover:scale-105 transition-transform"
+          src="../assets/images/Group 179.svg" />
+        <h2
+          class="text-slate-900 dark:text-white text-[17px] font-black leading-none uppercase italic tracking-tighter flex items-center group-hover:text-primary transition-colors">
           Lumini
         </h2>
       </a>
-      <button id="mobile-menu-close" class="group size-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white transition-all duration-300">
+      <button
+        class="group size-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white transition-all duration-300"
+        id="mobile-menu-close">
         <span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform">close</span>
       </button>
     </div>
-
     <!-- Drawer Links -->
     <div class="flex-1 overflow-y-auto px-8 py-10 no-scrollbar">
       <nav class="flex flex-col gap-8">
         <!-- Main Links with Serif Style -->
         <div class="space-y-6">
           <div class="drawer-accordion group">
-            <div class="drawer-accordion-trigger flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl mb-4 cursor-pointer hover:text-primary transition-colors pb-2 border-b border-slate-100 dark:border-white/5">
-              Home <span class="material-symbols-outlined text-sm opacity-100 group-hover:translate-x-1 transition-transform accordion-icon">expand_more</span>
+            <div
+              class="drawer-accordion-trigger flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl mb-4 cursor-pointer hover:text-primary transition-colors pb-2 border-b border-slate-100 dark:border-white/5">
+              Home <span
+                class="material-symbols-outlined text-sm opacity-100 group-hover:translate-x-1 transition-transform accordion-icon">expand_more</span>
             </div>
-            <div class="drawer-accordion-content hidden flex flex-col gap-4 pl-4 border-l-2 border-primary/20 ml-1 mt-2 mb-4">
-              <a href="index.html" class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">Home 1</a>
-              <a href="home2.html" class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">Home 2</a>
+            <div
+              class="drawer-accordion-content hidden flex flex-col gap-4 pl-4 border-l-2 border-primary/20 ml-1 mt-2 mb-4">
+              <a class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors"
+                href="index.html">Home 1</a>
+              <a class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors"
+                href="home2.html">Home 2</a>
             </div>
           </div>
-
-          <a href="about.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+          <a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2"
+            href="about.html">
             About <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
           </a>
-          
-          <a href="services.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+          <a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2"
+            href="services.html">
             Services <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
           </a>
-
-          <a href="gallery.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+          <a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2"
+            href="gallery.html">
             Gallery <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
           </a>
-
-          <a href="blog.html" class="flex items-center justify-between text-primary font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+          <a class="flex items-center justify-between text-primary font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2"
+            href="blog.html">
             Blog <span class="material-symbols-outlined text-sm opacity-100 text-primary">chevron_right</span>
           </a>
-
-          <a href="contact.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+          <a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2"
+            href="contact.html">
             Contact <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
           </a>
         </div>
-
         <!-- Dashboard Links Section -->
         <div class="mt-8 pt-8 border-t border-slate-100 dark:border-white/10">
-          <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-6">Management Portal</p>
+          <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-6">
+            Management Portal</p>
           <div class="space-y-5">
-            <a href="dashboard.html" class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">
-              <span class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">admin_panel_settings</span>
+            <a class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors"
+              href="dashboard.html">
+              <span
+                class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">admin_panel_settings</span>
               Admin Dashboard
             </a>
-            <a href="user-dashboard.html" class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">
-              <span class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">person</span>
+            <a class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors"
+              href="user-dashboard.html">
+              <span
+                class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">person</span>
               User Dashboard
             </a>
+
+            <a class="flex items-center justify-center h-12 w-full border-2 border-primary text-primary bg-transparent font-bold text-sm uppercase tracking-widest hover:bg-primary/5 transition-all mt-6"
+              href="book-services.html">Book Now</a>
+            <a class="flex items-center justify-center h-12 w-full bg-primary text-white font-bold text-sm uppercase tracking-widest hover:brightness-110 transition-all mt-2"
+              href="login.html">Login</a>
+            <div class="flex gap-3 mt-4">
+              <button
+                class="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all"
+                id="dir-toggle-drawer">
+                RTL View
+              </button>
+              <button
+                class="size-12 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all"
+                id="theme-toggle-drawer">
+                <span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
+                <span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
     </div>
-
     <!-- Drawer Footer -->
-    <div class="p-8 bg-slate-50 dark:bg-white/5 border-t border-slate-100 dark:border-white/10 space-y-6">
-      <div class="flex gap-3">
-                        <button id="dir-toggle-drawer" class="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
-          RTL View
-        </button>
-        <button id="theme-toggle-drawer" class="size-12 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all">
-          <span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
-          <span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
-        </button>
-      </div>
 
-      <div class="flex flex-col gap-3">
-        <a href="book-services.html" class="bg-primary text-white flex items-center justify-center w-full h-14 font-black uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
-          Book Now
-        </a>
-        <a href="login.html" class="flex items-center justify-center w-full h-12 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest hover:bg-slate-300 dark:hover:bg-white/20 transition-all">
-          Login
-        </a>
-      </div>
-
-      <!-- Social Links -->
-      <div class="flex items-center justify-center gap-6 pt-4">
-        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">public</span></a>
-        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">share</span></a>
-        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
-      </div>
-    </div>
   </div><!-- End Mobile Drawer -->
   <main class="flex-1 pt-0">
     <!-- Hero Section -->
     <section class="relative h-[65vh] min-h-[500px] flex items-center justify-center overflow-hidden full-width mb-16">
       <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-background-light dark:to-background-dark z-10"></div>
-        <img src="../assets/images/photographer_hero_blog.png" alt="Professional Photographer" class="w-full h-full object-cover">
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-background-light dark:to-background-dark z-10">
+        </div>
+        <img alt="Professional Photographer" class="w-full h-full object-cover"
+          src="../assets/images/photographer_hero_blog.png" />
       </div>
-      
       <div class="relative z-20 text-center px-6 max-w-4xl mx-auto">
         <span class="text-primary font-bold tracking-[0.4em] text-[10px] uppercase mb-6 block">The Journal</span>
         <h1 class="serif-heading text-5xl md:text-7xl text-white font-normal leading-tight mb-6">
@@ -234,27 +250,30 @@
         </p>
       </div>
     </section>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-20 pb-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 pb-10 md:pb-16 lg:pb-20 dashboard-inner">
       <!-- Latest Insights Section -->
       <section>
-        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">Latest Insights</h2>
-        <br>
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">
+          Latest Insights</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20" id="blog-grid">
           <!-- Article 1 -->
-          <div data-category="lighting-techniques"
-            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2">
-            <div class="aspect-video overflow-hidden ">
+          <div
+            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2"
+            data-category="lighting-techniques">
+            <div class="aspect-video overflow-hidden">
               <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 data-alt="Professional lighting setup"
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2000&auto=format&fit=crop" />
+                src="https://images.unsplash.com/photo-1603190287605-e6ade32fa852?q=80&amp;w=2070&amp;auto=format&amp;fit=crop">
+              </img>
             </div>
             <div class="flex flex-col gap-2">
               <span class="text-primary font-bold text-xs uppercase tracking-widest">Lighting Techniques</span>
               <a href="blog-ceramic.html">
-                  <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">5 Tips for Mastering Studio Lighting</h3>
-                </a>
-              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Learn how to sculpt your subjects with light using these essential setups used by professionals.</p>
+                <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">5 Tips for Mastering Studio
+                  Lighting</h3>
+              </a>
+              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Learn how to sculpt your subjects with
+                light using these essential setups used by professionals.</p>
               <div class="flex items-center gap-2 mt-2 text-slate-400 text-xs">
                 <span class="material-symbols-outlined text-sm">calendar_today</span>
                 <span>Oct 12, 2023</span>
@@ -265,19 +284,23 @@
             </div>
           </div>
           <!-- Article 2 -->
-          <div data-category="photography-tips"
-            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] dark:hover:shadow-[0_0_20_rgba(52,146,235,0.25)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2">
-            <div class="aspect-video overflow-hidden ">
+          <div
+            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] dark:hover:shadow-[0_0_20_rgba(52,146,235,0.25)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2"
+            data-category="photography-tips">
+            <div class="aspect-video overflow-hidden">
               <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 data-alt="A professional retouching photos on a tablet"
-                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2000&auto=format&fit=crop" />
+                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&amp;w=2000&amp;auto=format&amp;fit=crop">
+              </img>
             </div>
             <div class="flex flex-col gap-2">
               <span class="text-primary font-bold text-xs uppercase tracking-widest">Photography Tips</span>
               <a href="blog-404.html">
-                  <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">The Ultimate Guide to High-End Retouching</h3>
-                </a>
-              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Achieving a flawless portrait requires precision and the right technique. We break down our post-production process.</p>
+                <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">The Ultimate Guide to
+                  High-End Retouching</h3>
+              </a>
+              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Achieving a flawless portrait requires
+                precision and the right technique. We break down our post-production process.</p>
               <div class="flex items-center gap-2 mt-2 text-slate-400 text-xs">
                 <span class="material-symbols-outlined text-sm">calendar_today</span>
                 <span>Oct 08, 2023</span>
@@ -288,19 +311,23 @@
             </div>
           </div>
           <!-- Article 3 -->
-          <div data-category="behind-the-scenes"
-            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2">
-            <div class="aspect-video overflow-hidden ">
+          <div
+            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2"
+            data-category="behind-the-scenes">
+            <div class="aspect-video overflow-hidden">
               <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 data-alt="Fashion model posing in studio"
-                src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2000&auto=format&fit=crop" />
+                src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&amp;w=2000&amp;auto=format&amp;fit=crop">
+              </img>
             </div>
             <div class="flex flex-col gap-2">
               <span class="text-primary font-bold text-xs uppercase tracking-widest">Behind the Scenes</span>
               <a href="blog-404.html">
-                  <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">Vogue Editorial Shoot: A Deep Dive</h3>
-                </a>
-              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Bringing an editorial vision to life. Follow the journey of this high-fashion campaign from concept to publication.</p>
+                <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">Vogue Editorial Shoot: A
+                  Deep Dive</h3>
+              </a>
+              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Bringing an editorial vision to life.
+                Follow the journey of this high-fashion campaign from concept to publication.</p>
               <div class="flex items-center gap-2 mt-2 text-slate-400 text-xs">
                 <span class="material-symbols-outlined text-sm">calendar_today</span>
                 <span>Oct 01, 2023</span>
@@ -311,16 +338,21 @@
             </div>
           </div>
           <!-- Article 4 -->
-          <div data-category="event-coverage"
-            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2">
-            <div class="aspect-video overflow-hidden ">
+          <div
+            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2"
+            data-category="event-coverage">
+            <div class="aspect-video overflow-hidden">
               <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2000&auto=format&fit=crop" />
+                src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&amp;w=2000&amp;auto=format&amp;fit=crop" />
             </div>
             <div class="flex flex-col gap-2">
               <span class="text-primary font-bold text-xs uppercase tracking-widest">Event Coverage</span>
-              <a href="blog-events.html"><h3 class="text-xl leading-tight group-hover:text-primary transition-colors">Capturing the Essence of Corporate Galas</h3></a>
-              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">How to stay invisible while capturing every critical moment of high-stakes corporate events.</p>
+              <a href="blog-events.html">
+                <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">Capturing the Essence of
+                  Corporate Galas</h3>
+              </a>
+              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">How to stay invisible while capturing
+                every critical moment of high-stakes corporate events.</p>
               <div class="flex items-center gap-2 mt-2 text-slate-400 text-xs">
                 <span class="material-symbols-outlined text-sm">calendar_today</span>
                 <span>May 10, 2024</span> • <span>9 min read</span>
@@ -328,16 +360,21 @@
             </div>
           </div>
           <!-- Article 5 -->
-          <div data-category="event-coverage"
-            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2">
-            <div class="aspect-video overflow-hidden ">
+          <div
+            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2"
+            data-category="event-coverage">
+            <div class="aspect-video overflow-hidden">
               <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop" />
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&amp;w=2000&amp;auto=format&amp;fit=crop" />
             </div>
             <div class="flex flex-col gap-2">
               <span class="text-primary font-bold text-xs uppercase tracking-widest">Event Coverage</span>
-              <a href="blog-events.html"><h3 class="text-xl leading-tight group-hover:text-primary transition-colors">Wedding Photography: The Unseen Moments</h3></a>
-              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Beyond the poses?capturing the raw emotion and candid joy of the big day.</p>
+              <a href="blog-events.html">
+                <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">Wedding Photography: The
+                  Unseen Moments</h3>
+              </a>
+              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Beyond the poses?capturing the raw
+                emotion and candid joy of the big day.</p>
               <div class="flex items-center gap-2 mt-2 text-slate-400 text-xs">
                 <span class="material-symbols-outlined text-sm">calendar_today</span>
                 <span>May 22, 2024</span> • <span>12 min read</span>
@@ -345,16 +382,21 @@
             </div>
           </div>
           <!-- Article 6 -->
-          <div data-category="event-coverage"
-            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2">
-            <div class="aspect-video overflow-hidden ">
+          <div
+            class="blog-card flex flex-col gap-4 group transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,146,235,0.15)] p-4 border border-slate-200 dark:border-slate-800 hover:border-primary hover:-translate-y-2"
+            data-category="event-coverage">
+            <div class="aspect-video overflow-hidden">
               <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?q=80&w=2000&auto=format&fit=crop" />
+                src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?q=80&amp;w=2000&amp;auto=format&amp;fit=crop" />
             </div>
             <div class="flex flex-col gap-2">
               <span class="text-primary font-bold text-xs uppercase tracking-widest">Event Coverage</span>
-              <a href="blog-events.html"><h3 class="text-xl leading-tight group-hover:text-primary transition-colors">Lighting Challenges at Live Concerts</h3></a>
-              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Mastering the fast-paced, unpredictable lighting of the music stage.</p>
+              <a href="blog-events.html">
+                <h3 class="text-xl leading-tight group-hover:text-primary transition-colors">Lighting Challenges at Live
+                  Concerts</h3>
+              </a>
+              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Mastering the fast-paced, unpredictable
+                lighting of the music stage.</p>
               <div class="flex items-center gap-2 mt-2 text-slate-400 text-xs">
                 <span class="material-symbols-outlined text-sm">calendar_today</span>
                 <span>Jun 05, 2024</span> • <span>10 min read</span>
@@ -363,25 +405,27 @@
           </div>
         </div>
       </section>
-
       <!-- Gear & Reviews Section -->
       <section class="mt-20">
-        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">Gear & Reviews</h2>
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">
+          Gear &amp; Reviews</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          <div data-category="behind-the-scenes"
-            class="blog-card flex gap-6 items-center p-4 border border-slate-200 dark:border-slate-700 hover:border-primary transition">
-            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=400&q=80"
-              class="w-32 h-32 object-cover" />
+          <div
+            class="blog-card flex gap-6 items-center p-4 border border-slate-200 dark:border-slate-700 hover:border-primary transition"
+            data-category="behind-the-scenes">
+            <img class="w-32 h-32 object-cover"
+              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=400&amp;q=80" />
             <div>
               <span class="text-primary text-xs uppercase font-bold">Gear Review</span>
               <h4 class="text-lg">Best Cameras for Professional Shoots</h4>
               <p class="text-sm text-slate-500">Top camera bodies used by professionals in 2025.</p>
             </div>
           </div>
-          <div data-category="lighting-techniques"
-            class="blog-card flex gap-6 items-center p-4 border border-slate-200 dark:border-slate-700 hover:border-primary transition">
-            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=500&q=80"
-              class="w-32 h-32 object-cover" />
+          <div
+            class="blog-card flex gap-6 items-center p-4 border border-slate-200 dark:border-slate-700 hover:border-primary transition"
+            data-category="lighting-techniques">
+            <img class="w-32 h-32 object-cover"
+              src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&amp;fit=crop&amp;w=500&amp;q=80" />
             <div>
               <span class="text-primary text-xs uppercase font-bold">Gear Review</span>
               <h4 class="text-lg">Lighting Equipment Breakdown</h4>
@@ -390,32 +434,34 @@
           </div>
         </div>
       </section>
-
       <!-- Case Studies Section -->
       <section class="mt-20">
-        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">Case Studies</h2>
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">
+          Case Studies</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="relative group overflow-hidden border hover:border-primary transition">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop"
-              class="w-full h-60 object-cover group-hover:scale-110 transition duration-500" />
+            <img class="w-full h-60 object-cover group-hover:scale-110 transition duration-500"
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" />
             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
             <div class="p-4">
               <span class="text-primary text-xs font-bold uppercase">Case Study</span>
               <h3 class="text-lg">Corporate Branding Shoot Breakdown</h3>
             </div>
           </div>
-          <div data-category="event-coverage" class="blog-card relative group overflow-hidden border hover:border-primary transition">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
-              class="w-full h-60 object-cover group-hover:scale-110 transition duration-500" />
+          <div class="blog-card relative group overflow-hidden border hover:border-primary transition"
+            data-category="event-coverage">
+            <img class="w-full h-60 object-cover group-hover:scale-110 transition duration-500"
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" />
             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
             <div class="p-4">
               <span class="text-primary text-xs font-bold uppercase">Case Study</span>
               <h3 class="text-lg">Wedding Photography Workflow</h3>
             </div>
           </div>
-          <div data-category="event-coverage" class="blog-card relative group overflow-hidden border hover:border-primary transition">
-            <img src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?q=80&w=2070&auto=format&fit=crop"
-              class="w-full h-60 object-cover group-hover:scale-110 transition duration-500" />
+          <div class="blog-card relative group overflow-hidden border hover:border-primary transition"
+            data-category="event-coverage">
+            <img class="w-full h-60 object-cover group-hover:scale-110 transition duration-500"
+              src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" />
             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
             <div class="p-4">
               <span class="text-primary text-xs font-bold uppercase">Case Study</span>
@@ -424,15 +470,16 @@
           </div>
         </div>
       </section>
-
       <!-- Tutorials & Guides Section -->
       <section class="mt-20">
-        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">Tutorials & Guides</h2>
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">
+          Tutorials &amp; Guides</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Guide 1 -->
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] overflow-hidden mb-4">
-              <img src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&amp;w=1974&amp;auto=format&amp;fit=crop" />
             </div>
             <span class="text-primary text-xs font-bold uppercase tracking-widest">Technique</span>
             <h3 class="text-lg font-bold group-hover:text-primary transition-colors mt-1">Mastering Manual Mode</h3>
@@ -440,15 +487,18 @@
           <!-- Guide 2 -->
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] overflow-hidden mb-4">
-              <img src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?q=80&w=2072&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?q=80&amp;w=2072&amp;auto=format&amp;fit=crop" />
             </div>
             <span class="text-primary text-xs font-bold uppercase tracking-widest">Composition</span>
-            <h3 class="text-lg font-bold group-hover:text-primary transition-colors mt-1">The Rule of Thirds Reimagined</h3>
+            <h3 class="text-lg font-bold group-hover:text-primary transition-colors mt-1">The Rule of Thirds Reimagined
+            </h3>
           </div>
           <!-- Guide 3 -->
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] overflow-hidden mb-4">
-              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&amp;w=2069&amp;auto=format&amp;fit=crop" />
             </div>
             <span class="text-primary text-xs font-bold uppercase tracking-widest">Lighting</span>
             <h3 class="text-lg font-bold group-hover:text-primary transition-colors mt-1">Golden Hour Secrets</h3>
@@ -456,52 +506,62 @@
           <!-- Guide 4 -->
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] overflow-hidden mb-4">
-              <img src="https://images.unsplash.com/photo-1472457897821-70d3819a0e24?q=80&w=2069&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="https://images.unsplash.com/photo-1472457897821-70d3819a0e24?q=80&amp;w=2069&amp;auto=format&amp;fit=crop" />
             </div>
             <span class="text-primary text-xs font-bold uppercase tracking-widest">Gear</span>
-            <h3 class="text-lg font-bold group-hover:text-primary transition-colors mt-1">Choosing Your First Prime Lens</h3>
+            <h3 class="text-lg font-bold group-hover:text-primary transition-colors mt-1">Choosing Your First Prime Lens
+            </h3>
           </div>
         </div>
       </section>
-
       <!-- Behind The Scenes Section -->
       <section class="mt-20">
-        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">Behind The Scenes</h2>
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">
+          Behind The Scenes</h2>
         <div class="flex flex-col lg:flex-row gap-12 items-center">
           <div class="lg:w-7/12 relative group">
             <div class="aspect-video overflow-hidden">
-              <video class="w-full h-full object-cover" controls>
-                <source src="../assets/videos/PixVerse_V5.5_Extend_360P_add_a_next_frame_a_m.mp4" type="video/mp4">
+              <video class="w-full h-full object-cover" controls="">
+                <source src="../assets/videos/PixVerse_V5.5_Extend_360P_add_a_next_frame_a_m.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
           </div>
           <div class="lg:w-5/12 flex flex-col gap-4">
             <span class="text-primary text-xs font-bold uppercase tracking-widest">On Location</span>
-            <h3 class="serif-heading text-3xl text-slate-900 dark:text-white font-normal">A Day in the Desert: Capturing the Nomad Series</h3>
+            <h3 class="serif-heading text-3xl text-slate-900 dark:text-white font-normal">A Day in the Desert: Capturing
+              the Nomad Series</h3>
             <p class="text-slate-500 dark:text-slate-400 text-base leading-relaxed">
-              Follow our team as we navigate the challenges of extreme heat and shifting sands to capture the breathtaking beauty of the Sahara. From gear prep to the final shot.
+              Follow our team as we navigate the challenges of extreme heat and shifting sands to capture the
+              breathtaking beauty of the Sahara. From gear prep to the final shot.
             </p>
-            <a href="#" class="text-primary font-bold flex items-center gap-2 group mt-2">
+            <a class="text-primary font-bold flex items-center gap-2 group mt-2" href="#">
               Watch Full Video
-              <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              <span
+                class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
           </div>
         </div>
       </section>
-
       <!-- Dynamic Composition Section -->
       <section class="mt-20">
-        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">Dynamic Composition</h2>
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">
+          Dynamic Composition</h2>
         <div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
           <div class="lg:w-6/12 relative group overflow-hidden shadow-2xl">
-            <img src="../assets/images/blog_composition.png" alt="Dynamic Composition" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <img alt="Dynamic Composition"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="../assets/images/blog_composition.png" />
           </div>
           <div class="lg:w-6/12 flex flex-col gap-6">
             <span class="text-primary text-xs font-bold uppercase tracking-widest">Mastering the Frame</span>
-            <h3 class="serif-heading text-3xl md:text-4xl text-slate-900 dark:text-white font-normal leading-tight">The Geometry of Visual Storytelling</h3>
+            <h3 class="serif-heading text-3xl md:text-4xl text-slate-900 dark:text-white font-normal leading-tight">The
+              Geometry of Visual Storytelling</h3>
             <p class="text-slate-500 dark:text-slate-400 text-base leading-relaxed">
-              Composition is the structural foundation of any memorable photograph. Beyond the simple rule of thirds, master class photographers use leading lines, geometric symmetries, and natural framing to guide the viewer's eye through a visual journey.
+              Composition is the structural foundation of any memorable photograph. Beyond the simple rule of thirds,
+              master class photographers use leading lines, geometric symmetries, and natural framing to guide the
+              viewer's eye through a visual journey.
             </p>
             <div class="grid grid-cols-2 gap-4 mt-2">
               <div class="flex items-start gap-3">
@@ -519,26 +579,32 @@
                 </div>
               </div>
             </div>
-            <a href="blog-care.html" class="text-primary font-bold flex items-center gap-2 group mt-4">
+            <a class="text-primary font-bold flex items-center gap-2 group mt-4" href="blog-care.html">
               Explore Composition Guides
-              <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              <span
+                class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
           </div>
         </div>
       </section>
-
       <!-- Color Science & Post-Processing Section -->
       <section class="mt-20">
-        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">Color Science</h2>
+        <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-12">
+          Color Science</h2>
         <div class="flex flex-col lg:flex-row gap-12 items-center">
           <div class="lg:w-6/12 relative group overflow-hidden shadow-2xl">
-            <img src="../assets/images/blog_postprocessing.png" alt="Color Science and Editing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <img alt="Color Science and Editing"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="../assets/images/blog_postprocessing.png" />
           </div>
           <div class="lg:w-6/12 flex flex-col gap-6">
             <span class="text-primary text-xs font-bold uppercase tracking-widest">In the Digital Darkroom</span>
-            <h3 class="serif-heading text-3xl md:text-4xl text-slate-900 dark:text-white font-normal leading-tight">Sculpting Mood Through Color Grading</h3>
+            <h3 class="serif-heading text-3xl md:text-4xl text-slate-900 dark:text-white font-normal leading-tight">
+              Sculpting Mood Through Color Grading</h3>
             <p class="text-slate-500 dark:text-slate-400 text-base leading-relaxed">
-              RAW files are merely the starting canvas. True artistic identity is forged in post-production. Discover the chemistry of digital color, from setting the proper color space to fine-tuning split tones, tone curves, and high-fidelity contrast controls that deliver high-end editorial finishes.
+              RAW files are merely the starting canvas. True artistic identity is forged in post-production. Discover
+              the chemistry of digital color, from setting the proper color space to fine-tuning split tones, tone
+              curves, and high-fidelity contrast controls that deliver high-end editorial finishes.
             </p>
             <div class="grid grid-cols-2 gap-4 mt-2">
               <div class="flex items-start gap-3">
@@ -556,64 +622,66 @@
                 </div>
               </div>
             </div>
-            <a href="blog-ceramic.html" class="text-primary font-bold flex items-center gap-2 group mt-4">
+            <a class="text-primary font-bold flex items-center gap-2 group mt-4" href="blog-ceramic.html">
               Access Post-Processing Workflows
-              <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              <span
+                class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
           </div>
         </div>
       </section>
     </div><!-- end padded wrapper -->
+    <!-- Newsletter Subscription -->
+    <section class="bg-primary/10 py-10 md:py-16 lg:py-20 text-center w-full subscribe-section">
+      <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl md:text-4xl font-black mb-4">Never miss an update</h3>
+        <p class="text-slate-600 dark:text-slate-400 mb-8 text-lg">Get the latest photography tips, project
+          showcases, and exclusive studio offers delivered to your inbox.</p>
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            class="flex-1 px-4 py-3 border-none ring-1 ring-slate-300 dark:ring-slate-700 focus:ring-2 focus:ring-primary dark:bg-slate-900"
+            placeholder="Your email address" type="email" />
+          <button
+            class="bg-primary text-white font-bold px-8 py-3 hover:bg-primary/90 transition-colors">Subscribe</button>
+        </form>
+      </div>
+    </section>
 
-        <!-- Newsletter Subscription -->
-        <section class="bg-primary/10 py-20 text-center w-full  subscribe-section">
-          <div class="max-w-7xl mx-auto px-6">
-            <h3 class="text-3xl md:text-4xl font-black mb-4">Never miss an update</h3>
-            <p class="text-slate-600 dark:text-slate-400 mb-8 text-lg">Get the latest photography tips, project
-              showcases, and exclusive studio offers delivered to your inbox.</p>
-            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                class="flex-1 px-4 py-3 border-none ring-1 ring-slate-300 dark:ring-slate-700 focus:ring-2 focus:ring-primary dark:bg-slate-900"
-                placeholder="Your email address" type="email" />
-              <button
-                class="bg-primary text-white font-bold px-8 py-3 hover:bg-primary/90 transition-colors">Subscribe</button>
-            </form>
-          </div>
-        </section>
-    </div>
-    </div>
+
   </main>
   <!-- Footer -->
-  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 full-width">    <div class="max-w-7xl mx-auto px-6 lg:px-20 pt-16 pb-8">
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 full-width">
+    <div class="max-w-7xl mx-auto px-6 lg:px-20 pt-16 pb-8 dashboard-inner">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-6 footer-inner">
         <div class="col-span-1 md:col-span-1 flex flex-col gap-6">
           <div class="flex items-center gap-2 mb-6">
-            <img src="../assets/images/Group 179.svg" alt="Logo" class="w-8 h-8 object-cover">
+            <img alt="Logo" class="w-8 h-8 object-cover" src="../assets/images/Group 179.svg" />
             <h4 class="text-slate-900 dark:text-white font-black text-2xl tracking-tighter uppercase italic relative">
               Lumini
             </h4>
           </div>
           <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining artistic excellence through
             meticulous composition and premium photography services.</p>
-          <div class="flex gap-4 mt-2"><a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">public</span></a><a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">share</span>
-          </a>
-        </div>
-        <br>
+          <div class="flex gap-4 mt-2"><a
+              class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              href="#"><span class="material-symbols-outlined text-[18px]">public</span></a><a
+              class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              href="#"><span class="material-symbols-outlined text-[18px]">share</span>
+            </a>
+          </div>
         </div>
         <div>
           <h4 class="text-slate-900 dark:text-white font-bold mb-4">Quick Links</h4>
-          <br>
           <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
             <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
             <li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
             <li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
             <li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
-              <li><a class="hover:text-primary transition-colors" href="comingsoon.html">Coming Soon</a></li>
+            <li><a class="hover:text-primary transition-colors" href="comingsoon.html">Coming Soon</a></li>
           </ul>
         </div>
         <div>
           <h4 class="text-slate-900 dark:text-white font-bold mb-4">Support</h4>
-          <br>
           <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
             <li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
             <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
@@ -623,7 +691,6 @@
         </div>
         <div>
           <h4 class="text-slate-900 dark:text-white font-bold mb-4">Subscribe</h4>
-          <br>
           <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
           <div class="flex gap-2">
             <input
@@ -650,7 +717,7 @@
       filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const filter = btn.getAttribute('data-filter');
-          
+
           // Update active state
           filterButtons.forEach(b => {
             b.classList.remove('active', 'bg-primary', 'text-white');

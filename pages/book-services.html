@@ -1,23 +1,17 @@
 <!DOCTYPE html>
+
 <html class="dark" lang="en">
-
 <head>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-    rel="stylesheet" />
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Lumini | Premium Session Booking</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-
-  <script src="../assets/js/tailwind-config.js"></script>
-  <link rel="icon" type="image/png" href="../assets/images/Group 179.svg">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumini | Premium Session Booking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../assets/js/tailwind-config.js"></script>
+<link href="../assets/images/Group 179.svg" rel="icon" type="image/png"/>
+<style>
     html,
     body {
       overflow-x: hidden;
@@ -51,10 +45,10 @@
       scrollbar-width: none;
     }
   </style>
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
-  <style>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/dark-mode.css" rel="stylesheet"/>
+<link href="../assets/css/rtl.css" rel="stylesheet"/>
+<style>
     /* Force navbar text colors for this page (override global white text) */
     html:not(.dark) body #navbar:not(.scrolled) h2 {
       color: #0f172a !important;
@@ -84,11 +78,14 @@
       border-color: #3492eb !important;
     }
 
-    html:not(.dark) body #navbar:not(.scrolled) a[href="login.html"]:hover,
     html:not(.dark) body #navbar:not(.scrolled) [id^="dir-toggle"]:hover,
     html:not(.dark) body #navbar:not(.scrolled) [id^="theme-toggle"]:hover,
     html:not(.dark) body #navbar:not(.scrolled) #mobile-menu-trigger:hover {
       color: #3492eb !important;
+    }
+
+    html:not(.dark) body #navbar:not(.scrolled) a[href="login.html"]:hover {
+      color: #ffffff !important;
     }
 
     /* Dark mode */
@@ -116,11 +113,14 @@
 
     html.dark body #navbar nav>a:hover:not(.text-primary),
     html.dark body #navbar nav>div>a.dropdown-trigger:hover:not(.text-primary),
-    html.dark body #navbar a[href="login.html"]:hover,
     html.dark body #navbar [id^="dir-toggle"]:hover,
     html.dark body #navbar [id^="theme-toggle"]:hover,
     html.dark body #navbar #mobile-menu-trigger:hover {
       color: #3492eb !important;
+    }
+
+    html.dark body #navbar a[href="login.html"]:hover {
+      color: #ffffff !important;
     }
 
     html.dark body #navbar [id^="dir-toggle"] span,
@@ -130,517 +130,557 @@
     }
   </style>
 </head>
-<body
-  class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300 dashboard-view">
-  <header id="navbar"
-    class="bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500 full-width">
-    <div class="dashboard-inner nav-inner flex items-center justify-between px-4 py-2 w-full">
-      <!-- LEFT (LOGO) -->
-      <div class="flex items-center gap-2">
-        <div class="relative group flex items-center gap-2">
-          <a href="index.html" class="flex items-center gap-2 group">
-            <img src="../assets/images/Group 179.svg" alt="Logo"
-              class="w-8 h-8 object-cover shadow-sm group-hover:scale-105 transition-transform">
-            <h2
-              class="text-slate-900 dark:text-slate-100 text-[17px] font-black leading-none hover:text-primary transition-colors uppercase italic relative flex items-center tracking-tighter">
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300 dashboard-view">
+<header class="bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500 full-width" id="navbar">
+<div class="dashboard-inner nav-inner flex items-center justify-between px-4 py-2 w-full">
+<!-- LEFT (LOGO) -->
+<div class="flex items-center gap-2">
+<div class="relative group flex items-center gap-2">
+<a class="flex items-center gap-2 group" href="index.html">
+<img alt="Logo" class="w-8 h-8 object-cover shadow-sm group-hover:scale-105 transition-transform" src="../assets/images/Group 179.svg"/>
+<h2 class="text-slate-900 dark:text-slate-100 text-[17px] font-black leading-none hover:text-primary transition-colors uppercase italic relative flex items-center tracking-tighter">
               Lumini
             </h2>
-          </a>
-        </div>
-      </div>
-
-      <!-- CENTER (MENU) -->
-      <nav class="hidden nav-mobile:flex items-center gap-3 nav-mobile:gap-4">
-        <div class="relative">
-          <a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
-            href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
-          <div
-            class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
-            <a href="index.html"
-              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 1</a>
-            <a href="home2.html"
-              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 2</a>
-          </div>
-        </div>
-        <a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-          href="about.html">About</a>
-        <a class="nav-services text-primary hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-          href="services.html">Services</a>
-        <a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-          href="blog.html">Blog</a>
-        <a class="nav-gallery text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-          href="gallery.html">Gallery</a>
-        <a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors"
-          href="contact.html">Contact</a>
-        <div class="relative">
-          <a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer"
-            href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
-          <div
-            class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
-            <a href="dashboard.html"
-              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
-            <a href="user-dashboard.html"
-              class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
-          </div>
-        </div>
-      </nav>
-
-      <!-- RIGHT (ACTIONS) -->
-      <div class="flex items-center gap-2 z-10">
-        <!-- RTL/LTR Toggle (Visible Everywhere) -->
-        <button id="dir-toggle-nav"
-            class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hidden nav-mobile:flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
+</a>
+</div>
+</div>
+<!-- CENTER (MENU) -->
+<nav class="hidden nav-mobile:flex items-center gap-3 nav-mobile:gap-4">
+<div class="relative">
+<a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer" href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+<div class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+<a class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary" href="index.html">Home 1</a>
+<a class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary" href="home2.html">Home 2</a>
+</div>
+</div>
+<a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="about.html">About</a>
+<a class="nav-services text-primary hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="services.html">Services</a>
+<a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="blog.html">Blog</a>
+<a class="nav-gallery text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="gallery.html">Gallery</a>
+<a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="contact.html">Contact</a>
+<div class="relative">
+<a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer" href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+<div class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+<a class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary" href="dashboard.html">Admin</a>
+<a class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary" href="user-dashboard.html">User</a>
+</div>
+</div>
+</nav>
+<!-- RIGHT (ACTIONS) -->
+<div class="flex items-center gap-2 z-10">
+<!-- RTL/LTR Toggle (Visible Everywhere) -->
+<button class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hidden nav-mobile:flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all" id="dir-toggle-nav">
             RTL
           </button>
-        
-        <!-- MOBILE MENU ICON (Only Mobile) -->
-        <button id="mobile-menu-trigger" class="flex nav-mobile:hidden h-10 w-10 items-center justify-center text-slate-900 dark:text-white rounded-none border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md transition-all">
-          <span class="material-symbols-outlined text-[32px]">menu</span>
-        </button>
-
-        <!-- DESKTOP ACTIONS (Hidden on Mobile) -->
-        <div class="hidden nav-mobile:flex items-center gap-2">
-          
-          <button id="theme-toggle-nav"
-            class="size-9 items-center justify-center bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 ">
-            <span class="material-symbols-outlined dark:hidden">dark_mode</span>
-            <span class="material-symbols-outlined hidden dark:block">light_mode</span>
-          </button>
-          <a href="book-services.html"
-            class="h-9 px-4 flex items-center justify-center border-2 border-blue-500 text-primary bg-transparent font-bold uppercase text-xs tracking-wide shadow-sm hover:bg-primary/5 transition-all">
+<!-- MOBILE MENU ICON (Only Mobile) -->
+<button class="flex nav-mobile:hidden h-10 w-10 items-center justify-center text-slate-900 dark:text-white rounded-none border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md transition-all" id="mobile-menu-trigger">
+<span class="material-symbols-outlined text-[32px]">menu</span>
+</button>
+<!-- DESKTOP ACTIONS (Hidden on Mobile) -->
+<div class="hidden nav-mobile:flex items-center gap-2">
+<button class="size-9 items-center justify-center bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700" id="theme-toggle-nav">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<a class="h-9 px-4 flex items-center justify-center border-2 border-blue-500 text-primary bg-transparent font-bold uppercase text-xs tracking-wide shadow-sm hover:bg-primary/5 transition-all" href="book-services.html">
             Book Now
           </a>
-          <a href="login.html"
-            class="h-9 px-4 flex items-center justify-center bg-primary text-white text-xs font-bold uppercase shadow-md shadow-primary/20 hover:brightness-110 transition-all">
+<a class="h-9 px-4 flex items-center justify-center bg-primary text-white text-xs font-bold uppercase shadow-md shadow-primary/20 hover:brightness-110 transition-all" href="login.html">
             Login
           </a>
-        </div>
-      </div>
+</div>
+</div>
 </div>
 </header>
-
-  <!-- Mobile Drawer Overlay -->
-  <div id="drawer-overlay"
-    class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300">
-  </div>
-
-  <!-- Mobile Drawer -->
-  <div id="mobile-drawer"
-    class="fixed top-0 right-0 h-full w-[300px] bg-white/95 dark:bg-[#030712]/95 backdrop-blur-2xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-500 border-l border-slate-200 dark:border-white/10  flex flex-col overflow-hidden">
-    
-    <!-- Drawer Header -->
-    <div class="flex items-center justify-between p-8 border-b border-slate-100 dark:border-white/5">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="../assets/images/Group 179.svg" alt="Logo" class="w-7 h-7 object-cover group-hover:scale-105 transition-transform">
-        <h2 class="text-slate-900 dark:text-white text-[17px] font-black leading-none uppercase italic tracking-tighter flex items-center group-hover:text-primary transition-colors">
+<!-- Mobile Drawer Overlay -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300" id="drawer-overlay">
+</div>
+<!-- Mobile Drawer -->
+<div class="fixed top-0 right-0 h-full w-[300px] bg-white/95 dark:bg-[#030712]/95 backdrop-blur-2xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-500 border-l border-slate-200 dark:border-white/10 flex flex-col overflow-hidden" id="mobile-drawer">
+<!-- Drawer Header -->
+<div class="flex items-center justify-between p-8 border-b border-slate-100 dark:border-white/5">
+<a class="flex items-center gap-3 group" href="index.html">
+<img alt="Logo" class="w-7 h-7 object-cover group-hover:scale-105 transition-transform" src="../assets/images/Group 179.svg"/>
+<h2 class="text-slate-900 dark:text-white text-[17px] font-black leading-none uppercase italic tracking-tighter flex items-center group-hover:text-primary transition-colors">
           Lumini
         </h2>
-      </a>
-      <button id="mobile-menu-close" class="group size-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white transition-all duration-300">
-        <span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform">close</span>
-      </button>
-    </div>
-
-    <!-- Drawer Links -->
-    <div class="flex-1 overflow-y-auto px-8 py-10 no-scrollbar">
-      <nav class="flex flex-col gap-8">
-        <!-- Main Links with Serif Style -->
-        <div class="space-y-6">
-          <div class="drawer-accordion group">
-            <div class="drawer-accordion-trigger flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl mb-4 cursor-pointer hover:text-primary transition-colors pb-2 border-b border-slate-100 dark:border-white/5">
+</a>
+<button class="group size-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white transition-all duration-300" id="mobile-menu-close">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform">close</span>
+</button>
+</div>
+<!-- Drawer Links -->
+<div class="flex-1 overflow-y-auto px-8 py-10 no-scrollbar">
+<nav class="flex flex-col gap-8">
+<!-- Main Links with Serif Style -->
+<div class="space-y-6">
+<div class="drawer-accordion group">
+<div class="drawer-accordion-trigger flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl mb-4 cursor-pointer hover:text-primary transition-colors pb-2 border-b border-slate-100 dark:border-white/5">
               Home <span class="material-symbols-outlined text-sm opacity-100 group-hover:translate-x-1 transition-transform accordion-icon">expand_more</span>
-            </div>
-            <div class="drawer-accordion-content hidden flex flex-col gap-4 pl-4 border-l-2 border-primary/20 ml-1 mt-2 mb-4">
-              <a href="index.html" class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">Home 1</a>
-              <a href="home2.html" class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">Home 2</a>
-            </div>
-          </div>
-
-          <a href="about.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+</div>
+<div class="drawer-accordion-content hidden flex flex-col gap-4 pl-4 border-l-2 border-primary/20 ml-1 mt-2 mb-4">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors" href="index.html">Home 1</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors" href="home2.html">Home 2</a>
+</div>
+</div>
+<a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2" href="about.html">
             About <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-          </a>
-          
-          <a href="services.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+</a>
+<a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2" href="services.html">
             Services <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-          </a>
-
-          <a href="gallery.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+</a>
+<a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2" href="gallery.html">
             Gallery <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-          </a>
-
-          <a href="blog.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+</a>
+<a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2" href="blog.html">
             Blog <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-          </a>
-
-          <a href="contact.html" class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2">
+</a>
+<a class="flex items-center justify-between text-slate-900 dark:text-white font-serif font-black italic text-2xl hover:text-primary transition-colors border-b border-slate-100 dark:border-white/5 pb-2" href="contact.html">
             Contact <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
-          </a>
-        </div>
-
-        <!-- Dashboard Links Section -->
-        <div class="mt-8 pt-8 border-t border-slate-100 dark:border-white/10">
-          <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-6">Management Portal</p>
-          <div class="space-y-5">
-            <a href="dashboard.html" class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">
-              <span class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">admin_panel_settings</span>
+</a>
+</div>
+<!-- Dashboard Links Section -->
+<div class="mt-8 pt-8 border-t border-slate-100 dark:border-white/10">
+<p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-6">Management Portal</p>
+<div class="space-y-5">
+<a class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors" href="dashboard.html">
+<span class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">admin_panel_settings</span>
               Admin Dashboard
             </a>
-            <a href="user-dashboard.html" class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors">
-              <span class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">person</span>
+<a class="flex items-center gap-4 text-slate-900 dark:text-white/90 hover:text-primary font-bold text-sm uppercase tracking-widest transition-colors" href="user-dashboard.html">
+<span class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">person</span>
               User Dashboard
             </a>
-          </div>
-        </div>
-      </nav>
-    </div>
 
-    <!-- Drawer Footer -->
-    <div class="p-8 bg-slate-50 dark:bg-white/5 border-t border-slate-100 dark:border-white/10 space-y-6">
-      <div class="flex gap-3">
-                        <!-- RTL/LTR Toggle -->
-        <button id="dir-toggle-nav"
-          class="size-9 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hidden nav-mobile:flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
-          RTL
-        </button>
-                <button id="dir-toggle-drawer" class="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all">
+            <a class="flex items-center justify-center h-12 w-full border-2 border-primary text-primary bg-transparent font-bold text-sm uppercase tracking-widest hover:bg-primary/5 transition-all mt-6" href="book-services.html">Book Now</a>
+            <a class="flex items-center justify-center h-12 w-full bg-primary text-white font-bold text-sm uppercase tracking-widest hover:brightness-110 transition-all mt-2" href="login.html">Login</a>
+            <div class="flex gap-3 mt-4">
+              <button class="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all" id="dir-toggle-drawer">
           RTL View
         </button>
-        <button id="theme-toggle-drawer" class="size-12 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all">
-          <span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
-          <span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
-        </button>
-      </div>
+              <button class="size-12 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all" id="theme-toggle-drawer">
+<span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
+<span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
+</button>
+            </div>
+          </div>
+</div>
+</nav>
+</div>
+<!-- Drawer Footer -->
 
-      <div class="flex flex-col gap-3">
-        <a href="book-services.html" class="bg-primary text-white flex items-center justify-center w-full h-14 font-black uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
-          Book Now
-        </a>
-        <a href="login.html" class="flex items-center justify-center w-full h-12 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest hover:bg-slate-300 dark:hover:bg-white/20 transition-all">
-          Login
-        </a>
-      </div>
-
-      <!-- Social Links -->
-      <div class="flex items-center justify-center gap-6 pt-4">
-        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">public</span></a>
-        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">share</span></a>
-        <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
-      </div>
-    </div>
-  </div>
-
-  <main class="min-h-screen relative pt-24 pb-12 px-4 sm:px-8 lg:px-20">
-    <!-- Background Glows -->
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 blur-[120px] -z-10"></div>
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-cyan/10 blur-[120px] -z-10"></div>
-    <div class="max-w-6xl mx-auto">
-      <!-- Title & Progress -->
-      <div class="mb-12 text-center relative">
-        <h2 class="font-sora text-4xl lg:text-5xl font-extrabold mb-4 gradient-text">Elevate Your Vision</h2>
-        <p class="text-slate-400 max-w-lg mx-auto relative z-10 mb-8">Professional photography for artistic
+</div>
+<main class="min-h-screen relative pt-24 pb-12 px-4 sm:px-8 lg:px-20">
+<!-- Background Glows -->
+<div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 blur-[120px] -z-10"></div>
+<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-cyan/10 blur-[120px] -z-10"></div>
+<div class="max-w-6xl mx-auto">
+<!-- Title & Progress -->
+<div class="mb-12 text-center relative">
+<h2 class="font-sora text-4xl lg:text-5xl font-extrabold mb-4 gradient-text">Elevate Your Vision</h2>
+<p class="text-slate-400 max-w-lg mx-auto relative z-10 mb-8">Professional photography for artistic
           excellence. Select your path to perfection below.</p>
-
-        <a href="404.html"
-          class="inline-flex items-center justify-center gap-2 h-12 px-8 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-white font-sora font-bold text-sm shadow-xl hover:bg-primary/20 hover:border-primary/50 transition-all glow-cyan group relative z-10">
-          <span
-            class="material-symbols-outlined text-[20px] group-hover:rotate-12 transition-transform text-primary dark:text-accent-cyan">3d_rotation</span>
+<a class="inline-flex items-center justify-center gap-2 h-12 px-8 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-white font-sora font-bold text-sm shadow-xl hover:bg-primary/20 hover:border-primary/50 transition-all glow-cyan group relative z-10" href="404.html">
+<span class="material-symbols-outlined text-[20px] group-hover:rotate-12 transition-transform text-primary dark:text-accent-cyan">3d_rotation</span>
           View 3D Model
         </a>
-      </div>
-      <!-- Multi-step Indicator -->
-      <div class="flex items-center justify-between mb-12 relative px-4">
-        <div class="absolute top-5 left-0 w-full h-0.5 bg-primary/50 -z-10"></div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-10 h-10 bg-primary flex items-center justify-center text-white ring-4 ring-primary/20">
-            <span class="material-symbols-outlined text-xl">layers</span>
-          </div>
-          <span class="text-xs font-bold text-primary uppercase tracking-widest">Service</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-10 h-10 bg-slate-800 flex items-center justify-center text-slate-400 border border-white/10">
-            <span class="material-symbols-outlined text-xl">calendar_month</span>
-          </div>
-          <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Schedule</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-10 h-10 bg-slate-800 flex items-center justify-center text-slate-400 border border-white/10">
-            <span class="material-symbols-outlined text-xl">portrait</span>
-          </div>
-          <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Project</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-10 h-10 bg-slate-800 flex items-center justify-center text-slate-400 border border-white/10">
-            <span class="material-symbols-outlined text-xl">check_circle</span>
-          </div>
-          <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Confirm</span>
-        </div>
-      </div>
-      <div class="grid lg:grid-cols-3 gap-8">
-        <!-- Step 1 & 2 Section -->
-        <div class="lg:col-span-2 space-y-8">
-          <!-- Step 1: Services -->
-          <div class="glass-card p-6 lg:p-8">
-            <div class="flex items-center gap-2 mb-6">
-              <span class="text-accent-gold material-symbols-outlined">stars</span>
-              <h3 class="font-sora text-xl font-bold">Step 1: Select Premium Service</h3>
-            </div>
-            <div class="space-y-4">
-              <!-- Service Cards -->
-              <label
-                class="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-5 glass-card cursor-pointer border-transparent hover:border-primary/50 transition-all ring-primary/0 checked:ring-2 w-full">
-                <input checked="" class="hidden peer service-input" name="service" type="radio" value="Corporate Portrait" data-price="499.00" />
-                <div class="w-full sm:w-20 h-48 sm:h-20 overflow-hidden shrink-0">
-                  <img class="w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&w=2058&auto=format&fit=crop?q=80&w=2058&auto=format&fit=crop" />
-                </div>
-                <div class="flex-1">
-                  <div class="flex justify-between items-start mb-1">
-                    <h4 class="font-bold text-lg group-hover:text-primary transition-colors">
+</div>
+<!-- Multi-step Indicator -->
+<div class="flex items-center justify-between mb-12 relative px-4">
+<div class="absolute top-5 left-0 w-full h-0.5 bg-primary/50 -z-10"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-primary flex items-center justify-center text-white ring-4 ring-primary/20">
+<span class="material-symbols-outlined text-xl">layers</span>
+</div>
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Service</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-slate-800 flex items-center justify-center text-slate-400 border border-white/10">
+<span class="material-symbols-outlined text-xl">calendar_month</span>
+</div>
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Schedule</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-slate-800 flex items-center justify-center text-slate-400 border border-white/10">
+<span class="material-symbols-outlined text-xl">portrait</span>
+</div>
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Project</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-slate-800 flex items-center justify-center text-slate-400 border border-white/10">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+</div>
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Confirm</span>
+</div>
+</div>
+<div class="grid lg:grid-cols-3 gap-8">
+<!-- Step 1 & 2 Section -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Step 1: Services -->
+<div class="glass-card p-6 lg:p-8">
+<div class="flex items-center gap-2 mb-6">
+<span class="text-accent-gold material-symbols-outlined">stars</span>
+<h3 class="font-sora text-xl font-bold">Step 1: Select Premium Service</h3>
+</div>
+<div class="space-y-4">
+<!-- Service Cards -->
+<label class="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-5 glass-card cursor-pointer border-transparent hover:border-primary/50 transition-all ring-primary/0 checked:ring-2 w-full">
+<input checked="" class="hidden peer service-input" data-price="499.00" name="service" type="radio" value="Corporate Portrait"/>
+<div class="w-full sm:w-20 h-48 sm:h-20 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?q=80&amp;w=2058&amp;auto=format&amp;fit=crop?q=80&amp;w=2058&amp;auto=format&amp;fit=crop">
+</img></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-lg group-hover:text-primary transition-colors">
                       Corporate Portrait</h4><span class="text-accent-gold font-bold text-lg">$499+</span>
-                  </div>
-                  <p class="text-sm text-slate-400 leading-relaxed">Professional studio lighting and
+</div>
+<p class="text-sm text-slate-400 leading-relaxed">Professional studio lighting and
                     high-end retouching for individuals or teams.</p>
-                </div>
-                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary -z-10">
-                </div>
-              </label>
-              <label
-                class="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-5 glass-card cursor-pointer border-transparent hover:border-primary/50 transition-all w-full">
-                <input class="hidden peer service-input" name="service" type="radio" value="Event Coverage" data-price="699.00" />
-                <div class="w-full sm:w-20 h-48 sm:h-20 overflow-hidden shrink-0">
-                  <img class="w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop?q=80&w=1976&auto=format&fit=crop" />
-                </div>
-                <div class="flex-1">
-                  <div class="flex justify-between items-start mb-1">
-                    <h4 class="font-bold text-lg group-hover:text-primary transition-colors">Event
+</div>
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary -z-10">
+</div>
+</label>
+<label class="group relative flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-5 glass-card cursor-pointer border-transparent hover:border-primary/50 transition-all w-full">
+<input class="hidden peer service-input" data-price="699.00" name="service" type="radio" value="Event Coverage"/>
+<div class="w-full sm:w-20 h-48 sm:h-20 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&amp;w=1976&amp;auto=format&amp;fit=crop?q=80&amp;w=1976&amp;auto=format&amp;fit=crop">
+</img></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-lg group-hover:text-primary transition-colors">Event
                       Coverage</h4><span class="text-accent-gold font-bold text-lg">$699+</span>
-                  </div>
-                  <p class="text-sm text-slate-400 leading-relaxed">Comprehensive coverage of your
+</div>
+<p class="text-sm text-slate-400 leading-relaxed">Comprehensive coverage of your
                     special event with artistic flair.</p>
-                </div>
-                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary -z-10">
-                </div>
-              </label>
-            </div>
-          </div>
-          <!-- Step 2: Schedule -->
-          <div class="glass-card p-6 lg:p-8">
-            <div class="flex items-center gap-2 mb-6">
-              <span class="text-accent-cyan material-symbols-outlined">event</span>
-              <h3 class="font-sora text-xl font-bold">Step 2: Choose Date &amp; Time</h3>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-              <div class="bg-black/20 p-4 border border-white/5">
-                <div class="flex justify-between items-center mb-4 text-xs font-bold"><span>June
-                    2025</span></div>
-                <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-slate-500">
-                  <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
-                </div>
-                <div class="grid grid-cols-7 gap-1 text-sm">
-                  <span class="aspect-square flex items-center justify-center opacity-20">26</span><span
-                    class="aspect-square flex items-center justify-center opacity-20">27</span><span
-                    class="aspect-square flex items-center justify-center opacity-20">28</span><span
-                    class="aspect-square flex items-center justify-center opacity-20">29</span><span
-                    class="aspect-square flex items-center justify-center opacity-20">30</span><span
-                    class="aspect-square flex items-center justify-center opacity-20">31</span><span
-                    class="aspect-square flex items-center justify-center opacity-20">1</span>
-                  <span class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">2</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">3</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">4</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">5</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">6</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">7</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">8</span>
-                  <span class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">9</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">10</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">11</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">12</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">13</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">14</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">15</span>
-                  <span class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">16</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">17</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">18</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">19</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">20</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">21</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">22</span>
-                  <span class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">23</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">24</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">25</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">26</span><span
-                    class="calendar-date aspect-square flex items-center justify-center bg-primary text-white font-bold cursor-pointer">27</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">28</span><span
-                    class="calendar-date aspect-square flex items-center justify-center hover:bg-white/5 cursor-pointer">29</span>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <label class="block text-sm font-semibold text-slate-500 dark:text-slate-400">Available
+</div>
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary -z-10">
+</div>
+</label>
+</div>
+</div>
+<!-- Step 2: Schedule -->
+<div class="glass-card p-6 lg:p-8" id="step2-schedule">
+<div class="flex items-center gap-2 mb-6">
+<!-- Calendar icon wraps a real date input for direct click passthrough -->
+<label
+  id="calendar-icon-btn"
+  for="native-date-picker"
+  title="Open date picker"
+  class="text-accent-cyan material-symbols-outlined cursor-pointer hover:scale-110 hover:text-primary transition-all duration-200 select-none"
+  style="position:relative;"
+>event
+  <!-- Transparent date input that overlaps the icon; clicking the label triggers it -->
+  <input
+    type="date"
+    id="native-date-picker"
+    aria-label="Pick a date"
+    style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:2;"
+  />
+</label>
+<h3 class="font-sora text-xl font-bold">Step 2: Choose Date &amp; Time</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+<div class="bg-black/20 p-4 border border-white/5" id="calendar-grid-container">
+  <!-- Dynamic calendar rendered by JS -->
+  <div id="cal-header" class="flex justify-between items-center mb-4 text-xs font-bold">
+    <button id="cal-prev" class="px-2 py-1 text-slate-400 hover:text-primary transition-colors text-base leading-none">&#8249;</button>
+    <span id="cal-month-label"></span>
+    <button id="cal-next" class="px-2 py-1 text-slate-400 hover:text-primary transition-colors text-base leading-none">&#8250;</button>
+  </div>
+  <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-slate-500">
+    <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+  </div>
+  <div id="cal-days" class="grid grid-cols-7 gap-1 text-sm">
+    <!-- Days injected by JS -->
+  </div>
+</div>
+<div class="space-y-4">
+<label class="block text-sm font-semibold text-slate-500 dark:text-slate-400">Available
                   Slots</label>
-                <div class="grid grid-cols-2 gap-3">
-                  <button
-                    class="time-slot py-3 px-4 border border-slate-200 dark:border-white/10 hover:border-primary hover:bg-primary/10 transition-all text-sm font-medium">09:00
+<div class="grid grid-cols-2 gap-3">
+<button class="time-slot py-3 px-4 border border-slate-200 dark:border-white/10 hover:border-primary hover:bg-primary/10 transition-all text-sm font-medium">09:00
                     AM</button>
-                  <button
-                    class="time-slot py-3 px-4 border border-primary bg-primary/20 text-primary dark:text-white text-sm font-bold">11:30
+<button class="time-slot py-3 px-4 border border-primary bg-primary/20 text-primary dark:text-white text-sm font-bold">11:30
                     AM</button>
-                  <button
-                    class="time-slot py-3 px-4 border border-slate-200 dark:border-white/10 hover:border-primary hover:bg-primary/10 transition-all text-sm font-medium">02:00
+<button class="time-slot py-3 px-4 border border-slate-200 dark:border-white/10 hover:border-primary hover:bg-primary/10 transition-all text-sm font-medium">02:00
                     PM</button>
-                  <button
-                    class="time-slot py-3 px-4 border border-slate-200 dark:border-white/10 hover:border-primary hover:bg-primary/10 transition-all text-sm font-medium">04:30
+<button class="time-slot py-3 px-4 border border-slate-200 dark:border-white/10 hover:border-primary hover:bg-primary/10 transition-all text-sm font-medium">04:30
                     PM</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Summary Sidebar -->
-        <div class="lg:col-span-1 lg:sticky lg:top-24 h-auto lg:h-[calc(100vh-6rem)] self-start">
-          <div class="glass-card p-6 lg:p-8 h-full flex flex-col overflow-y-auto no-scrollbar">
-            <h3 class="font-sora text-xl font-bold mb-6">Booking Summary</h3>
-            <div class="space-y-4 mb-8">
-              <div class="flex justify-between items-center py-3 border-b border-white/5">
-                <span class="text-slate-400 text-sm">Service</span>
-                <span class="font-bold text-sm" id="summary-service">Corporate Portrait</span>
-              </div>
-              <div class="flex justify-between items-center py-3 border-b border-white/5">
-                <span class="text-slate-400 text-sm">Date</span>
-                <span class="font-bold text-sm" id="summary-date">June 27, 2025</span>
-              </div>
-              <div class="flex justify-between items-center py-3 border-b border-white/5">
-                <span class="text-slate-400 text-sm">Time</span>
-                <span class="font-bold text-sm" id="summary-time">11:30 AM</span>
-              </div>
-            </div>
-            <div class="bg-primary/10 p-4 border border-primary/20 mb-8">
-              <div class="flex justify-between items-center mb-1">
-                <span class="text-slate-400 text-xs">Estimated Cost</span>
-                <span class="text-accent-gold font-sora font-bold text-lg" id="summary-price">$499.00</span>
-              </div>
-              <p class="text-xs text-slate-500">*Final price depends on session duration and
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Sidebar -->
+<div class="lg:col-span-1 lg:sticky lg:top-24 h-auto lg:h-[calc(100vh-6rem)] self-start">
+<div class="glass-card p-6 lg:p-8 h-full flex flex-col overflow-y-auto no-scrollbar">
+<h3 class="font-sora text-xl font-bold mb-6">Booking Summary</h3>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center py-3 border-b border-white/5">
+<span class="text-slate-400 text-sm">Service</span>
+<span class="font-bold text-sm" id="summary-service">Corporate Portrait</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-white/5">
+<span class="text-slate-400 text-sm">Date</span>
+<span class="font-bold text-sm" id="summary-date">June 27, 2025</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-white/5">
+<span class="text-slate-400 text-sm">Time</span>
+<span class="font-bold text-sm" id="summary-time">11:30 AM</span>
+</div>
+</div>
+<div class="bg-primary/10 p-4 border border-primary/20 mb-8">
+<div class="flex justify-between items-center mb-1">
+<span class="text-slate-400 text-xs">Estimated Cost</span>
+<span class="text-accent-gold font-sora font-bold text-lg" id="summary-price">$499.00</span>
+</div>
+<p class="text-xs text-slate-500">*Final price depends on session duration and
                 post-processing requirements.</p>
-            </div>
-            <button
-              class="w-full bg-primary hover:bg-primary/90 text-white py-4 font-bold tracking-wide transition-all mb-4">
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-4 font-bold tracking-wide transition-all mb-4">
               Next Step
             </button>
-            <p class="text-center text-xs text-slate-500">No payment required until service completion.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 full-width">
-    <div class="max-w-7xl mx-auto px-6 lg:px-20 pt-12 pb-6 dashboard-inner">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-6 footer-inner">
-        <div class="col-span-1 md:col-span-1 flex flex-col gap-6">
-          <div class="flex items-center gap-2 mb-6">
-            <img src="../assets/images/Group 179.svg" alt="Logo" class="w-8 h-8 object-cover">
-            <h4 class="text-slate-900 dark:text-white font-black text-2xl tracking-tighter uppercase italic relative">
+<p class="text-center text-xs text-slate-500">No payment required until service completion.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 full-width">
+<div class="max-w-7xl mx-auto px-6 lg:px-20 pt-12 pb-6 dashboard-inner">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-6 footer-inner">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+<div class="flex items-center gap-2 mb-6">
+<img alt="Logo" class="w-8 h-8 object-cover" src="../assets/images/Group 179.svg"/>
+<h4 class="text-slate-900 dark:text-white font-black text-2xl tracking-tighter uppercase italic relative">
               Lumini
             </h4>
-          </div>
-          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining artistic excellence through
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining artistic excellence through
             meticulous composition and premium photography services.</p>
-          <div class="flex gap-4 mt-2"><a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">public</span></a><a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">share</span>
-          </a>
-        </div>
-        <br>
-        </div>
-        <div>
-          <h4 class="text-slate-900 dark:text-white font-bold mb-4">Quick Links</h4>
-          <br>
-          <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
-            <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
-            <li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
-            <li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
-            <li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
-              <li><a class="hover:text-primary transition-colors" href="comingsoon.html">Coming Soon</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-slate-900 dark:text-white font-bold mb-4">Support</h4>
-          <br>
-          <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
-            <li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
-            <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
-            <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-            <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-slate-900 dark:text-white font-bold mb-4">Subscribe</h4>
-          <br>
-          <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
-          <div class="flex gap-2">
-            <input
-              class="bg-slate-50 dark:bg-slate-800 border-none text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50"
-              placeholder="Email" type="email" />
-            <button class="bg-primary text-white px-4 h-10 hover:opacity-90 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[20px]">send</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="pt-6 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+<div class="flex gap-4 mt-2"><a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">public</span></a><a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+</div>
+<br/>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-4">Quick Links</h4>
+<br/>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
+<li><a class="hover:text-primary transition-colors" href="comingsoon.html">Coming Soon</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-4">Support</h4>
+<br/>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-4">Subscribe</h4>
+<br/>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
+<div class="flex gap-2">
+<input class="bg-slate-50 dark:bg-slate-800 border-none text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50" placeholder="Email" type="email"/>
+<button class="bg-primary text-white px-4 h-10 hover:opacity-90 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
         © 2026 Lumini. All rights reserved.
       </div>
-    </div>
-  </footer>
-  <script src="../assets/js/main.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const serviceInputs = document.querySelectorAll('.service-input');
-      const calendarDates = document.querySelectorAll('.calendar-date');
-      const timeSlots = document.querySelectorAll('.time-slot');
-      
-      const summaryService = document.getElementById('summary-service');
-      const summaryDate = document.getElementById('summary-date');
-      const summaryTime = document.getElementById('summary-time');
-      const summaryPrice = document.getElementById('summary-price');
+</div>
+</footer>
+<script src="../assets/js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-      let selectedMonth = "June";
-      let selectedYear = "2025";
+  function pad2(n) { return String(n).padStart(2, '0'); }
 
-      serviceInputs.forEach(input => {
-        input.addEventListener('change', function() {
-          if (this.checked) {
-            summaryService.textContent = this.value;
-            summaryPrice.textContent = "$" + this.getAttribute('data-price');
-          }
-        });
-      });
+  function formatDateStr(d) {
+    return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+  }
 
-      calendarDates.forEach(date => {
-        date.addEventListener('click', function() {
-          calendarDates.forEach(d => {
-            d.classList.remove('bg-primary', 'text-white', 'font-bold');
-            d.classList.add('hover:bg-white/5');
-          });
-          this.classList.remove('hover:bg-white/5');
-          this.classList.add('bg-primary', 'text-white', 'font-bold');
-          
-          summaryDate.textContent = selectedMonth + " " + this.textContent.trim() + ", " + selectedYear;
-        });
-      });
+  function updateSummaryDate(d) {
+    const label = d.toLocaleString('default', { month: 'long' }) + ' ' + d.getDate() + ', ' + d.getFullYear();
+    const el = document.getElementById('summary-date');
+    if (el) el.textContent = label;
+  }
 
-      timeSlots.forEach(slot => {
-        slot.addEventListener('click', function() {
-          timeSlots.forEach(s => {
-            s.classList.remove('border-primary', 'bg-primary/20', 'text-primary', 'dark:text-white', 'font-bold');
-            s.classList.add('border-slate-200', 'dark:border-white/10', 'hover:border-primary', 'hover:bg-primary/10', 'font-medium');
-          });
-          this.classList.remove('border-slate-200', 'dark:border-white/10', 'hover:border-primary', 'hover:bg-primary/10', 'font-medium');
-          this.classList.add('border-primary', 'bg-primary/20', 'text-primary', 'dark:text-white', 'font-bold');
-          
-          summaryTime.textContent = this.textContent.trim();
-        });
-      });
+  /* ---- Service selector ---- */
+  document.querySelectorAll('.service-input').forEach(input => {
+    input.addEventListener('change', function () {
+      if (this.checked) {
+        document.getElementById('summary-service').textContent = this.value;
+        document.getElementById('summary-price').textContent = '$' + this.getAttribute('data-price');
+        localStorage.setItem('bookedService', this.value);
+      }
     });
-  </script>
-</body>
+  });
 
+  // Restore saved service
+  const savedService = localStorage.getItem('bookedService');
+  if (savedService) {
+    document.querySelectorAll('.service-input').forEach(input => {
+      if (input.value === savedService) {
+        input.checked = true;
+        document.getElementById('summary-service').textContent = input.value;
+        document.getElementById('summary-price').textContent = '$' + input.getAttribute('data-price');
+      } else {
+        input.checked = false;
+      }
+    });
+  }
+
+  /* ---- Time slot selector ---- */
+  document.querySelectorAll('.time-slot').forEach(slot => {
+    slot.addEventListener('click', function () {
+      document.querySelectorAll('.time-slot').forEach(s => {
+        s.classList.remove('border-primary', 'bg-primary/20', 'text-primary', 'dark:text-white', 'font-bold');
+        s.classList.add('border-slate-200', 'dark:border-white/10', 'hover:border-primary', 'hover:bg-primary/10', 'font-medium');
+      });
+      this.classList.remove('border-slate-200', 'dark:border-white/10', 'hover:border-primary', 'hover:bg-primary/10', 'font-medium');
+      this.classList.add('border-primary', 'bg-primary/20', 'text-primary', 'dark:text-white', 'font-bold');
+      document.getElementById('summary-time').textContent = this.textContent.trim();
+      localStorage.setItem('bookedTime', this.textContent.trim());
+    });
+  });
+
+  // Restore saved time slot
+  const savedTime = localStorage.getItem('bookedTime');
+  if (savedTime) {
+    document.querySelectorAll('.time-slot').forEach(slot => {
+      if (slot.textContent.trim() === savedTime) {
+        slot.classList.remove('border-slate-200', 'dark:border-white/10', 'hover:border-primary', 'hover:bg-primary/10', 'font-medium');
+        slot.classList.add('border-primary', 'bg-primary/20', 'text-primary', 'dark:text-white', 'font-bold');
+        document.getElementById('summary-time').textContent = savedTime;
+      } else {
+        slot.classList.remove('border-primary', 'bg-primary/20', 'text-primary', 'dark:text-white', 'font-bold');
+        slot.classList.add('border-slate-200', 'dark:border-white/10', 'hover:border-primary', 'hover:bg-primary/10', 'font-medium');
+      }
+    });
+  }
+
+  /* ---- Dynamic Visual Calendar ---- */
+  // State: currently viewed month and the selected date
+  const savedDateStr = localStorage.getItem('bookedDate');
+  let selectedDate = savedDateStr ? new Date(savedDateStr + 'T00:00:00') : new Date(2025, 5, 27);
+  let viewDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
+
+  const calDaysEl    = document.getElementById('cal-days');
+  const calLabelEl   = document.getElementById('cal-month-label');
+  const nativePicker = document.getElementById('native-date-picker');
+
+  // Set native picker min to today
+  const todayStr = new Date().toISOString().split('T')[0];
+  if (nativePicker) {
+    nativePicker.min = todayStr;
+    nativePicker.value = formatDateStr(selectedDate);
+  }
+
+  function renderCalendar() {
+    const year  = viewDate.getFullYear();
+    const month = viewDate.getMonth(); // 0-indexed
+
+    // Update month label
+    calLabelEl.textContent = viewDate.toLocaleString('default', { month: 'long' }) + ' ' + year;
+
+    // First day of month (0=Sun..6=Sat) — convert to Mon-first (0=Mon..6=Sun)
+    const firstDay  = new Date(year, month, 1).getDay();
+    const leadBlanks = (firstDay === 0) ? 6 : firstDay - 1; // Mon-start offset
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    // Previous month trailing days
+    const prevDays = new Date(year, month, 0).getDate();
+
+    calDaysEl.innerHTML = '';
+
+    // Leading faded cells (prev month)
+    for (let i = leadBlanks; i > 0; i--) {
+      const sp = document.createElement('span');
+      sp.className = 'aspect-square flex items-center justify-center opacity-20 text-xs';
+      sp.textContent = prevDays - i + 1;
+      calDaysEl.appendChild(sp);
+    }
+
+    // Current month days
+    for (let d = 1; d <= daysInMonth; d++) {
+      const sp = document.createElement('span');
+      const isSelected = selectedDate &&
+        selectedDate.getFullYear() === year &&
+        selectedDate.getMonth()   === month &&
+        selectedDate.getDate()    === d;
+
+      sp.className = 'calendar-date aspect-square flex items-center justify-center cursor-pointer text-xs transition-all duration-150 ' +
+        (isSelected
+          ? 'bg-primary text-white font-bold rounded-sm'
+          : 'hover:bg-white/10 rounded-sm');
+      sp.textContent = d;
+
+      sp.addEventListener('click', function () {
+        selectedDate = new Date(year, month, d);
+        // Sync native picker
+        if (nativePicker) nativePicker.value = formatDateStr(selectedDate);
+        // Update summary
+        updateSummaryDate(selectedDate);
+        // Save to localStorage
+        localStorage.setItem('bookedDate', formatDateStr(selectedDate));
+        // Re-render to move highlight
+        renderCalendar();
+      });
+
+      calDaysEl.appendChild(sp);
+    }
+
+    // Trailing faded cells (next month) to fill grid
+    const totalCells = leadBlanks + daysInMonth;
+    const trailCells = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    for (let i = 1; i <= trailCells; i++) {
+      const sp = document.createElement('span');
+      sp.className = 'aspect-square flex items-center justify-center opacity-20 text-xs';
+      sp.textContent = i;
+      calDaysEl.appendChild(sp);
+    }
+  }
+
+  // Prev / Next month navigation
+  document.getElementById('cal-prev').addEventListener('click', function () {
+    viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() - 1, 1);
+    renderCalendar();
+  });
+  document.getElementById('cal-next').addEventListener('click', function () {
+    viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1);
+    renderCalendar();
+  });
+
+  // Native date picker → sync visual calendar
+  if (nativePicker) {
+    nativePicker.addEventListener('change', function () {
+      if (!this.value) return;
+      const picked = new Date(this.value + 'T00:00:00');
+      selectedDate = picked;
+      viewDate     = new Date(picked.getFullYear(), picked.getMonth(), 1);
+      updateSummaryDate(picked);
+      localStorage.setItem('bookedDate', this.value);
+      renderCalendar();
+    });
+  }
+
+  // Initial render
+  renderCalendar();
+  updateSummaryDate(selectedDate);
+
+});
+</script>
+</body>
 </html>

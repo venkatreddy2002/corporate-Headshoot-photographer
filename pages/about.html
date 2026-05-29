@@ -137,36 +137,24 @@
 <span class="size-8 rounded-none bg-slate-100 dark:bg-white/5 flex items-center justify-center material-symbols-outlined text-lg">person</span>
               User Dashboard
             </a>
-</div>
+
+            <a class="flex items-center justify-center h-12 w-full border-2 border-primary text-primary bg-transparent font-bold text-sm uppercase tracking-widest hover:bg-primary/5 transition-all mt-6" href="book-services.html">Book Now</a>
+            <a class="flex items-center justify-center h-12 w-full bg-primary text-white font-bold text-sm uppercase tracking-widest hover:brightness-110 transition-all mt-2" href="login.html">Login</a>
+            <div class="flex gap-3 mt-4">
+              <button class="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all" id="dir-toggle-drawer">
+          RTL View
+        </button>
+              <button class="size-12 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all" id="theme-toggle-drawer">
+<span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
+<span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
+</button>
+            </div>
+          </div>
 </div>
 </nav>
 </div>
 <!-- Drawer Footer -->
-<div class="p-8 bg-slate-50 dark:bg-white/5 border-t border-slate-100 dark:border-white/10 space-y-6">
-<div class="flex gap-3">
-<button class="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-all" id="dir-toggle-drawer">
-          RTL View
-        </button>
-<button class="size-12 flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-all" id="theme-toggle-drawer">
-<span class="material-symbols-outlined text-xl dark:hidden text-slate-700">dark_mode</span>
-<span class="material-symbols-outlined text-xl hidden dark:block text-slate-300">light_mode</span>
-</button>
-</div>
-<div class="flex flex-col gap-3">
-<a class="bg-primary text-white flex items-center justify-center w-full h-14 font-black uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20" href="book-services.html">
-          Book Now
-        </a>
-<a class="flex items-center justify-center w-full h-12 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white text-xs font-black uppercase tracking-widest hover:bg-slate-300 dark:hover:bg-white/20 transition-all" href="login.html">
-          Login
-        </a>
-</div>
-<!-- Social Links -->
-<div class="flex items-center justify-center gap-6 pt-4">
-<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
-<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
-<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
-</div>
-</div>
+
 </div><!-- End Mobile Drawer -->
 <main class="flex-grow">
 <!-- Hero Section -->
@@ -207,7 +195,7 @@
 </div>
 </section>
 <!-- Philosophy Section -->
-<section class="py-12"><div class="dashboard-inner">
+<section class="py-6 md:py-10 lg:py-12"><div class="dashboard-inner">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <div>
 <h3 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-4xl font-normal tracking-tight mb-6">Precision is Our Philosophy
@@ -222,7 +210,6 @@
             We believe every subject, every shadow, and every highlight deserves meticulous attention. Our methodology
             combines artistic craftsmanship with the latest technology in digital imaging.
           </p>
-<br/>
 <div class="mt-10 grid grid-cols-2 gap-6">
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary font-bold">check_circle</span>
@@ -242,14 +229,14 @@
 </div>
 </div>
 </div>
-<div class="overflow-hidden shadow-2xl">
-<img alt="Professional photographer on location" class="object-cover w-full h-[500px] transition-transform duration-700 hover:scale-105" src="../assets/images/photographer_location.png">
-</img></div>
+<div class="overflow-hidden">
+<img alt="Professional photographer on location" class="object-cover w-full h-[500px] transition-transform duration-700 hover:scale-105" src="../assets/images/photographer_location.png"/>
+</div>
 </div>
 </div></section>
-<!-- FOUNDERS & TEAM INTRO -->
-<section class="py-12 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-white/5"><div class="dashboard-inner">
-<div class="max-w-6xl mx-auto text-center mb-16 dashboard-inner">
+<!-- FOUNDERS INTRO -->
+<section class="pt-6 pb-6 md:pt-8 md:pb-10 lg:pt-10 lg:pb-12 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-white/5"><div class="dashboard-inner">
+<div class="max-w-6xl mx-auto text-center mb-8 dashboard-inner">
 <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">
           Meet The Visionaries
         </h2>
@@ -257,12 +244,11 @@
           Behind Lumini is a team driven by passion, craftsmanship, and an obsession for perfection.
         </p>
 </div>
-<br/>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 <!-- Founder Image -->
 <div class="relative group">
 <div class="absolute -inset-4 bg-primary/10 blur-xl group-hover:blur-2xl transition-all"></div>
-<img class="relative w-full h-[400px] object-cover shadow-2xl" src="../assets/images/photographer_marcus.png"/>
+<img class="relative w-full h-[400px] object-cover object-top" src="../assets/images/photographer_marcus.png"/>
 </div>
 <!-- Founder Content -->
 <div>
@@ -286,9 +272,10 @@
 </div>
 </div>
 </div>
-<br/>
+</div></section>
 <!-- TEAM HIGHLIGHTS -->
-<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+<section class="py-6 md:py-10 lg:py-12 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-200 dark:border-white/5"><div class="dashboard-inner">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <div class="p-6 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
 <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Expert Craftsmanship</h4>
 <p class="text-base text-slate-600 dark:text-slate-400">
@@ -310,7 +297,7 @@
 </div>
 </div></section>
 <!-- LEADERSHIP SECTION -->
-<section class="py-12 bg-background-light dark:bg-background-dark"><div class="dashboard-inner">
+<section class="py-6 md:py-10 lg:py-12 bg-background-light dark:bg-background-dark"><div class="dashboard-inner">
 <!-- Heading -->
 <div class="text-center mb-6">
 <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">
@@ -324,7 +311,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 <!-- Card 1 -->
 <div class="group relative overflow-hidden border border-slate-200 dark:border-white/10 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-<img class="w-full h-[350px] object-cover group-hover:scale-110 transition duration-500" src="../assets/images/photographer_marcus.png"/>
+<img class="w-full h-[350px] object-cover object-top group-hover:scale-110 transition duration-500" src="../assets/images/photographer_marcus.png"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 <div class="absolute bottom-4 left-4">
 <h3 class="text-sm font-bold text-white">Marcus Thorne</h3>
@@ -333,7 +320,7 @@
 </div>
 <!-- Card 2 -->
 <div class="group relative overflow-hidden border border-slate-200 dark:border-white/10 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-<img class="w-full h-[350px] object-cover group-hover:scale-110 transition duration-500" src="../assets/images/photographer_sarah.png"/>
+<img class="w-full h-[350px] object-cover object-top group-hover:scale-110 transition duration-500" src="../assets/images/photographer_sarah.png"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 <div class="absolute bottom-4 left-4">
 <h3 class="text-sm font-bold text-white">Sarah Miller</h3>
@@ -342,7 +329,7 @@
 </div>
 <!-- Card 3 -->
 <div class="group relative overflow-hidden border border-slate-200 dark:border-white/10 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-<img class="w-full h-[350px] object-cover group-hover:scale-110 transition duration-500" src="../assets/images/photographer_david.png"/>
+<img class="w-full h-[350px] object-cover object-top group-hover:scale-110 transition duration-500" src="../assets/images/photographer_david.png"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 <div class="absolute bottom-4 left-4">
 <h3 class="text-sm font-bold text-white">David Chen</h3>
@@ -351,7 +338,7 @@
 </div>
 <!-- Card 4 (Optional Extra) -->
 <div class="group relative overflow-hidden border border-slate-200 dark:border-white/10 transition-all duration-300 hover:border-primary dark:hover:border-primary dark:hover:shadow-[0_0_20px_rgba(52,146,235,0.25)]">
-<img class="w-full h-[350px] object-cover group-hover:scale-110 transition duration-500" src="../assets/images/photographer_alex.png"/>
+<img class="w-full h-[350px] object-cover object-top group-hover:scale-110 transition duration-500" src="../assets/images/photographer_alex.png"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 <div class="absolute bottom-4 left-4">
 <h3 class="text-sm font-bold text-white">Alex Lumini</h3>
@@ -360,7 +347,7 @@
 </div>
 </div>
 </div></section>
-<section class="py-12 bg-white dark:bg-slate-900"><div class="dashboard-inner">
+<section class="py-6 md:py-10 lg:py-12 bg-white dark:bg-slate-900"><div class="dashboard-inner">
 <div class="max-w-4xl mx-auto text-center dashboard-inner">
 <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-4xl font-normal tracking-tight mb-6">
           A Message From Our Founder
@@ -380,7 +367,7 @@
 </div>
 </div>
 </div></section>
-<section class="py-24 bg-slate-50 dark:bg-slate-900/50 overflow-hidden"><div class="dashboard-inner">
+<section class="py-12 md:py-20 lg:py-24 bg-slate-50 dark:bg-slate-900/50 overflow-hidden"><div class="dashboard-inner">
 <div class="max-w-5xl mx-auto dashboard-inner">
 <div class="text-center mb-20">
 <h2 class="serif-heading text-slate-900 dark:text-white text-4xl md:text-5xl font-normal tracking-tight mb-6">Our Journey</h2>
@@ -472,7 +459,7 @@
 </div>
 </div></section>
 <!-- The Creative Space Section -->
-<section class="py-20 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-white/5"><div class="dashboard-inner">
+<section class="py-10 md:py-16 lg:py-20 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-white/5"><div class="dashboard-inner">
 <div class="max-w-6xl mx-auto dashboard-inner">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <!-- Text Content -->
@@ -504,20 +491,20 @@
 </div>
 </div>
 <!-- Image -->
-<div class="overflow-hidden shadow-2xl">
-<img alt="Our Creative Space" class="object-cover w-full h-[400px] transition-transform duration-700 hover:scale-105" src="../assets/images/about_studio.png">
-</img></div>
+<div class="overflow-hidden">
+<img alt="Our Creative Space" class="object-cover w-full h-[400px] transition-transform duration-700 hover:scale-105" src="../assets/images/about_studio.png"/>
+</div>
 </div>
 </div>
 </div></section>
 <!-- Our Standards Section -->
-<section class="py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-white/5"><div class="dashboard-inner">
+<section class="py-10 md:py-16 lg:py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-white/5"><div class="dashboard-inner">
 <div class="max-w-6xl mx-auto dashboard-inner">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <!-- Image -->
-<div class="overflow-hidden shadow-2xl lg:order-last">
-<img alt="Our Core Standards" class="object-cover w-full h-[400px] transition-transform duration-700 hover:scale-105" src="../assets/images/about_values.png">
-</img></div>
+<div class="overflow-hidden lg:order-last">
+<img alt="Our Core Standards" class="object-cover w-full h-[400px] transition-transform duration-700 hover:scale-105" src="../assets/images/about_values.png"/>
+</div>
 <!-- Text Content -->
 <div>
 <span class="text-primary text-xs font-bold uppercase tracking-widest mb-3 block">Uncompromising Excellence</span>
@@ -564,11 +551,9 @@
 <div class="flex gap-4 mt-2"><a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">public</span></a><a class="w-8 h-8 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">share</span>
 </a>
 </div>
-<br/>
 </div>
 <div>
 <h4 class="text-slate-900 dark:text-white font-bold mb-4">Quick Links</h4>
-<br/>
 <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
 <li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
 <li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
@@ -579,7 +564,6 @@
 </div>
 <div>
 <h4 class="text-slate-900 dark:text-white font-bold mb-4">Support</h4>
-<br/>
 <ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
 <li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
@@ -589,7 +573,6 @@
 </div>
 <div>
 <h4 class="text-slate-900 dark:text-white font-bold mb-4">Subscribe</h4>
-<br/>
 <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
 <div class="flex gap-2">
 <input class="bg-slate-50 dark:bg-slate-800 border-none text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50" placeholder="Email" type="email"/>
@@ -614,25 +597,36 @@
         disable: window.innerWidth < 768
       });
 
-      // COUNTER ANIMATION
+      // COUNTER ANIMATION (Optimized with requestAnimationFrame for speed and smoothness)
       const counters = document.querySelectorAll('.counter');
-      const speed = 200;
+      const duration = 500; // Duration in milliseconds (faster)
 
       const animateCounter = (counter) => {
         const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = target / speed;
+        const startTime = performance.now();
 
-        if (count < target) {
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(() => animateCounter(counter), 1);
-        } else {
-          counter.innerText = target;
-        }
+        const update = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing function (easeOutQuad) for premium feel
+          const ease = progress * (2 - progress);
+          const currentValue = Math.ceil(ease * target);
+
+          counter.innerText = currentValue;
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        requestAnimationFrame(update);
       };
 
       const observerOptions = {
-        threshold: 1.0
+        threshold: 0.1 // Triggers as soon as 10% of the element is visible
       };
 
       const observer = new IntersectionObserver((entries, observer) => {
