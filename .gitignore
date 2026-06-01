@@ -1,3 +1,4 @@
 .firebase/
 scratch/
 *.log
+.DS_Store

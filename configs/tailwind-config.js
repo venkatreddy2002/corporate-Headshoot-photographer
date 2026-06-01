@@ -13,7 +13,7 @@ tailwind.config = {
                 "border-dark": "#332218",
             },
             fontFamily: {
-                "display": ["Inter", "sans-serif"],
+                "display": ["Inter", "Public Sans", "sans-serif"],
                 "serif": ["Playfair Display", "serif"]
             },
             transitionProperty: {

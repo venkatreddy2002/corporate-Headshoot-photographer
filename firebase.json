@@ -4,7 +4,14 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "scripts/**",
+      "configs/**",
+      "scratch/**",
+      "README.md",
+      "package-lock.json",
+      "*.py",
+      "*.log"
     ]
   }
 }
