@@ -1,0 +1,6 @@
+# Exclude all automation and helper scripts from GitHub language stats
+scripts/** linguist-vendored
+scripts/** linguist-documentation
+
+# Ignore any other python scripts in stats
+*.py linguist-detectable=false
